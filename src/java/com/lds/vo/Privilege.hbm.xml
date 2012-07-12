@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 juil. 2012 11:29:27 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.lds.vo.Privilege" table="privilege" schema="public">
+        <id name="idpriv" type="string">
+            <column name="idpriv" length="254" />
+            <generator class="assigned" />
+        </id>
+        <property name="lienpriv" type="string">
+            <column name="lienpriv" length="254" />
+        </property>
+        <set name="personnels" inverse="true" table="detailsprivuser">
+            <key>
+                <column name="idpriv" length="254" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.lds.vo.Personnel">
+                <column name="idpersonnel" length="254" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

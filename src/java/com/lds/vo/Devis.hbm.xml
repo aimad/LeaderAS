@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 juil. 2012 11:29:27 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.lds.vo.Devis" table="devis" schema="public">
+        <id name="numdevis" type="string">
+            <column name="numdevis" length="254" />
+            <generator class="assigned" />
+        </id>
+        <property name="datedevis" type="date">
+            <column name="datedevis" length="13" />
+        </property>
+        <property name="liendevis" type="string">
+            <column name="liendevis" length="254" />
+        </property>
+        <property name="montantdevis" type="big_decimal">
+            <column name="montantdevis" precision="131089" scale="0" />
+        </property>
+        <property name="descdevis" type="string">
+            <column name="descdevis" length="254" />
+        </property>
+        <set name="affaires" inverse="true">
+            <key>
+                <column name="numdevis" length="254" not-null="true" />
+            </key>
+            <one-to-many class="com.lds.vo.Affaire" />
+        </set>
+    </class>
+</hibernate-mapping>

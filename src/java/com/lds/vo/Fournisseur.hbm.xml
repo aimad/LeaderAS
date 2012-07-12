@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 juil. 2012 11:29:27 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.lds.vo.Fournisseur" table="fournisseur" schema="public">
+        <id name="idfournisseur" type="string">
+            <column name="idfournisseur" length="254" />
+            <generator class="assigned" />
+        </id>
+        <property name="nom" type="string">
+            <column name="nom" length="254" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="254" />
+        </property>
+        <property name="tel" type="string">
+            <column name="tel" length="254" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" length="254" />
+        </property>
+        <property name="adresse" type="string">
+            <column name="adresse" length="254" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="254" />
+        </property>
+        <set name="boncommandes" inverse="true">
+            <key>
+                <column name="idfournisseur" length="254" not-null="true" />
+            </key>
+            <one-to-many class="com.lds.vo.Boncommande" />
+        </set>
+    </class>
+</hibernate-mapping>

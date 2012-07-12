@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 juil. 2012 11:29:27 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.lds.vo.Affaire" table="affaire" schema="public">
+        <composite-id name="id" class="com.lds.vo.AffaireId">
+            <key-property name="idprojet" type="string">
+                <column name="idprojet" length="254" />
+            </key-property>
+            <key-property name="numaffaire" type="string">
+                <column name="numaffaire" length="254" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="devis" class="com.lds.vo.Devis" fetch="select">
+            <column name="numdevis" length="254" not-null="true" />
+        </many-to-one>
+        <many-to-one name="projet" class="com.lds.vo.Projet" update="false" insert="false" fetch="select">
+            <column name="idprojet" length="254" not-null="true" />
+        </many-to-one>
+        <property name="datedebutaffaire" type="date">
+            <column name="datedebutaffaire" length="13" />
+        </property>
+        <property name="datefinaffaire" type="date">
+            <column name="datefinaffaire" length="13" />
+        </property>
+        <property name="descprojet" type="string">
+            <column name="descprojet" length="254" />
+        </property>
+        <property name="montantaffaire" type="big_decimal">
+            <column name="montantaffaire" precision="131089" scale="0" />
+        </property>
+        <set name="taches" inverse="true">
+            <key>
+                <column name="idprojet" length="254" not-null="true" />
+                <column name="numaffaire" length="254" not-null="true" />
+            </key>
+            <one-to-many class="com.lds.vo.Tache" />
+        </set>
+        <set name="boncommandes" inverse="true">
+            <key>
+                <column name="idprojet" length="254" not-null="true" />
+                <column name="numaffaire" length="254" not-null="true" />
+            </key>
+            <one-to-many class="com.lds.vo.Boncommande" />
+        </set>
+        <set name="factures" inverse="true">
+            <key>
+                <column name="idprojet" length="254" not-null="true" />
+                <column name="numaffaire" length="254" not-null="true" />
+            </key>
+            <one-to-many class="com.lds.vo.Facture" />
+        </set>
+    </class>
+</hibernate-mapping>

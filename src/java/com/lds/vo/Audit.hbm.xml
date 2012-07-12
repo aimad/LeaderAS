@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 juil. 2012 11:29:27 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.lds.vo.Audit" table="audit" schema="public">
+        <id name="idaudit" type="string">
+            <column name="idaudit" length="254" />
+            <generator class="assigned" />
+        </id>
+        <property name="typeoperation" type="string">
+            <column name="typeoperation" length="254" />
+        </property>
+        <property name="userid" type="string">
+            <column name="userid" length="254" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="254" />
+        </property>
+        <property name="typemodification" type="string">
+            <column name="typemodification" length="254" />
+        </property>
+        <property name="dateaudit" type="date">
+            <column name="dateaudit" length="13" />
+        </property>
+        <property name="heuraudit" type="java.lang.Integer">
+            <column name="heuraudit" />
+        </property>
+    </class>
+</hibernate-mapping>

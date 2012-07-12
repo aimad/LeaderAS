@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 juil. 2012 11:29:27 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.lds.vo.Detailsbcelement" table="detailsbcelement" schema="public">
+        <composite-id name="id" class="com.lds.vo.DetailsbcelementId">
+            <key-property name="numbc" type="string">
+                <column name="numbc" length="254" />
+            </key-property>
+            <key-property name="idelement" type="string">
+                <column name="idelement" length="254" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="element" class="com.lds.vo.Element" update="false" insert="false" fetch="select">
+            <column name="idelement" length="254" not-null="true" />
+        </many-to-one>
+        <many-to-one name="boncommande" class="com.lds.vo.Boncommande" update="false" insert="false" fetch="select">
+            <column name="numbc" length="254" not-null="true" />
+        </many-to-one>
+        <property name="qntcommande" type="string">
+            <column name="qntcommande" length="254" />
+        </property>
+        <property name="prixunitaire" type="big_decimal">
+            <column name="prixunitaire" precision="131089" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>
