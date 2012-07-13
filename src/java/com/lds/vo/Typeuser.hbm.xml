@@ -8,6 +8,9 @@
             <column name="typeuser" />
             <generator class="assigned" />
         </id>
+        <property name="nom_type" type="string">
+            <column name="nom_type" length="254" />
+        </property>
         <set name="personnels" inverse="true">
             <key>
                 <column name="typeuser" not-null="true" />

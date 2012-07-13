@@ -12,6 +12,7 @@ public class Typeuser  implements java.io.Serializable {
 
 
      private int typeuser;
+     private String nom_type;
      private Set personnels = new HashSet(0);
 
     public Typeuser() {
@@ -33,6 +34,16 @@ public class Typeuser  implements java.io.Serializable {
     public void setTypeuser(int typeuser) {
         this.typeuser = typeuser;
     }
+
+    public String getNom_type() {
+        return nom_type;
+    }
+
+    public void setNom_type(String nom_type) {
+        this.nom_type = nom_type;
+    }
+    
+    
     public Set getPersonnels() {
         return this.personnels;
     }

@@ -13,6 +13,7 @@ public class Privilege  implements java.io.Serializable {
 
      private String idpriv;
      private String lienpriv;
+     private String nom_priv;
      private Set personnels = new HashSet(0);
 
     public Privilege() {
@@ -41,6 +42,14 @@ public class Privilege  implements java.io.Serializable {
     
     public void setLienpriv(String lienpriv) {
         this.lienpriv = lienpriv;
+    }
+
+    public String getNom_priv() {
+        return nom_priv;
+    }
+    
+     public void setNom_priv(String nom_priv) {
+        this.nom_priv = nom_priv;
     }
     public Set getPersonnels() {
         return this.personnels;
