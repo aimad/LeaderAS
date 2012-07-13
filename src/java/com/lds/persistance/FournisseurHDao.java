@@ -102,17 +102,5 @@ public class FournisseurHDao implements FournisseurDao {
             session.close();
         }
     }
-     public static void main(String args[])
-    {
-        FournisseurHDao d=new FournisseurHDao();
-        Fournisseur c = new Fournisseur();
-        c.setIdfournisseur("2");
-        c.setNom("yy");
-        c.setEmail("yy@yy.com");
-        c.setTel("067874565");
-        c.setFax("028823456");
-        c.setAdresse("rue yy agadir");
-        c.setDescription("0987");
-        d.insert(c);
-    }
+    
 }
