@@ -4,8 +4,8 @@
  */
 package com.lds.persistance;
 
+import com.lds.vo.Element;
 import com.lds.vo.HibernateUtil;
-import com.lds.vo.Fournisseur;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -16,18 +16,16 @@ import org.hibernate.Transaction;
  *
  * @author ELKAOUMI
  */
-public class FournisseurHDao implements FournisseurDao {
-
-    private List<Fournisseur> fournisseurList;
-    private Fournisseur fournissseur;
+public class ElementHDao  implements ElementDao{
+    private List<Element> elementList;
+    private Element element;
     @Override
-    public List getAllFournisseur() {
-        
+    public List getAllElement() {
         Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            fournisseurList = session.createQuery("from Fournisseur").list();
-            return fournisseurList;
+            elementList = session.createQuery("from Element").list();
+            return elementList;
         } catch (HibernateException e) {
             throw e;
         } finally {
@@ -36,25 +34,25 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public Fournisseur getFournisseur(String id) {
-        Session session = HibernateUtil.getSession();
+    public Element getElement(String id) {
+         Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("from Fournisseur as c where c.idfournisseur=:id");
+            Query q = session.createQuery("from Element as c where c.idelement=:id");
             q.setString("id", id);
-            return (Fournisseur) q.uniqueResult();
+            return (Element) q.uniqueResult();
         } finally {
             session.close();
         }
     }
 
     @Override
-    public void update(Fournisseur fournisseur) {
+    public void update(Element element) {
         Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(fournisseur);
+            session.update(element);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -67,12 +65,12 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public void insert(Fournisseur fournisseur) {
+    public void insert(Element element) {
         Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.save(fournisseur);
+            session.save(element);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -86,12 +84,12 @@ public class FournisseurHDao implements FournisseurDao {
 
     @Override
     public void delete(String id) {
-        Session session = HibernateUtil.getSession();
+         Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            fournissseur = (Fournisseur) session.get(Fournisseur.class, id);
-            session.delete(fournissseur);
+            element = (Element) session.get(Element.class, id);
+            session.delete(element);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -102,17 +100,5 @@ public class FournisseurHDao implements FournisseurDao {
             session.close();
         }
     }
-     public static void main(String args[])
-    {
-        FournisseurHDao d=new FournisseurHDao();
-        Fournisseur c = new Fournisseur();
-        c.setIdfournisseur("2");
-        c.setNom("yy");
-        c.setEmail("yy@yy.com");
-        c.setTel("067874565");
-        c.setFax("028823456");
-        c.setAdresse("rue yy agadir");
-        c.setDescription("0987");
-        d.insert(c);
-    }
+    
 }

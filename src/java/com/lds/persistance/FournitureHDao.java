@@ -4,8 +4,10 @@
  */
 package com.lds.persistance;
 
-import com.lds.vo.HibernateUtil;
 import com.lds.vo.Fournisseur;
+import com.lds.vo.Fourniture;
+import com.lds.vo.FournitureId;
+import com.lds.vo.HibernateUtil;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -16,18 +18,18 @@ import org.hibernate.Transaction;
  *
  * @author ELKAOUMI
  */
-public class FournisseurHDao implements FournisseurDao {
+public class FournitureHDao  implements FournitureDao {
+private List<Fourniture> fournitureList;
+    private Fourniture fourniture;
+    
 
-    private List<Fournisseur> fournisseurList;
-    private Fournisseur fournissseur;
     @Override
-    public List getAllFournisseur() {
-        
+    public List getAllFourniture() {
         Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            fournisseurList = session.createQuery("from Fournisseur").list();
-            return fournisseurList;
+            fournitureList = session.createQuery("from Fourniture").list();
+            return fournitureList;
         } catch (HibernateException e) {
             throw e;
         } finally {
@@ -36,25 +38,24 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public Fournisseur getFournisseur(String id) {
+    public Fourniture getFourniture(FournitureId id) {
         Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("from Fournisseur as c where c.idfournisseur=:id");
-            q.setString("id", id);
-            return (Fournisseur) q.uniqueResult();
+            Query q = session.createQuery("from Fourniture  where idelement='"+id.getIdelement()+"' and numfourniture='"+id.getNumfourniture()+"'");
+            return (Fourniture) q.uniqueResult();
         } finally {
             session.close();
         }
     }
 
     @Override
-    public void update(Fournisseur fournisseur) {
+    public void update(Fourniture f) {
         Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(fournisseur);
+            session.update(f);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -67,12 +68,12 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public void insert(Fournisseur fournisseur) {
+    public void insert(Fourniture f) {
         Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.save(fournisseur);
+            session.save(f);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -85,13 +86,13 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(FournitureId id) {
         Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            fournissseur = (Fournisseur) session.get(Fournisseur.class, id);
-            session.delete(fournissseur);
+            fourniture = (Fourniture) session.get(Fourniture.class, id);
+            session.delete(fourniture);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -102,17 +103,5 @@ public class FournisseurHDao implements FournisseurDao {
             session.close();
         }
     }
-     public static void main(String args[])
-    {
-        FournisseurHDao d=new FournisseurHDao();
-        Fournisseur c = new Fournisseur();
-        c.setIdfournisseur("2");
-        c.setNom("yy");
-        c.setEmail("yy@yy.com");
-        c.setTel("067874565");
-        c.setFax("028823456");
-        c.setAdresse("rue yy agadir");
-        c.setDescription("0987");
-        d.insert(c);
-    }
+    
 }

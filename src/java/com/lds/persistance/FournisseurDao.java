@@ -9,11 +9,11 @@ import java.util.List;
 
 /**
  *
- * @author zarito
+ * @author ELKAOUMI
  */
 public interface FournisseurDao {
 
-    public List getAllFournisseurs();
+    public List getAllFournisseur();
 
     public Fournisseur getFournisseur(String id);
 
@@ -22,5 +22,4 @@ public interface FournisseurDao {
     public void insert(Fournisseur fournisseur);
 
     public void delete(String id);
-    
 }
