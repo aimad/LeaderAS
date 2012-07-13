@@ -20,7 +20,7 @@ public class DataBaseConnection {
         try {
             Class.forName("org.postgresql.Driver").newInstance();
             String url = "jdbc:postgresql://localhost:5432/lds_db";
-            conn = DriverManager.getConnection(url, "postgres", "pfa");
+            conn = DriverManager.getConnection(url, "postgres", "mamana");
             st = conn.createStatement();
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
