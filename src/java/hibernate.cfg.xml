@@ -6,7 +6,7 @@
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/lds_db</property>
     <property name="hibernate.connection.username">postgres</property>
-    <property name="hibernate.connection.password">pfa</property>
+    <property name="hibernate.connection.password">mamana</property>
     <mapping resource="com/lds/vo/Bonreception.hbm.xml"/>
     <mapping resource="com/lds/vo/Element.hbm.xml"/>
     <mapping resource="com/lds/vo/Typeuser.hbm.xml"/>
