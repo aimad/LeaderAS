@@ -4,8 +4,9 @@
  */
 package com.lds.persistance;
 
+import com.lds.vo.Article;
+import com.lds.vo.ArticleId;
 import com.lds.vo.HibernateUtil;
-import com.lds.vo.Fournisseur;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -16,18 +17,18 @@ import org.hibernate.Transaction;
  *
  * @author ELKAOUMI
  */
-public class FournisseurHDao implements FournisseurDao {
+public class ArticleHDao implements ArticleDao {
 
-    private List<Fournisseur> fournisseurList;
-    private Fournisseur fournissseur;
+    private List<Article> articleList;
+    private Article article;
+
     @Override
-    public List getAllFournisseur() {
-        
+    public List getAllArticle() {
         Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            fournisseurList = session.createQuery("from Fournisseur").list();
-            return fournisseurList;
+            articleList = session.createQuery("from Article").list();
+            return articleList;
         } catch (HibernateException e) {
             throw e;
         } finally {
@@ -36,25 +37,26 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public Fournisseur getFournisseur(String id) {
+    public Article getArticle(ArticleId id) {
         Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("from Fournisseur as c where c.idfournisseur=:id");
-            q.setString("id", id);
-            return (Fournisseur) q.uniqueResult();
+            Query q = session.createQuery("from Article  where idelement=:idelement and idarticle=:idarticle");
+            q.setString("idelement", id.getIdelement());
+            q.setString("idarticle", id.getIdarticle());
+            return (Article) q.uniqueResult();
         } finally {
             session.close();
         }
     }
 
     @Override
-    public void update(Fournisseur fournisseur) {
+    public void update(Article article) {
         Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(fournisseur);
+            session.update(article);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -67,12 +69,12 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public void insert(Fournisseur fournisseur) {
+    public void insert(Article article) {
         Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.save(fournisseur);
+            session.save(article);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -85,13 +87,13 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(ArticleId id) {
         Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            fournissseur = (Fournisseur) session.get(Fournisseur.class, id);
-            session.delete(fournissseur);
+            article = (Article) session.get(Article.class, id);
+            session.delete(article);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -101,18 +103,5 @@ public class FournisseurHDao implements FournisseurDao {
         } finally {
             session.close();
         }
-    }
-     public static void main(String args[])
-    {
-        FournisseurHDao d=new FournisseurHDao();
-        Fournisseur c = new Fournisseur();
-        c.setIdfournisseur("2");
-        c.setNom("yy");
-        c.setEmail("yy@yy.com");
-        c.setTel("067874565");
-        c.setFax("028823456");
-        c.setAdresse("rue yy agadir");
-        c.setDescription("0987");
-        d.insert(c);
     }
 }

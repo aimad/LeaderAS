@@ -20,7 +20,7 @@ public class DataBaseConnection {
         try {
             Class.forName("org.postgresql.Driver").newInstance();
             String url = "jdbc:postgresql://localhost:5432/lds_db";
-            conn = DriverManager.getConnection(url, "postgres", "mamana");
+            conn = DriverManager.getConnection(url, "postgres", "pfa");
             st = conn.createStatement();
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
@@ -37,7 +37,6 @@ public class DataBaseConnection {
         try {
             rs = st.executeQuery(sql);
         } catch (SQLException ex) {
-            
         }
         return rs;
     }
@@ -50,7 +49,6 @@ public class DataBaseConnection {
                 i++;
             }
         } catch (SQLException ex) {
-            
         }
         return i;
     }
@@ -60,12 +58,11 @@ public class DataBaseConnection {
             st.executeUpdate(sql);
 //conn.commit();
         } catch (SQLException ex) {
-           
         }
     }
-    public static void main(String args[])
-    {
-    DataBaseConnection db=new DataBaseConnection();
-    db.execute("INSERT INTO fournisseur VALUES ('1','XX','xx@xx.com','0677889988','0677889988','rue xx ','test test')");
+
+    public static void main(String args[]) {
+        DataBaseConnection db = new DataBaseConnection();
+        db.execute("INSERT INTO fournisseur VALUES ('1','XX','xx@xx.com','0677889988','0677889988','rue xx ','test test')");
     }
 }

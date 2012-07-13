@@ -2,32 +2,32 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="lds_db" match-schema="public"/>
-  <table-filter match-name="devis"/>
-  <table-filter match-name="typeuser"/>
-  <table-filter match-name="detailselementbesoin"/>
-  <table-filter match-name="personnel"/>
-  <table-filter match-name="detailsbcelement"/>
-  <table-filter match-name="facture"/>
-  <table-filter match-name="audit"/>
-  <table-filter match-name="affaire"/>
-  <table-filter match-name="projet"/>
-  <table-filter match-name="element"/>
-  <table-filter match-name="boncommande"/>
-  <table-filter match-name="detailstachepersonnel"/>
-  <table-filter match-name="detailsbrelement"/>
-  <table-filter match-name="besoin"/>
-  <table-filter match-name="client"/>
-  <table-filter match-name="demandeprix"/>
-  <table-filter match-name="detailssortieelement"/>
-  <table-filter match-name="intervention"/>
-  <table-filter match-name="fourniture"/>
-  <table-filter match-name="article"/>
-  <table-filter match-name="detailsdemandeelement"/>
   <table-filter match-name="fournisseur"/>
-  <table-filter match-name="bonsortie"/>
-  <table-filter match-name="privilege"/>
-  <table-filter match-name="reservation"/>
-  <table-filter match-name="detailsprivuser"/>
   <table-filter match-name="bonreception"/>
+  <table-filter match-name="detailsbcelement"/>
   <table-filter match-name="tache"/>
+  <table-filter match-name="detailstachepersonnel"/>
+  <table-filter match-name="projet"/>
+  <table-filter match-name="demandeprix"/>
+  <table-filter match-name="detailsdemandeelement"/>
+  <table-filter match-name="element"/>
+  <table-filter match-name="client"/>
+  <table-filter match-name="detailsbrelement"/>
+  <table-filter match-name="detailssortieelement"/>
+  <table-filter match-name="typeuser"/>
+  <table-filter match-name="personnel"/>
+  <table-filter match-name="facture"/>
+  <table-filter match-name="detailsprivuser"/>
+  <table-filter match-name="intervention"/>
+  <table-filter match-name="besoin"/>
+  <table-filter match-name="devis"/>
+  <table-filter match-name="reservation"/>
+  <table-filter match-name="detailselementbesoin"/>
+  <table-filter match-name="boncommande"/>
+  <table-filter match-name="audit"/>
+  <table-filter match-name="bonsortie"/>
+  <table-filter match-name="article"/>
+  <table-filter match-name="fourniture"/>
+  <table-filter match-name="privilege"/>
+  <table-filter match-name="affaire"/>
 </hibernate-reverse-engineering>
