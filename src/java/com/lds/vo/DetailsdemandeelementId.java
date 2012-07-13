@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 11 juil. 2012 11:29:27 by Hibernate Tools 3.2.1.GA
+// Generated 13 juil. 2012 11:34:38 by Hibernate Tools 3.2.1.GA
 
 
 
@@ -9,23 +9,23 @@ package com.lds.vo;
 public class DetailsdemandeelementId  implements java.io.Serializable {
 
 
-     private String referencedemande;
+     private String numdemandeprix;
      private String idelement;
 
     public DetailsdemandeelementId() {
     }
 
-    public DetailsdemandeelementId(String referencedemande, String idelement) {
-       this.referencedemande = referencedemande;
+    public DetailsdemandeelementId(String numdemandeprix, String idelement) {
+       this.numdemandeprix = numdemandeprix;
        this.idelement = idelement;
     }
    
-    public String getReferencedemande() {
-        return this.referencedemande;
+    public String getNumdemandeprix() {
+        return this.numdemandeprix;
     }
     
-    public void setReferencedemande(String referencedemande) {
-        this.referencedemande = referencedemande;
+    public void setNumdemandeprix(String numdemandeprix) {
+        this.numdemandeprix = numdemandeprix;
     }
     public String getIdelement() {
         return this.idelement;
@@ -42,14 +42,14 @@ public class DetailsdemandeelementId  implements java.io.Serializable {
 		 if ( !(other instanceof DetailsdemandeelementId) ) return false;
 		 DetailsdemandeelementId castOther = ( DetailsdemandeelementId ) other; 
          
-		 return ( (this.getReferencedemande()==castOther.getReferencedemande()) || ( this.getReferencedemande()!=null && castOther.getReferencedemande()!=null && this.getReferencedemande().equals(castOther.getReferencedemande()) ) )
+		 return ( (this.getNumdemandeprix()==castOther.getNumdemandeprix()) || ( this.getNumdemandeprix()!=null && castOther.getNumdemandeprix()!=null && this.getNumdemandeprix().equals(castOther.getNumdemandeprix()) ) )
  && ( (this.getIdelement()==castOther.getIdelement()) || ( this.getIdelement()!=null && castOther.getIdelement()!=null && this.getIdelement().equals(castOther.getIdelement()) ) );
    }
    
    public int hashCode() {
          int result = 17;
          
-         result = 37 * result + ( getReferencedemande() == null ? 0 : this.getReferencedemande().hashCode() );
+         result = 37 * result + ( getNumdemandeprix() == null ? 0 : this.getNumdemandeprix().hashCode() );
          result = 37 * result + ( getIdelement() == null ? 0 : this.getIdelement().hashCode() );
          return result;
    }   

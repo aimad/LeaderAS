@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 11 juil. 2012 11:29:27 by Hibernate Tools 3.2.1.GA
+// Generated 13 juil. 2012 11:34:38 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -19,6 +19,7 @@ public class Fournisseur  implements java.io.Serializable {
      private String adresse;
      private String description;
      private Set boncommandes = new HashSet(0);
+     private Set demandeprixes = new HashSet(0);
 
     public Fournisseur() {
     }
@@ -27,7 +28,7 @@ public class Fournisseur  implements java.io.Serializable {
     public Fournisseur(String idfournisseur) {
         this.idfournisseur = idfournisseur;
     }
-    public Fournisseur(String idfournisseur, String nom, String email, String tel, String fax, String adresse, String description, Set boncommandes) {
+    public Fournisseur(String idfournisseur, String nom, String email, String tel, String fax, String adresse, String description, Set boncommandes, Set demandeprixes) {
        this.idfournisseur = idfournisseur;
        this.nom = nom;
        this.email = email;
@@ -36,6 +37,7 @@ public class Fournisseur  implements java.io.Serializable {
        this.adresse = adresse;
        this.description = description;
        this.boncommandes = boncommandes;
+       this.demandeprixes = demandeprixes;
     }
    
     public String getIdfournisseur() {
@@ -93,6 +95,13 @@ public class Fournisseur  implements java.io.Serializable {
     
     public void setBoncommandes(Set boncommandes) {
         this.boncommandes = boncommandes;
+    }
+    public Set getDemandeprixes() {
+        return this.demandeprixes;
+    }
+    
+    public void setDemandeprixes(Set demandeprixes) {
+        this.demandeprixes = demandeprixes;
     }
 
 

@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 11 juil. 2012 11:29:27 by Hibernate Tools 3.2.1.GA
+// Generated 13 juil. 2012 11:34:38 by Hibernate Tools 3.2.1.GA
 
 
 

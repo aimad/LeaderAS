@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 11 juil. 2012 11:29:27 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 13 juil. 2012 11:34:39 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Fournisseur" table="fournisseur" schema="public">
         <id name="idfournisseur" type="string">
@@ -31,6 +31,12 @@
                 <column name="idfournisseur" length="254" not-null="true" />
             </key>
             <one-to-many class="com.lds.vo.Boncommande" />
+        </set>
+        <set name="demandeprixes" inverse="true">
+            <key>
+                <column name="idfournisseur" length="254" not-null="true" />
+            </key>
+            <one-to-many class="com.lds.vo.Demandeprix" />
         </set>
     </class>
 </hibernate-mapping>

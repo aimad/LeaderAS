@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 11 juil. 2012 11:29:27 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 13 juil. 2012 11:34:39 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Fourniture" table="fourniture" schema="public">
         <composite-id name="id" class="com.lds.vo.FournitureId">
@@ -21,13 +21,5 @@
         <property name="qntfourniture" type="java.lang.Integer">
             <column name="qntfourniture" />
         </property>
-        <set name="demandeprixes" inverse="true" table="detailsdemandefournisseur">
-            <key>
-                <column name="idfournisseur" length="254" not-null="true" />
-            </key>
-            <many-to-many entity-name="com.lds.vo.Demandeprix">
-                <column name="referencedemande" length="254" not-null="true" />
-            </many-to-many>
-        </set>
     </class>
 </hibernate-mapping>

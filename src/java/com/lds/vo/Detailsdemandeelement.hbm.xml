@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 11 juil. 2012 11:29:27 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 13 juil. 2012 11:34:39 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Detailsdemandeelement" table="detailsdemandeelement" schema="public">
         <composite-id name="id" class="com.lds.vo.DetailsdemandeelementId">
-            <key-property name="referencedemande" type="string">
-                <column name="referencedemande" length="254" />
+            <key-property name="numdemandeprix" type="string">
+                <column name="numdemandeprix" length="254" />
             </key-property>
             <key-property name="idelement" type="string">
                 <column name="idelement" length="254" />
@@ -16,7 +16,7 @@
             <column name="idelement" length="254" not-null="true" />
         </many-to-one>
         <many-to-one name="demandeprix" class="com.lds.vo.Demandeprix" update="false" insert="false" fetch="select">
-            <column name="referencedemande" length="254" not-null="true" />
+            <column name="numdemandeprix" length="254" not-null="true" />
         </many-to-one>
         <property name="qntdemande" type="java.lang.Integer">
             <column name="qntdemande" />

@@ -1,8 +1,7 @@
 package com.lds.vo;
-// Generated 11 juil. 2012 11:29:27 by Hibernate Tools 3.2.1.GA
+// Generated 13 juil. 2012 11:34:38 by Hibernate Tools 3.2.1.GA
 
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,36 +11,55 @@ import java.util.Set;
 public class Demandeprix  implements java.io.Serializable {
 
 
-     private String referencedemande;
-     private Date datedemande;
+     private String numdemandeprix;
+     private Fournisseur fournisseur;
+     private String referencedemandeprix;
+     private String datedemandeprix;
      private Set detailsdemandeelements = new HashSet(0);
 
     public Demandeprix() {
     }
 
 	
-    public Demandeprix(String referencedemande) {
-        this.referencedemande = referencedemande;
+    public Demandeprix(String numdemandeprix, Fournisseur fournisseur) {
+        this.numdemandeprix = numdemandeprix;
+        this.fournisseur = fournisseur;
     }
-    public Demandeprix(String referencedemande, Date datedemande, Set detailsdemandeelements) {
-       this.referencedemande = referencedemande;
-       this.datedemande = datedemande;
+    public Demandeprix(String numdemandeprix, Fournisseur fournisseur, String referencedemandeprix, String datedemandeprix, Set detailsdemandeelements) {
+       this.numdemandeprix = numdemandeprix;
+       this.fournisseur = fournisseur;
+       this.referencedemandeprix = referencedemandeprix;
+       this.datedemandeprix = datedemandeprix;
        this.detailsdemandeelements = detailsdemandeelements;
     }
    
-    public String getReferencedemande() {
-        return this.referencedemande;
+    public String getNumdemandeprix() {
+        return this.numdemandeprix;
     }
     
-    public void setReferencedemande(String referencedemande) {
-        this.referencedemande = referencedemande;
+    public void setNumdemandeprix(String numdemandeprix) {
+        this.numdemandeprix = numdemandeprix;
     }
-    public Date getDatedemande() {
-        return this.datedemande;
+    public Fournisseur getFournisseur() {
+        return this.fournisseur;
     }
     
-    public void setDatedemande(Date datedemande) {
-        this.datedemande = datedemande;
+    public void setFournisseur(Fournisseur fournisseur) {
+        this.fournisseur = fournisseur;
+    }
+    public String getReferencedemandeprix() {
+        return this.referencedemandeprix;
+    }
+    
+    public void setReferencedemandeprix(String referencedemandeprix) {
+        this.referencedemandeprix = referencedemandeprix;
+    }
+    public String getDatedemandeprix() {
+        return this.datedemandeprix;
+    }
+    
+    public void setDatedemandeprix(String datedemandeprix) {
+        this.datedemandeprix = datedemandeprix;
     }
     public Set getDetailsdemandeelements() {
         return this.detailsdemandeelements;

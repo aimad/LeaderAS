@@ -1,29 +1,27 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 11 juil. 2012 11:29:27 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 13 juil. 2012 11:34:39 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Demandeprix" table="demandeprix" schema="public">
-        <id name="referencedemande" type="string">
-            <column name="referencedemande" length="254" />
+        <id name="numdemandeprix" type="string">
+            <column name="numdemandeprix" length="254" />
             <generator class="assigned" />
         </id>
-        <property name="datedemande" type="date">
-            <column name="datedemande" length="13" />
+        <many-to-one name="fournisseur" class="com.lds.vo.Fournisseur" fetch="select">
+            <column name="idfournisseur" length="254" not-null="true" />
+        </many-to-one>
+        <property name="referencedemandeprix" type="string">
+            <column name="referencedemandeprix" length="254" />
+        </property>
+        <property name="datedemandeprix" type="string">
+            <column name="datedemandeprix" length="254" />
         </property>
         <set name="detailsdemandeelements" inverse="true">
             <key>
-                <column name="referencedemande" length="254" not-null="true" />
+                <column name="numdemandeprix" length="254" not-null="true" />
             </key>
             <one-to-many class="com.lds.vo.Detailsdemandeelement" />
-        </set>
-        <set name="fournisseurs" inverse="false" table="detailsdemandefournisseur">
-            <key>
-                <column name="referencedemande" length="254" not-null="true" />
-            </key>
-            <many-to-many entity-name="com.lds.vo.Fournisseur">
-                <column name="idfournisseur" length="254" not-null="true" />
-            </many-to-many>
         </set>
     </class>
 </hibernate-mapping>
