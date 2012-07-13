@@ -20,7 +20,7 @@ public class Personnel  implements java.io.Serializable {
      private String adresse;
      private String tel;
      private String email;
-     private String desc;
+     private String description;
      private String fonction;
      private Set bonsorties = new HashSet(0);
      private Set privileges = new HashSet(0);
@@ -44,7 +44,7 @@ public class Personnel  implements java.io.Serializable {
        this.adresse = adresse;
        this.tel = tel;
        this.email = email;
-       this.desc = desc;
+       this.description = desc;
        this.fonction = fonction;
        this.bonsorties = bonsorties;
        this.privileges = privileges;
@@ -108,12 +108,12 @@ public class Personnel  implements java.io.Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getDesc() {
-        return this.desc;
+    public String getDescription() {
+        return this.description;
     }
     
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
     public String getFonction() {
         return this.fonction;
