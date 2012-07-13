@@ -7,8 +7,8 @@ package com.lds.persistance;
 import com.lds.vo.Article;
 import com.lds.vo.ArticleId;
 import com.lds.vo.HibernateUtil;
-import junit.framework.TestCase;
 import java.util.List;
+import junit.framework.TestCase;
 
 /**
  *
