@@ -5,6 +5,7 @@
 package com.lds.persistance;
 
 import com.lds.vo.Personnel;
+import com.lds.vo.Typeuser;
 import java.util.List;
 import junit.framework.TestCase;
 import org.junit.*;
@@ -53,7 +54,7 @@ public class PersonnelHDaoTest extends TestCase {
     }
 
     private void setUpRecord() {
-        String sql = "INSERT INTO personnel VALUES ('1','user','XX','aimad','12/3/1989','rue xx','0677889988','xx@xx.com','test test','mec')";
+        String sql = "INSERT INTO personnel VALUES ('1','2','XX','aimad','12/3/1989','rue xx','0677889988','xx@xx.com','test test','mec')";
         dbConn.execute(sql);
     }
     /**
@@ -87,13 +88,14 @@ public class PersonnelHDaoTest extends TestCase {
         System.out.println("insert");
         Personnel c = new Personnel();
         c.setIdpersonnel("2");
+        c.setTypeuser(new Typeuser(1));
         c.setNom("yy");
         c.setPrenom("ahmed");
         c.setDatenaissance(null);
         c.setEmail("yy@yy.com");
         c.setTel("067874565");
         c.setAdresse("rue yy agadir");
-        c.setDesc("");
+        c.setDescription("");
         c.setFonction("");
         dao.insert(c);
         String sql = "SELECT * FROM personnel";
@@ -108,9 +110,9 @@ public class PersonnelHDaoTest extends TestCase {
     public void testUpdate() {
         System.out.println("update");
         Personnel c = dao.getPersonnel("1");
-        c.setNom("NAJAHI Soft");
+        c.setNom("NAJAHI");
         dao.update(c);
-        assertEquals(c.getNom(), "NAJAHI Soft");
+        assertEquals(c.getNom(), "NAJAHI");
     }
 
 
