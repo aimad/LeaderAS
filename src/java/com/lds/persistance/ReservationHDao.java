@@ -4,30 +4,29 @@
  */
 package com.lds.persistance;
 
+
+import com.lds.vo.Reservation;
 import com.lds.vo.HibernateUtil;
-import com.lds.vo.Fournisseur;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 /**
  *
  * @author ELKAOUMI
  */
-public class FournisseurHDao implements FournisseurDao {
+public class ReservationHDao implements ReservationDao {
 
-    private List<Fournisseur> fournisseurList;
-    private Fournisseur fournissseur;
+     private List<Reservation> reservationList;
+    private Reservation reservation;
     @Override
-    public List getAllFournisseur() {
-        
-        Session session = HibernateUtil.getSession();
+    public List getAllReservation() {
+         Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            fournisseurList = session.createQuery("from Fournisseur").list();
-            return fournisseurList;
+            reservationList = session.createQuery("from Reservation").list();
+            return reservationList;
         } catch (HibernateException e) {
             throw e;
         } finally {
@@ -36,25 +35,25 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public Fournisseur getFournisseur(String id) {
-        Session session = HibernateUtil.getSession();
+    public Reservation getReservation(String id) {
+       Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("from Fournisseur as c where c.idfournisseur=:id");
+            Query q = session.createQuery("from Reservation as c where c.numreservation=:id");
             q.setString("id", id);
-            return (Fournisseur) q.uniqueResult();
+            return (Reservation) q.uniqueResult();
         } finally {
             session.close();
         }
     }
 
     @Override
-    public void update(Fournisseur fournisseur) {
-        Session session = HibernateUtil.getSession();
+    public void update(Reservation reservation) {
+         Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(fournisseur);
+            session.update(reservation);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -67,12 +66,12 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public void insert(Fournisseur fournisseur) {
-        Session session = HibernateUtil.getSession();
+    public void insert(Reservation reservation) {
+       Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.save(fournisseur);
+            session.save(reservation);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -86,12 +85,12 @@ public class FournisseurHDao implements FournisseurDao {
 
     @Override
     public void delete(String id) {
-        Session session = HibernateUtil.getSession();
+       Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            fournissseur = (Fournisseur) session.get(Fournisseur.class, id);
-            session.delete(fournissseur);
+            reservation = (Reservation) session.get(Reservation.class, id);
+            session.delete(reservation);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {

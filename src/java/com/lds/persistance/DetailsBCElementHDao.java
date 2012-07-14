@@ -4,8 +4,8 @@
  */
 package com.lds.persistance;
 
-import com.lds.vo.HibernateUtil;
-import com.lds.vo.Fournisseur;
+import com.lds.vo.Detailsbcelement;
+import com.lds.vo.DetailsbcelementId;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -14,20 +14,19 @@ import org.hibernate.Transaction;
 
 /**
  *
- * @author ELKAOUMI
+ * @author zarito
  */
-public class FournisseurHDao implements FournisseurDao {
+public class DetailsBCElementHDao implements DetailsBCElementDao {
+    private List<Detailsbcelement> detailsbcelementList;
+    private Detailsbcelement detailsbcelement;
 
-    private List<Fournisseur> fournisseurList;
-    private Fournisseur fournissseur;
     @Override
-    public List getAllFournisseur() {
-        
-        Session session = HibernateUtil.getSession();
+    public List getAllDetailsBCElement() {
+        Session session = com.lds.vo.HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            fournisseurList = session.createQuery("from Fournisseur").list();
-            return fournisseurList;
+            detailsbcelementList = session.createQuery("from Detailsbcelement").list();
+            return detailsbcelementList;
         } catch (HibernateException e) {
             throw e;
         } finally {
@@ -36,25 +35,26 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public Fournisseur getFournisseur(String id) {
-        Session session = HibernateUtil.getSession();
+    public Detailsbcelement getDetailsBCElement(DetailsbcelementId id) {
+        Session session = com.lds.vo.HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("from Fournisseur as c where c.idfournisseur=:id");
-            q.setString("id", id);
-            return (Fournisseur) q.uniqueResult();
+            Query q = session.createQuery("from Detailsbcelement  where idelement=:idelement and numbc=:numbc");
+            q.setString("idelement", id.getIdelement());
+            q.setString("numbc", id.getNumbc());
+            return (Detailsbcelement) q.uniqueResult();
         } finally {
             session.close();
         }
     }
 
     @Override
-    public void update(Fournisseur fournisseur) {
-        Session session = HibernateUtil.getSession();
+    public void update(Detailsbcelement detailsbcelement) {
+        Session session = com.lds.vo.HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(fournisseur);
+            session.update(detailsbcelement);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -67,12 +67,12 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public void insert(Fournisseur fournisseur) {
-        Session session = HibernateUtil.getSession();
+    public void insert(Detailsbcelement detailsbcelement) {
+        Session session = com.lds.vo.HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.save(fournisseur);
+            session.save(detailsbcelement);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -85,13 +85,13 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public void delete(String id) {
-        Session session = HibernateUtil.getSession();
+    public void delete(DetailsbcelementId id) {
+        Session session = com.lds.vo.HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            fournissseur = (Fournisseur) session.get(Fournisseur.class, id);
-            session.delete(fournissseur);
+            detailsbcelement = (Detailsbcelement) session.get(Detailsbcelement.class, id);
+            session.delete(detailsbcelement);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {

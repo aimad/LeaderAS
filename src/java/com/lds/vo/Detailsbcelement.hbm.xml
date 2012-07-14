@@ -12,15 +12,19 @@
                 <column name="idelement" length="254" />
             </key-property>
         </composite-id>
+        
         <many-to-one name="element" class="com.lds.vo.Element" update="false" insert="false" fetch="select">
             <column name="idelement" length="254" not-null="true" />
         </many-to-one>
+        
         <many-to-one name="boncommande" class="com.lds.vo.Boncommande" update="false" insert="false" fetch="select">
             <column name="numbc" length="254" not-null="true" />
         </many-to-one>
+        
         <property name="qntcommande" type="string">
             <column name="qntcommande" length="254" />
         </property>
+        
         <property name="prixunitaire" type="big_decimal">
             <column name="prixunitaire" precision="131089" scale="0" />
         </property>

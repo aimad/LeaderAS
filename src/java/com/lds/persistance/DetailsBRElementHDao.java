@@ -4,8 +4,8 @@
  */
 package com.lds.persistance;
 
-import com.lds.vo.HibernateUtil;
-import com.lds.vo.Fournisseur;
+import com.lds.vo.Detailsbrelement;
+import com.lds.vo.DetailsbrelementId;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -14,20 +14,19 @@ import org.hibernate.Transaction;
 
 /**
  *
- * @author ELKAOUMI
+ * @author zarito
  */
-public class FournisseurHDao implements FournisseurDao {
+public class DetailsBRElementHDao implements DetailsBRElementDao {
+    private List<Detailsbrelement> detailsbrelementList;
+    private Detailsbrelement detailsbrelement;
 
-    private List<Fournisseur> fournisseurList;
-    private Fournisseur fournissseur;
     @Override
-    public List getAllFournisseur() {
-        
-        Session session = HibernateUtil.getSession();
+    public List getAllDetailsBRElement() {
+        Session session = com.lds.vo.HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            fournisseurList = session.createQuery("from Fournisseur").list();
-            return fournisseurList;
+            detailsbrelementList = session.createQuery("from Detailsbrelement").list();
+            return detailsbrelementList;
         } catch (HibernateException e) {
             throw e;
         } finally {
@@ -36,25 +35,26 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public Fournisseur getFournisseur(String id) {
-        Session session = HibernateUtil.getSession();
+    public Detailsbrelement getDetailsBRElement(DetailsbrelementId id) {
+        Session session = com.lds.vo.HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("from Fournisseur as c where c.idfournisseur=:id");
-            q.setString("id", id);
-            return (Fournisseur) q.uniqueResult();
+            Query q = session.createQuery("from Detailsbrelement  where idelement=:idelement and numreception=:numreception");
+            q.setString("idelement", id.getIdelement());
+            q.setString("numreception", id.getNumreception());
+            return (Detailsbrelement) q.uniqueResult();
         } finally {
             session.close();
         }
     }
 
     @Override
-    public void update(Fournisseur fournisseur) {
-        Session session = HibernateUtil.getSession();
+    public void update(Detailsbrelement detailsbrelement) {
+        Session session = com.lds.vo.HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(fournisseur);
+            session.update(detailsbrelement);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -67,12 +67,12 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public void insert(Fournisseur fournisseur) {
-        Session session = HibernateUtil.getSession();
+    public void insert(Detailsbrelement detailsbrelement) {
+        Session session = com.lds.vo.HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.save(fournisseur);
+            session.save(detailsbrelement);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -85,13 +85,13 @@ public class FournisseurHDao implements FournisseurDao {
     }
 
     @Override
-    public void delete(String id) {
-        Session session = HibernateUtil.getSession();
+    public void delete(DetailsbrelementId id) {
+        Session session = com.lds.vo.HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            fournissseur = (Fournisseur) session.get(Fournisseur.class, id);
-            session.delete(fournissseur);
+            detailsbrelement = (Detailsbrelement) session.get(Detailsbrelement.class, id);
+            session.delete(detailsbrelement);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
@@ -102,5 +102,6 @@ public class FournisseurHDao implements FournisseurDao {
             session.close();
         }
     }
+    
     
 }
