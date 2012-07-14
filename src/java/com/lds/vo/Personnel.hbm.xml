@@ -29,8 +29,8 @@
         <property name="email" type="string">
             <column name="email" length="254" />
         </property>
-        <property name="desc" type="string">
-            <column name="desc" length="254" />
+        <property name="description" type="string">
+            <column name="description" length="254" />
         </property>
         <property name="fonction" type="string">
             <column name="fonction" length="254" />

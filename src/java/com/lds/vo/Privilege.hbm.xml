@@ -11,6 +11,9 @@
         <property name="lienpriv" type="string">
             <column name="lienpriv" length="254" />
         </property>
+        <property name="nom_priv" type="string">
+            <column name="nom_priv" length="254" />
+        </property>
         <set name="personnels" inverse="true" table="detailsprivuser">
             <key>
                 <column name="idpriv" length="254" not-null="true" />
