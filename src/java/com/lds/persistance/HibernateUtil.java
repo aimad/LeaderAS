@@ -2,29 +2,21 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.lds.persistance;
+package com.lds.vo;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.Session;
 
-/**
- * Hibernate Utility class with a convenient method to get Session Factory
- * object.
- *
- * @author zarito
- */
-public class HibernateUtil
-{
+public class HibernateUtil {
+
     private static SessionFactory sessionFactory;
-    public static void createSessionFactory()
-    {
+
+    public static void createSessionFactory() {
         sessionFactory = new Configuration().configure().buildSessionFactory();
     }
-    public static Session getSession()
-    {
+
+    public static Session getSession() {
         return sessionFactory.openSession();
     }
 }
-
-   
