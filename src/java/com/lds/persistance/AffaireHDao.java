@@ -6,7 +6,6 @@ package com.lds.persistance;
 
 import com.lds.vo.Affaire;
 import com.lds.vo.AffaireId;
-import com.lds.vo.HibernateUtil;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;

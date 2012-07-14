@@ -4,7 +4,6 @@
  */
 package com.lds.persistance;
 
-import com.lds.vo.HibernateUtil;
 import com.lds.vo.Fournisseur;
 import java.util.List;
 import org.hibernate.HibernateException;

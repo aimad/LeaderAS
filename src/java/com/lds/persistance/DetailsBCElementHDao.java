@@ -4,6 +4,7 @@
  */
 package com.lds.persistance;
 
+
 import com.lds.vo.Detailsbcelement;
 import com.lds.vo.DetailsbcelementId;
 import java.util.List;
@@ -22,7 +23,7 @@ public class DetailsBCElementHDao implements DetailsBCElementDao {
 
     @Override
     public List getAllDetailsBCElement() {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
             detailsbcelementList = session.createQuery("from Detailsbcelement").list();
@@ -36,7 +37,7 @@ public class DetailsBCElementHDao implements DetailsBCElementDao {
 
     @Override
     public Detailsbcelement getDetailsBCElement(DetailsbcelementId id) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
             Query q = session.createQuery("from Detailsbcelement  where idelement=:idelement and numbc=:numbc");
@@ -50,7 +51,7 @@ public class DetailsBCElementHDao implements DetailsBCElementDao {
 
     @Override
     public void update(Detailsbcelement detailsbcelement) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -68,7 +69,7 @@ public class DetailsBCElementHDao implements DetailsBCElementDao {
 
     @Override
     public void insert(Detailsbcelement detailsbcelement) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -86,7 +87,7 @@ public class DetailsBCElementHDao implements DetailsBCElementDao {
 
     @Override
     public void delete(DetailsbcelementId id) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();

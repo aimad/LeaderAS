@@ -22,7 +22,7 @@ public class DetailsBRElementHDao implements DetailsBRElementDao {
 
     @Override
     public List getAllDetailsBRElement() {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
             detailsbrelementList = session.createQuery("from Detailsbrelement").list();
@@ -36,7 +36,7 @@ public class DetailsBRElementHDao implements DetailsBRElementDao {
 
     @Override
     public Detailsbrelement getDetailsBRElement(DetailsbrelementId id) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
             Query q = session.createQuery("from Detailsbrelement  where idelement=:idelement and numreception=:numreception");
@@ -50,7 +50,7 @@ public class DetailsBRElementHDao implements DetailsBRElementDao {
 
     @Override
     public void update(Detailsbrelement detailsbrelement) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -68,7 +68,7 @@ public class DetailsBRElementHDao implements DetailsBRElementDao {
 
     @Override
     public void insert(Detailsbrelement detailsbrelement) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -86,7 +86,7 @@ public class DetailsBRElementHDao implements DetailsBRElementDao {
 
     @Override
     public void delete(DetailsbrelementId id) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();

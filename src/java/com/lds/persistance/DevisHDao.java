@@ -5,7 +5,6 @@
 package com.lds.persistance;
 
 import com.lds.vo.Devis;
-import com.lds.vo.HibernateUtil;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;

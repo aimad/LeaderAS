@@ -4,7 +4,6 @@
  */
 package com.lds.persistance;
 
-import com.lds.vo.HibernateUtil;
 import com.lds.vo.Intervention;
 import com.lds.vo.InterventionId;
 import java.util.List;

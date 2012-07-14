@@ -4,10 +4,9 @@
  */
 package com.lds.persistance;
 
-import com.lds.vo.HibernateUtil;
-import junit.framework.TestCase;
 import com.lds.vo.Fournisseur;
 import java.util.List;
+import junit.framework.TestCase;
 
 /**
  *

@@ -23,7 +23,7 @@ public class DetailsDemandeElementHDao implements DetailsDemandeElementDao {
 
     @Override
     public List getAllDetailsDemandeElement() {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
             detailsdemandeelementList = session.createQuery("from Detailsdemandeelement").list();
@@ -37,7 +37,7 @@ public class DetailsDemandeElementHDao implements DetailsDemandeElementDao {
 
     @Override
     public Detailsdemandeelement getDetailsDemandeElement(DetailsdemandeelementId id) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
             Query q = session.createQuery("from Detailsdemandeelement  where idelement=:idelement and numdemandeprix=:numdemandeprix");
@@ -51,7 +51,7 @@ public class DetailsDemandeElementHDao implements DetailsDemandeElementDao {
 
     @Override
     public void update(Detailsdemandeelement detailsdemandeelement) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -69,7 +69,7 @@ public class DetailsDemandeElementHDao implements DetailsDemandeElementDao {
 
     @Override
     public void insert(Detailsdemandeelement detailsdemandeelement) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -87,7 +87,7 @@ public class DetailsDemandeElementHDao implements DetailsDemandeElementDao {
 
     @Override
     public void delete(DetailsdemandeelementId id) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();

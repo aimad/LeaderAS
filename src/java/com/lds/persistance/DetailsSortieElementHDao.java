@@ -23,7 +23,7 @@ public class DetailsSortieElementHDao implements DetailsSortieElementDao{
 
     @Override
     public List getAllDetailsSortieElement() {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
             detailssortieelementList = session.createQuery("from Detailssortieelement").list();
@@ -37,7 +37,7 @@ public class DetailsSortieElementHDao implements DetailsSortieElementDao{
 
     @Override
     public Detailssortieelement getDetailsSortieElement(DetailssortieelementId id) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
             Query q = session.createQuery("from Detailssortieelement  where idelement=:idelement and idsortie=:idsortie");
@@ -51,7 +51,7 @@ public class DetailsSortieElementHDao implements DetailsSortieElementDao{
 
     @Override
     public void update(Detailssortieelement detailssortieelement) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -69,7 +69,7 @@ public class DetailsSortieElementHDao implements DetailsSortieElementDao{
 
     @Override
     public void insert(Detailssortieelement detailssortieelement) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -87,7 +87,7 @@ public class DetailsSortieElementHDao implements DetailsSortieElementDao{
 
     @Override
     public void delete(DetailssortieelementId id) {
-        Session session = com.lds.vo.HibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();

@@ -6,7 +6,6 @@ package com.lds.persistance;
 
 import com.lds.vo.Detailstachepersonnel;
 import com.lds.vo.DetailstachepersonnelId;
-import com.lds.vo.HibernateUtil;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
