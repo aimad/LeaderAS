@@ -24,8 +24,8 @@
         <property name="descprojet" type="string">
             <column name="descprojet" length="254" />
         </property>
-        <property name="montantaffaire" type="big_decimal">
-            <column name="montantaffaire" precision="131089" scale="0" />
+         <property name="montantaffaire" type="java.lang.Double">
+            <column name="montantaffaire" precision="17" scale="17" />
         </property>
         <set name="taches" inverse="true">
             <key>
