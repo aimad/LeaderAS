@@ -4,9 +4,9 @@
  */
 package com.lds.persistance;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.Session;
 
 public class HibernateUtil {
 
