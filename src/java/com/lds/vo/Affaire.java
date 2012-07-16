@@ -18,7 +18,7 @@ public class Affaire  implements java.io.Serializable {
      private Date datedebutaffaire;
      private Date datefinaffaire;
      private String descprojet;
-     private BigDecimal montantaffaire;
+     private Double montantaffaire;
      private Set taches = new HashSet(0);
      private Set devises = new HashSet(0);
      private Set boncommandes = new HashSet(0);
@@ -32,7 +32,7 @@ public class Affaire  implements java.io.Serializable {
         this.id = id;
         this.projet = projet;
     }
-    public Affaire(AffaireId id, Projet projet, Date datedebutaffaire, Date datefinaffaire, String descprojet, BigDecimal montantaffaire, Set taches, Set devises, Set boncommandes, Set factures) {
+    public Affaire(AffaireId id, Projet projet, Date datedebutaffaire, Date datefinaffaire, String descprojet, Double montantaffaire, Set taches, Set devises, Set boncommandes, Set factures) {
        this.id = id;
        this.projet = projet;
        this.datedebutaffaire = datedebutaffaire;
@@ -80,11 +80,11 @@ public class Affaire  implements java.io.Serializable {
     public void setDescprojet(String descprojet) {
         this.descprojet = descprojet;
     }
-    public BigDecimal getMontantaffaire() {
+    public Double getMontantaffaire() {
         return this.montantaffaire;
     }
     
-    public void setMontantaffaire(BigDecimal montantaffaire) {
+    public void setMontantaffaire(Double montantaffaire) {
         this.montantaffaire = montantaffaire;
     }
     public Set getTaches() {
