@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 13 juil. 2012 07:24:47 by Hibernate Tools 3.2.1.GA
+// Generated 16 juil. 2012 17:30:31 by Hibernate Tools 3.2.1.GA
 
 
 import java.math.BigDecimal;
@@ -14,13 +14,13 @@ public class Affaire  implements java.io.Serializable {
 
 
      private AffaireId id;
-     private Devis devis;
      private Projet projet;
      private Date datedebutaffaire;
      private Date datefinaffaire;
      private String descprojet;
      private BigDecimal montantaffaire;
      private Set taches = new HashSet(0);
+     private Set devises = new HashSet(0);
      private Set boncommandes = new HashSet(0);
      private Set factures = new HashSet(0);
 
@@ -28,20 +28,19 @@ public class Affaire  implements java.io.Serializable {
     }
 
 	
-    public Affaire(AffaireId id, Devis devis, Projet projet) {
+    public Affaire(AffaireId id, Projet projet) {
         this.id = id;
-        this.devis = devis;
         this.projet = projet;
     }
-    public Affaire(AffaireId id, Devis devis, Projet projet, Date datedebutaffaire, Date datefinaffaire, String descprojet, BigDecimal montantaffaire, Set taches, Set boncommandes, Set factures) {
+    public Affaire(AffaireId id, Projet projet, Date datedebutaffaire, Date datefinaffaire, String descprojet, BigDecimal montantaffaire, Set taches, Set devises, Set boncommandes, Set factures) {
        this.id = id;
-       this.devis = devis;
        this.projet = projet;
        this.datedebutaffaire = datedebutaffaire;
        this.datefinaffaire = datefinaffaire;
        this.descprojet = descprojet;
        this.montantaffaire = montantaffaire;
        this.taches = taches;
+       this.devises = devises;
        this.boncommandes = boncommandes;
        this.factures = factures;
     }
@@ -52,13 +51,6 @@ public class Affaire  implements java.io.Serializable {
     
     public void setId(AffaireId id) {
         this.id = id;
-    }
-    public Devis getDevis() {
-        return this.devis;
-    }
-    
-    public void setDevis(Devis devis) {
-        this.devis = devis;
     }
     public Projet getProjet() {
         return this.projet;
@@ -101,6 +93,13 @@ public class Affaire  implements java.io.Serializable {
     
     public void setTaches(Set taches) {
         this.taches = taches;
+    }
+    public Set getDevises() {
+        return this.devises;
+    }
+    
+    public void setDevises(Set devises) {
+        this.devises = devises;
     }
     public Set getBoncommandes() {
         return this.boncommandes;

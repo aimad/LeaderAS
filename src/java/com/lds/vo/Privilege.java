@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 13 juil. 2012 07:24:47 by Hibernate Tools 3.2.1.GA
+// Generated 16 juil. 2012 17:30:31 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -13,7 +13,7 @@ public class Privilege  implements java.io.Serializable {
 
      private String idpriv;
      private String lienpriv;
-     private String nom_priv;
+     private String nompriv;
      private Set personnels = new HashSet(0);
 
     public Privilege() {
@@ -23,9 +23,10 @@ public class Privilege  implements java.io.Serializable {
     public Privilege(String idpriv) {
         this.idpriv = idpriv;
     }
-    public Privilege(String idpriv, String lienpriv, Set personnels) {
+    public Privilege(String idpriv, String lienpriv, String nompriv, Set personnels) {
        this.idpriv = idpriv;
        this.lienpriv = lienpriv;
+       this.nompriv = nompriv;
        this.personnels = personnels;
     }
    
@@ -43,13 +44,12 @@ public class Privilege  implements java.io.Serializable {
     public void setLienpriv(String lienpriv) {
         this.lienpriv = lienpriv;
     }
-
-    public String getNom_priv() {
-        return nom_priv;
+    public String getNompriv() {
+        return this.nompriv;
     }
     
-     public void setNom_priv(String nom_priv) {
-        this.nom_priv = nom_priv;
+    public void setNompriv(String nompriv) {
+        this.nompriv = nompriv;
     }
     public Set getPersonnels() {
         return this.personnels;

@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 13 juil. 2012 07:24:47 by Hibernate Tools 3.2.1.GA
+// Generated 16 juil. 2012 17:30:31 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -35,7 +35,7 @@ public class Personnel  implements java.io.Serializable {
         this.idpersonnel = idpersonnel;
         this.typeuser = typeuser;
     }
-    public Personnel(String idpersonnel, Typeuser typeuser, String nom, String prenom, Date datenaissance, String adresse, String tel, String email, String desc, String fonction, Set bonsorties, Set privileges, Set detailstachepersonnels, Set reservations) {
+    public Personnel(String idpersonnel, Typeuser typeuser, String nom, String prenom, Date datenaissance, String adresse, String tel, String email, String description, String fonction, Set bonsorties, Set privileges, Set detailstachepersonnels, Set reservations) {
        this.idpersonnel = idpersonnel;
        this.typeuser = typeuser;
        this.nom = nom;
@@ -44,7 +44,7 @@ public class Personnel  implements java.io.Serializable {
        this.adresse = adresse;
        this.tel = tel;
        this.email = email;
-       this.description = desc;
+       this.description = description;
        this.fonction = fonction;
        this.bonsorties = bonsorties;
        this.privileges = privileges;

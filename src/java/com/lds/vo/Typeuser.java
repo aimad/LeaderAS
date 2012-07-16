@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 13 juil. 2012 07:24:47 by Hibernate Tools 3.2.1.GA
+// Generated 16 juil. 2012 17:30:31 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -12,7 +12,7 @@ public class Typeuser  implements java.io.Serializable {
 
 
      private int typeuser;
-     private String nom_type;
+     private String nompriv;
      private Set personnels = new HashSet(0);
 
     public Typeuser() {
@@ -22,8 +22,9 @@ public class Typeuser  implements java.io.Serializable {
     public Typeuser(int typeuser) {
         this.typeuser = typeuser;
     }
-    public Typeuser(int typeuser, Set personnels) {
+    public Typeuser(int typeuser, String nompriv, Set personnels) {
        this.typeuser = typeuser;
+       this.nompriv = nompriv;
        this.personnels = personnels;
     }
    
@@ -34,16 +35,13 @@ public class Typeuser  implements java.io.Serializable {
     public void setTypeuser(int typeuser) {
         this.typeuser = typeuser;
     }
-
-    public String getNom_type() {
-        return nom_type;
-    }
-
-    public void setNom_type(String nom_type) {
-        this.nom_type = nom_type;
+    public String getNompriv() {
+        return this.nompriv;
     }
     
-    
+    public void setNompriv(String nompriv) {
+        this.nompriv = nompriv;
+    }
     public Set getPersonnels() {
         return this.personnels;
     }

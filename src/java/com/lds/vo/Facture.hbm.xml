@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 13 juil. 2012 07:24:53 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 16 juil. 2012 17:30:33 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Facture" table="facture" schema="public">
         <id name="numfacture" type="string">
