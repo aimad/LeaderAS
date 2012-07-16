@@ -60,7 +60,7 @@ public class ArticleHDaoTest extends TestCase {
     }
 
     public void testGetArticle() {
-        ArticleId id = new ArticleId();;
+        ArticleId id = new ArticleId();
         id.setIdelement("1");
         id.setIdarticle("1");
         Article c = dao.getArticle(id);
@@ -87,7 +87,7 @@ public class ArticleHDaoTest extends TestCase {
 
     public void testUpdateFournisseur() {
 //logger.debug("*******************Starting testInsertCreancier*******************");
-        ArticleId id = new ArticleId();;
+        ArticleId id = new ArticleId();
         id.setIdelement("1");
         id.setIdarticle("1");
         Article c = dao.getArticle(id);
