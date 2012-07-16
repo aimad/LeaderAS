@@ -67,7 +67,7 @@ public class PrivilegeHDaoTest extends TestCase {
         assertEquals(privileges.size(), 1);
         Privilege c = (Privilege) privileges.get(i);
        // assertEquals(c.getIdpriv(), "1");
-        assertEquals(c.getNom_priv(), "XX");
+        assertEquals(c.getNompriv(), "XX");
     }
 
     /**
@@ -77,7 +77,7 @@ public class PrivilegeHDaoTest extends TestCase {
     public void testGetPrivilege() {
         System.out.println("getPrivilege");
          Privilege c = dao.getPrivilege("1");
-        assertEquals(c.getNom_priv(), "XX");
+        assertEquals(c.getNompriv(), "XX");
     }
 
         /**
@@ -89,7 +89,7 @@ public class PrivilegeHDaoTest extends TestCase {
         Privilege c = new Privilege();
         c.setIdpriv("2");
         c.setLienpriv("yy@yy.com");
-        c.setNom_priv("XX");
+        c.setNompriv("XX");
         dao.insert(c);
         String sql = "SELECT * FROM privilege";
         int numberOfRecords = dbConn.getNumberOfRecords(sql);
@@ -103,9 +103,9 @@ public class PrivilegeHDaoTest extends TestCase {
     public void testUpdate() {
         System.out.println("update");
         Privilege c = dao.getPrivilege("1");
-        c.setNom_priv("NAJAHI Soft");
+        c.setNompriv("NAJAHI Soft");
         dao.update(c);
-        assertEquals(c.getNom_priv(), "NAJAHI Soft");
+        assertEquals(c.getNompriv(), "NAJAHI Soft");
     }
 
 
