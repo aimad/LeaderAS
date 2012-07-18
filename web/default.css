@@ -219,7 +219,8 @@ a:hover {
 /* Footer */
 
 #footer {
-	padding: 40px 0 60px 0;
+	/*padding: 40px 0 60px 0;*/
+        padding: 40px 0 60px 0;
 	background: url(images/img08.gif) repeat-x;
 }
 

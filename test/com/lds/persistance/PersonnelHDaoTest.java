@@ -54,7 +54,7 @@ public class PersonnelHDaoTest extends TestCase {
     }
 
     private void setUpRecord() {
-        String sql = "INSERT INTO personnel VALUES ('1','2','XX','aimad','12/3/1989','rue xx','0677889988','xx@xx.com','test test','mec')";
+        String sql = "INSERT INTO personnel VALUES ('1','2','XX','aimad','12/3/1989','rue xx','0677889988','xx@xx.com','test test','mec','')";
         dbConn.execute(sql);
     }
     /**

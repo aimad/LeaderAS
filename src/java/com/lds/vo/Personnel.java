@@ -22,6 +22,7 @@ public class Personnel  implements java.io.Serializable {
      private String email;
      private String description;
      private String fonction;
+     private String password;
      private Set bonsorties = new HashSet(0);
      private Set privileges = new HashSet(0);
      private Set detailstachepersonnels = new HashSet(0);
@@ -35,7 +36,7 @@ public class Personnel  implements java.io.Serializable {
         this.idpersonnel = idpersonnel;
         this.typeuser = typeuser;
     }
-    public Personnel(String idpersonnel, Typeuser typeuser, String nom, String prenom, Date datenaissance, String adresse, String tel, String email, String description, String fonction, Set bonsorties, Set privileges, Set detailstachepersonnels, Set reservations) {
+    public Personnel(String idpersonnel, Typeuser typeuser, String nom, String prenom, Date datenaissance, String adresse, String tel, String email, String description, String fonction,String password, Set bonsorties, Set privileges, Set detailstachepersonnels, Set reservations) {
        this.idpersonnel = idpersonnel;
        this.typeuser = typeuser;
        this.nom = nom;
@@ -46,6 +47,7 @@ public class Personnel  implements java.io.Serializable {
        this.email = email;
        this.description = description;
        this.fonction = fonction;
+       this.password = password;
        this.bonsorties = bonsorties;
        this.privileges = privileges;
        this.detailstachepersonnels = detailstachepersonnels;
@@ -122,6 +124,16 @@ public class Personnel  implements java.io.Serializable {
     public void setFonction(String fonction) {
         this.fonction = fonction;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    
     public Set getBonsorties() {
         return this.bonsorties;
     }

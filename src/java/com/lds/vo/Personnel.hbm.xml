@@ -35,6 +35,9 @@
         <property name="fonction" type="string">
             <column name="fonction" length="254" />
         </property>
+        <property name="password" type="string">
+            <column name="password" length="254" />
+        </property>
         <set name="bonsorties" inverse="true">
             <key>
                 <column name="idpersonnel" length="254" not-null="true" />
