@@ -15,7 +15,7 @@ public interface PersonnelDao {
      public List getAllPersonnels();
 
     public Personnel getPersonnel(String id);
-
+    
     public void update(Personnel personnel);
 
     public void insert(Personnel personnel);
