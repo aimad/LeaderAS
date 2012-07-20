@@ -6,6 +6,7 @@ package com.lds.persistance;
 
 import com.lds.vo.Privilege;
 import java.util.List;
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -35,6 +36,7 @@ public class PrivilegeHDao implements PrivilegeDao{
 
     @Override
     public Privilege getPrivilege(String id) {
+        
         Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
