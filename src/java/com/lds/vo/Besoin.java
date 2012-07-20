@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 16 juil. 2012 17:30:31 by Hibernate Tools 3.2.1.GA
+// Generated 20 juil. 2012 11:53:18 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;

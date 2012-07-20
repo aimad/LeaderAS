@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 16 juil. 2012 17:30:31 by Hibernate Tools 3.2.1.GA
+// Generated 20 juil. 2012 11:53:18 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -36,7 +36,7 @@ public class Personnel  implements java.io.Serializable {
         this.idpersonnel = idpersonnel;
         this.typeuser = typeuser;
     }
-    public Personnel(String idpersonnel, Typeuser typeuser, String nom, String prenom, Date datenaissance, String adresse, String tel, String email, String description, String fonction,String password, Set bonsorties, Set privileges, Set detailstachepersonnels, Set reservations) {
+    public Personnel(String idpersonnel, Typeuser typeuser, String nom, String prenom, Date datenaissance, String adresse, String tel, String email, String description, String fonction, String password, Set bonsorties, Set privileges, Set detailstachepersonnels, Set reservations) {
        this.idpersonnel = idpersonnel;
        this.typeuser = typeuser;
        this.nom = nom;
@@ -124,16 +124,13 @@ public class Personnel  implements java.io.Serializable {
     public void setFonction(String fonction) {
         this.fonction = fonction;
     }
-
     public String getPassword() {
-        return password;
+        return this.password;
     }
-
+    
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
     public Set getBonsorties() {
         return this.bonsorties;
     }
