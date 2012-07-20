@@ -6,7 +6,6 @@ package com.lds.persistance;
 
 import com.lds.vo.Affaire;
 import com.lds.vo.AffaireId;
-import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
 import junit.framework.TestCase;
