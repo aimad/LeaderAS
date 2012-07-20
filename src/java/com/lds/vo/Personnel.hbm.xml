@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 20 juil. 2012 11:53:18 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 20 juil. 2012 18:55:36 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Personnel" table="personnel" schema="public">
         <id name="idpersonnel" type="string">
@@ -44,13 +44,11 @@
             </key>
             <one-to-many class="com.lds.vo.Bonsortie" />
         </set>
-        <set name="privileges" inverse="false" table="detailsprivuser">
+        <set name="detailsprivusers" inverse="true">
             <key>
                 <column name="idpersonnel" length="254" not-null="true" />
             </key>
-            <many-to-many entity-name="com.lds.vo.Privilege">
-                <column name="idpriv" length="254" not-null="true" />
-            </many-to-many>
+            <one-to-many class="com.lds.vo.Detailsprivuser" />
         </set>
         <set name="detailstachepersonnels" inverse="true">
             <key>

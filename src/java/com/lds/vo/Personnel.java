@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 20 juil. 2012 11:53:18 by Hibernate Tools 3.2.1.GA
+// Generated 20 juil. 2012 18:55:33 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -24,7 +24,7 @@ public class Personnel  implements java.io.Serializable {
      private String fonction;
      private String password;
      private Set bonsorties = new HashSet(0);
-     private Set privileges = new HashSet(0);
+     private Set detailsprivusers = new HashSet(0);
      private Set detailstachepersonnels = new HashSet(0);
      private Set reservations = new HashSet(0);
 
@@ -36,7 +36,7 @@ public class Personnel  implements java.io.Serializable {
         this.idpersonnel = idpersonnel;
         this.typeuser = typeuser;
     }
-    public Personnel(String idpersonnel, Typeuser typeuser, String nom, String prenom, Date datenaissance, String adresse, String tel, String email, String description, String fonction, String password, Set bonsorties, Set privileges, Set detailstachepersonnels, Set reservations) {
+    public Personnel(String idpersonnel, Typeuser typeuser, String nom, String prenom, Date datenaissance, String adresse, String tel, String email, String description, String fonction, String password, Set bonsorties, Set detailsprivusers, Set detailstachepersonnels, Set reservations) {
        this.idpersonnel = idpersonnel;
        this.typeuser = typeuser;
        this.nom = nom;
@@ -49,7 +49,7 @@ public class Personnel  implements java.io.Serializable {
        this.fonction = fonction;
        this.password = password;
        this.bonsorties = bonsorties;
-       this.privileges = privileges;
+       this.detailsprivusers = detailsprivusers;
        this.detailstachepersonnels = detailstachepersonnels;
        this.reservations = reservations;
     }
@@ -138,12 +138,12 @@ public class Personnel  implements java.io.Serializable {
     public void setBonsorties(Set bonsorties) {
         this.bonsorties = bonsorties;
     }
-    public Set getPrivileges() {
-        return this.privileges;
+    public Set getDetailsprivusers() {
+        return this.detailsprivusers;
     }
     
-    public void setPrivileges(Set privileges) {
-        this.privileges = privileges;
+    public void setDetailsprivusers(Set detailsprivusers) {
+        this.detailsprivusers = detailsprivusers;
     }
     public Set getDetailstachepersonnels() {
         return this.detailstachepersonnels;

@@ -3,26 +3,23 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 20 juil. 2012 18:55:36 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="com.lds.vo.Detailstachepersonnel" table="detailstachepersonnel" schema="public">
-        <composite-id name="id" class="com.lds.vo.DetailstachepersonnelId">
-            <key-property name="numtache" type="string">
-                <column name="numtache" length="254" />
-            </key-property>
+    <class name="com.lds.vo.Detailsprivuser" table="detailsprivuser" schema="public">
+        <composite-id name="id" class="com.lds.vo.DetailsprivuserId">
             <key-property name="idpersonnel" type="string">
                 <column name="idpersonnel" length="254" />
             </key-property>
+            <key-property name="idpriv" type="string">
+                <column name="idpriv" length="254" />
+            </key-property>
         </composite-id>
-        <many-to-one name="tache" class="com.lds.vo.Tache" update="false" insert="false" fetch="select">
-            <column name="numtache" length="254" not-null="true" />
+        <many-to-one name="privilege" class="com.lds.vo.Privilege" update="false" insert="false" fetch="select" lazy="false">
+            <column name="idpriv" length="254" not-null="true" />
         </many-to-one>
         <many-to-one name="personnel" class="com.lds.vo.Personnel" update="false" insert="false" fetch="select">
             <column name="idpersonnel" length="254" not-null="true" />
         </many-to-one>
-        <property name="datedebut" type="date">
-            <column name="datedebut" length="13" />
-        </property>
-        <property name="datefin" type="date">
-            <column name="datefin" length="13" />
+        <property name="description" type="string">
+            <column name="description" length="254" />
         </property>
     </class>
 </hibernate-mapping>

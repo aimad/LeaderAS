@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 20 juil. 2012 11:53:18 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 20 juil. 2012 18:55:36 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Facture" table="facture" schema="public">
         <id name="numfacture" type="string">
@@ -18,8 +18,8 @@
         <property name="descfacture" type="string">
             <column name="descfacture" length="254" />
         </property>
-        <property name="montantfacture" type="big_decimal">
-            <column name="montantfacture" precision="131089" scale="0" />
+        <property name="montantfacture" type="java.lang.Double">
+            <column name="montantfacture" precision="17" scale="17" />
         </property>
         <property name="lienfacture" type="string">
             <column name="lienfacture" length="254" />
