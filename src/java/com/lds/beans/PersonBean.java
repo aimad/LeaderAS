@@ -7,9 +7,13 @@ package com.lds.beans;
  *
  * @author zarito
  */
+import com.lds.persistance.HibernateUtil;
+import com.lds.persistance.PersonnelDao;
+import com.lds.persistance.PersonnelHDao;
+import com.lds.vo.Personnel;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
+import javax.servlet.http.HttpSession;
   
 public class PersonBean {  
   
@@ -17,6 +21,9 @@ public class PersonBean {
       
     private String password;  
   
+    public PersonBean(){
+        HibernateUtil.createSessionFactory();
+    }
     public String getLogin() {  
         return login;  
     }  
@@ -31,8 +38,23 @@ public class PersonBean {
         this.password = password;  
     }  
       
-    public void savePerson(ActionEvent actionEvent) {  
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Welcome " + login +"!"));  
-    }  
-}  
-                      
+    public String savePerson() {  
+        
+        PersonnelDao perDao = new PersonnelHDao ();
+        Personnel per = perDao.getPersonnel(getLogin());
+       
+        if (per == null || !per.getPassword().equals(getPassword()))  {
+           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Le login ou le mot de passe est incorrect! "));   
+           return "Rejected" ; 
+        }
+        else {
+            FacesContext facesContext = FacesContext.getCurrentInstance();
+            HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
+            session.setAttribute("pers", per);
+            return "Accepted";
+            
+        }
+            
+    } 
+         
+}                     

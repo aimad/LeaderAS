@@ -19,4 +19,8 @@ public class EditorBean {
     public void setValue(String value) {  
         this.value = value;  
     }  
+    
+    public String actionEditor(){
+        return "Test" ;
+    }
 }  
