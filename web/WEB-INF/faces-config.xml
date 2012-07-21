@@ -11,7 +11,7 @@
         <from-view-id>index.xhtml</from-view-id> 
         <navigation-case> 
             <from-outcome>Accepted</from-outcome> 
-            <to-view-id>vue/accueil.xhtml</to-view-id> 
+            <to-view-id>vue/accueil.xhtml?id=-1</to-view-id> 
             <redirect />
         </navigation-case> 
         <navigation-case> 
@@ -29,6 +29,11 @@
         <managed-bean-class>com.lds.beans.DroitBean</managed-bean-class> 
         <managed-bean-scope>session</managed-bean-scope> 
     </managed-bean> 
+      <managed-bean> 
+        <managed-bean-name>personnelBean</managed-bean-name> 
+        <managed-bean-class>com.lds.beans.PersonnelBean</managed-bean-class> 
+        <managed-bean-scope>session</managed-bean-scope> 
+    </managed-bean>
     <managed-bean> 
         <managed-bean-name>editorBean</managed-bean-name> 
         <managed-bean-class>com.lds.beans.EditorBean</managed-bean-class> 
