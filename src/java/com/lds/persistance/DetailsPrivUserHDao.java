@@ -41,7 +41,7 @@ public class DetailsPrivUserHDao implements DetailsPrivUserDao {
         Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("from DetailsPrivUser  where idpersonnel =:idpersonnel and idpriv =: idpriv");
+            Query q = session.createQuery("from Detailsprivuser  where idpersonnel =:idpersonnel and idpriv =:idpriv");
             q.setString("idpriv", id.getIdpriv());
             q.setString("idpersonnel", id.getIdpersonnel());
             return (Detailsprivuser) q.uniqueResult();
