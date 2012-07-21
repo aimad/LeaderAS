@@ -27,8 +27,9 @@
     <mapping resource="com/lds/vo/Intervention.hbm.xml"/>
     <mapping resource="com/lds/vo/Boncommande.hbm.xml"/>
     <mapping resource="com/lds/vo/Fournisseur.hbm.xml"/>
-    <mapping resource="com/lds/vo/Typeuser.hbm.xml"/>
     <mapping resource="com/lds/vo/Devis.hbm.xml"/>
+    <mapping resource="com/lds/vo/Typeuser.hbm.xml"/>
+    <mapping resource="com/lds/vo/Detailsprivuser.hbm.xml"/>
     <mapping resource="com/lds/vo/Affaire.hbm.xml"/>
     <mapping resource="com/lds/vo/Detailssortieelement.hbm.xml"/>
     <mapping resource="com/lds/vo/Detailstachepersonnel.hbm.xml"/>
