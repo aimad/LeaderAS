@@ -28,7 +28,7 @@
         <li>
           <h2>Compte</h2>
           <ul>
-              <li><img src="../images/user1.png" id="user1" </li>
+              <li><img src="../images/user1.png" id="user1" /></li>
             <li><a href="http://www.free-css.com/">February 2007</a> <i>(22)</i></li>
           </ul>
         </li>
@@ -48,7 +48,6 @@
     </div>
     <div style="clear: both;">&nbsp;</div>
   </div>
-</div>
 <div id="footer">
   <p id="legal">Copyright &copy; 2012 Leader Automation Systems. Designed by <a href="http://www.facebook.com/elkaoumi">ELKAOUMI / ZARE</a></p>
   <p id="brand">Leader Automation Systems</p>

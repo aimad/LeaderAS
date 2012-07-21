@@ -37,9 +37,10 @@
   
     <h:panelGrid columns="2" style="margin-top:10px">  
         <p:commandButton id="submitButton" value="Submit" update="display" oncomplete="dlg.show()"  
-                        icon="ui-icon-disk" />  
-        <p:commandButton id="clearButton" type="button" value="Clear" onclick="editor.clear()"  
-                        icon="ui-icon-close" />  
+                        icon="ui-icon-disk" action="#{editorBean.actionEditor()}" ajax="false"/>  
+         <p:commandButton id="clearButton" type="button" value="Clear" onclick="editor.clear()"  
+                         icon="ui-icon-close" action="#{editorBean.actionEditor()}" ajax="false" /> 
+        
     </h:panelGrid>  
   
     <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade" modal="true">  
