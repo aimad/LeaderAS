@@ -12,6 +12,7 @@ import com.lds.vo.Detailsprivuser;
 import com.lds.vo.DetailsprivuserId;
 import com.lds.vo.Personnel;
 import com.lds.vo.Privilege;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.faces.application.ConfigurableNavigationHandler;
@@ -21,7 +22,7 @@ import javax.faces.context.FacesContext;
  *
  * @author zarito
  */
-public class DroitBean {
+public class DroitBean implements Serializable{
 
     /**
      * Creates a new instance of DroitBean
@@ -71,7 +72,7 @@ public class DroitBean {
             }
             
             //Si c'est pas l'accueil
-            else if ("-1".equals(id) && p.getTypeuser().getTypeuser() == 2 && !path.equals("/vue/accueil.xhtml")) {
+            else if ("-1".equals(id) && p.getTypeuser().getTypeuser() == 2 && !(path.equals("/vue/accueil.xhtml")||path.equals("/vue/paramCompte.xhtml")||path.equals("/vue/about.xhtml"))) {
                 nav.performNavigation("/vue/no-access");
          
             }

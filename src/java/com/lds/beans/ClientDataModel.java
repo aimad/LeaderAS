@@ -1,6 +1,6 @@
 package com.lds.beans;
 
-import com.lds.vo.Personnel;
+import com.lds.vo.Client;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -11,42 +11,42 @@ import org.primefaces.model.SortOrder;
 /**
  * Dummy implementation of LazyDataModel that uses a list to mimic a real datasource like a database.
  */
-public class PersonnelDataModel extends LazyDataModel<Personnel> {
+public class ClientDataModel extends LazyDataModel<Client> {
     
-    private List<Personnel> datasource;
+    private List<Client> datasource;
        
-    public PersonnelDataModel(List<Personnel> datasource) {
+    public ClientDataModel(List<Client> datasource) {
         this.datasource = datasource;
     }
     
     @Override
-    public Personnel getRowData(String rowKey) {
-        for(Personnel personnel : datasource) {
-            if(personnel.getIdpersonnel().equals(rowKey))
-                return personnel;
+    public Client getRowData(String rowKey) {
+        for(Client client : datasource) {
+            if(client.getIdclient().equals(rowKey))
+                return client;
         }
 
         return null;
     }
 
     @Override
-    public Object getRowKey(Personnel personnel) {
-        return personnel.getIdpersonnel();
+    public Object getRowKey(Client client) {
+        return client.getIdclient();
     }
 
     @Override
-    public List<Personnel> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String,String> filters) {
-        List<Personnel> data = new ArrayList<Personnel>();
+    public List<Client> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String,String> filters) {
+        List<Client> data = new ArrayList<Client>();
 
         //filter
-        for(Personnel personnel : datasource) {
+        for(Client client : datasource) {
             boolean match = true;
 
             for(Iterator<String> it = filters.keySet().iterator(); it.hasNext();) {
                 try {
                     String filterProperty = it.next();
                     String filterValue = filters.get(filterProperty);
-                    String fieldValue = String.valueOf(personnel.getClass().getField(filterProperty).get(personnel));
+                    String fieldValue = String.valueOf(client.getClass().getField(filterProperty).get(client));
 
                     if(filterValue == null || fieldValue.startsWith(filterValue)) {
                         match = true;
@@ -61,7 +61,7 @@ public class PersonnelDataModel extends LazyDataModel<Personnel> {
             }
 
             if(match) {
-                data.add(personnel);
+                data.add(client);
             }
         }
 

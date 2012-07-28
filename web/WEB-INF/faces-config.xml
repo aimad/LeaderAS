@@ -19,24 +19,99 @@
             <to-view-id>/index.xhtml</to-view-id> 
         </navigation-case> 
     </navigation-rule> 
+    
+    <navigation-rule> 
+        <from-view-id>/vue/personnel/*</from-view-id> 
+        <navigation-case> 
+            <from-outcome>succesAjout</from-outcome> 
+            <to-view-id>vue/personnel/accueil.xhtml?id=-1</to-view-id> 
+            <redirect />
+        </navigation-case> 
+        <navigation-case> 
+            <from-outcome>echecAjout</from-outcome> 
+            <to-view-id>/vue/personnel/ajout.xhtml</to-view-id> 
+             <redirect />
+        </navigation-case> 
+        <navigation-case> 
+            <from-outcome>details</from-outcome> 
+            <to-view-id>/vue/personnel/droits.xhtml</to-view-id> 
+            <redirect />
+        </navigation-case>
+        <navigation-case> 
+            <from-outcome>priv_insert</from-outcome> 
+            <to-view-id>/vue/personnel/accueil.xhtml</to-view-id> 
+            <redirect />
+        </navigation-case>
+         <navigation-case> 
+            <from-outcome>modif</from-outcome> 
+            <to-view-id>/vue/personnel/modif.xhtml</to-view-id> 
+            <redirect />
+        </navigation-case>
+    </navigation-rule> 
+    
+      <navigation-rule> 
+        <from-view-id>/vue/client-fournisseur/*</from-view-id> 
+        <navigation-case> 
+            <from-outcome>succesAjout</from-outcome> 
+            <to-view-id>vue/client-fournisseur/accueil.xhtml?id=5</to-view-id> 
+            <redirect />
+        </navigation-case> 
+        <navigation-case> 
+            <from-outcome>echecAjout</from-outcome> 
+            <to-view-id>/vue/client-fournisseur/ajout.xhtml?id=5</to-view-id> 
+             <redirect />
+        </navigation-case>            
+         <navigation-case> 
+            <from-outcome>modif</from-outcome> 
+            <to-view-id>/vue/client-fournisseur/modif.xhtml?id=5</to-view-id> 
+            <redirect />
+        </navigation-case>
+    </navigation-rule> 
+    
+    <navigation-rule> 
+        <from-view-id>/vue/paramCompte.xhtml?id=-1</from-view-id> 
+        <navigation-case> 
+            <from-outcome>changePwd</from-outcome> 
+            <to-view-id>vue/accueil.xhtml?id=-1</to-view-id> 
+            <redirect />
+        </navigation-case>         
+    </navigation-rule> 
+    
+    <navigation-rule> 
+        <from-view-id>*</from-view-id> 
+        <navigation-case> 
+            <from-outcome>logout</from-outcome> 
+            <to-view-id>/index.xhtml</to-view-id> 
+            <redirect />
+        </navigation-case>     
+         <navigation-case> 
+            <from-outcome>paramCompte</from-outcome> 
+            <to-view-id>vue/paramCompte.xhtml?id=-1</to-view-id> 
+            <redirect />
+        </navigation-case> 
+    </navigation-rule> 
+    
     <managed-bean> 
         <managed-bean-name>personBean</managed-bean-name> 
         <managed-bean-class>com.lds.beans.PersonBean</managed-bean-class> 
         <managed-bean-scope>session</managed-bean-scope> 
     </managed-bean> 
+    
     <managed-bean> 
         <managed-bean-name>droitBean</managed-bean-name> 
         <managed-bean-class>com.lds.beans.DroitBean</managed-bean-class> 
         <managed-bean-scope>session</managed-bean-scope> 
     </managed-bean> 
-      <managed-bean> 
+    
+    <managed-bean> 
         <managed-bean-name>personnelBean</managed-bean-name> 
         <managed-bean-class>com.lds.beans.PersonnelBean</managed-bean-class> 
         <managed-bean-scope>session</managed-bean-scope> 
     </managed-bean>
     <managed-bean> 
-        <managed-bean-name>editorBean</managed-bean-name> 
-        <managed-bean-class>com.lds.beans.EditorBean</managed-bean-class> 
+        <managed-bean-name>clientBean</managed-bean-name> 
+        <managed-bean-class>com.lds.beans.ClientBean</managed-bean-class> 
         <managed-bean-scope>session</managed-bean-scope> 
-    </managed-bean> 
+    </managed-bean>
+   
 </faces-config>

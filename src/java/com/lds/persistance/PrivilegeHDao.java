@@ -47,6 +47,18 @@ public class PrivilegeHDao implements PrivilegeDao{
         }
     }
 
+     public Privilege getnom_to_Privilege(String nom) {
+        
+        Session session = HibernateUtil.getSession();
+        try {
+            session.beginTransaction();
+            Query q = session.createQuery("from Privilege as c where c.nompriv =:id");
+            q.setString("id", nom);
+            return (Privilege) q.uniqueResult();
+        } finally {
+            session.close();
+        }
+    }
     @Override
     public void update(Privilege privilege) {
         Session session = HibernateUtil.getSession();

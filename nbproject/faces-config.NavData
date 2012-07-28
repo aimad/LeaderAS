@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="vue/personnel/accueil.xhtml?id=-1" x="-2" y="218" zoom="true"/>
+        <Node id="vue/travail/accueil.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="vue/personnel/ajout.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="vue/demande-prix/accueil.xhtml" x="23" y="299" zoom="false"/>
+        <Node id="vue/accueil.xhtml?id=-1" x="1180" y="73" zoom="true"/>
+        <Node id="vue/no-access.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="vue/projets/accueil.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="vue/personnel/*" x="400" y="150" zoom="true"/>
+        <Node id="index.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="vue/stats/accueil.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="vue/personnel/accueil.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="vue/accueil.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="vue/access-denied.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="vue/stock/accueil.xhtml" x="650" y="450" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

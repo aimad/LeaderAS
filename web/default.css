@@ -146,8 +146,11 @@ a:hover {
 /* Content */
 
 #content {
-	width: 750px;
+	width: 750px; 
+       
+    /*    height: 500px; */
 	margin: 0 auto;
+        margin-right: 200px;
         background: url("images/img10.gif") repeat-x scroll 0 0 transparent;
 }
 
@@ -188,15 +191,18 @@ a:hover {
 /* Links */
 
 #links {
+      
 	float: left;
 	width: 220px;
 	margin-left: 50px;
+        
 }
 
 #links ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+        
 }
 
 #links li ul {
@@ -223,6 +229,7 @@ a:hover {
 	/*padding: 40px 0 60px 0;*/
         padding: 40px 0 60px 0;
 	background: url(images/img08.gif) repeat-x;
+        
 }
 
 #footer p {

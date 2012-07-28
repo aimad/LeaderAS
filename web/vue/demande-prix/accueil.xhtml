@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p ="http://primefaces.org/ui">
     
     <f:event listener="#{droitBean.authorize()}" type="preRenderView" />
     
@@ -15,10 +16,10 @@
     <h:body>
         <div id="menu">
             <ul>
-               <li><a href="http://www.free-css.com/" accesskey="1">Accueil</a></li>
-                <li class="active"><a href="http://www.free-css.com/" accesskey="2">Section Vue</a></li>
-                <li><a href="http://www.free-css.com/" accesskey="3">Compte</a></li>
-                <li><a href="http://www.free-css.com/" accesskey="4">About</a></li>
+                <li><a href="../accueil.xhtml?id=-1" accesskey="1">Accueil</a></li>
+                <li class="active"><a href="accueil.xhtml" accesskey="2">Section Vue</a></li>
+                <li><a href="../paramCompte.xhtml?id=-1" accesskey="3">Compte</a></li>
+                <li><a href="../about.xhtml?id=-1" accesskey="4">About</a></li>
             </ul>
         </div>
         <div id="header">
@@ -34,9 +35,17 @@
                 <ul>
                     <li>
                         <h2>Compte</h2>
-                        <ul>
-                            <li><img src="../images/user1.png" id="user1" /></li>
-                            <li><a href="http://www.free-css.com/">Deconnexion</a> <i>(22)</i></li>
+                       <ul>
+                           <li><img src="../images/user2.png" id="user1" /></li>
+                            <li>  
+                                <h:form>
+                                <p:commandLink id="ajax"  action="#{personBean.logout()}" style="margin-right:20px;">  
+                                         <h:outputText value="Déconnexion" />  
+                                    </p:commandLink>  </h:form></li>
+                             <li> <h:form>
+                                <p:commandLink id="ajax1"  action="paramCompte" style="margin-right:20px;" >  
+                                         <h:outputText value="Paramètres du Compte" />  
+                                    </p:commandLink>  </h:form></li>
                         </ul>
                     </li>
                     <li>
