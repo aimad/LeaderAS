@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 20 juil. 2012 18:55:36 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Besoin" table="besoin" schema="public">
         <id name="idbesoin" type="string">
@@ -17,11 +17,11 @@
         <property name="descbesoin" type="string">
             <column name="descbesoin" length="254" />
         </property>
-        <set name="detailselementbesoins" inverse="true">
+        <set name="detailsfourniturebesoins" inverse="true">
             <key>
                 <column name="idbesoin" length="254" not-null="true" />
             </key>
-            <one-to-many class="com.lds.vo.Detailselementbesoin" />
+            <one-to-many class="com.lds.vo.Detailsfourniturebesoin" />
         </set>
     </class>
 </hibernate-mapping>

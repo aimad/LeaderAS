@@ -1,7 +1,8 @@
 package com.lds.vo;
-// Generated 20 juil. 2012 18:55:33 by Hibernate Tools 3.2.1.GA
+// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
 
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -11,23 +12,23 @@ public class Facture  implements java.io.Serializable {
 
 
      private String numfacture;
-     private Affaire affaire;
+     private Projet projet;
      private Date datefacture;
      private String descfacture;
-     private Double montantfacture;
+     private BigDecimal montantfacture;
      private String lienfacture;
 
     public Facture() {
     }
 
 	
-    public Facture(String numfacture, Affaire affaire) {
+    public Facture(String numfacture, Projet projet) {
         this.numfacture = numfacture;
-        this.affaire = affaire;
+        this.projet = projet;
     }
-    public Facture(String numfacture, Affaire affaire, Date datefacture, String descfacture, Double montantfacture, String lienfacture) {
+    public Facture(String numfacture, Projet projet, Date datefacture, String descfacture, BigDecimal montantfacture, String lienfacture) {
        this.numfacture = numfacture;
-       this.affaire = affaire;
+       this.projet = projet;
        this.datefacture = datefacture;
        this.descfacture = descfacture;
        this.montantfacture = montantfacture;
@@ -41,12 +42,12 @@ public class Facture  implements java.io.Serializable {
     public void setNumfacture(String numfacture) {
         this.numfacture = numfacture;
     }
-    public Affaire getAffaire() {
-        return this.affaire;
+    public Projet getProjet() {
+        return this.projet;
     }
     
-    public void setAffaire(Affaire affaire) {
-        this.affaire = affaire;
+    public void setProjet(Projet projet) {
+        this.projet = projet;
     }
     public Date getDatefacture() {
         return this.datefacture;
@@ -62,11 +63,11 @@ public class Facture  implements java.io.Serializable {
     public void setDescfacture(String descfacture) {
         this.descfacture = descfacture;
     }
-    public Double getMontantfacture() {
+    public BigDecimal getMontantfacture() {
         return this.montantfacture;
     }
     
-    public void setMontantfacture(Double montantfacture) {
+    public void setMontantfacture(BigDecimal montantfacture) {
         this.montantfacture = montantfacture;
     }
     public String getLienfacture() {

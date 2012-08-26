@@ -1,7 +1,8 @@
 package com.lds.vo;
-// Generated 20 juil. 2012 18:55:33 by Hibernate Tools 3.2.1.GA
+// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,8 +15,8 @@ public class Demandeprix  implements java.io.Serializable {
      private String numdemandeprix;
      private Fournisseur fournisseur;
      private String referencedemandeprix;
-     private String datedemandeprix;
-     private Set detailsdemandeelements = new HashSet(0);
+     private Date datedemandeprix;
+     private Set detailsdemandearticles = new HashSet(0);
 
     public Demandeprix() {
     }
@@ -25,12 +26,12 @@ public class Demandeprix  implements java.io.Serializable {
         this.numdemandeprix = numdemandeprix;
         this.fournisseur = fournisseur;
     }
-    public Demandeprix(String numdemandeprix, Fournisseur fournisseur, String referencedemandeprix, String datedemandeprix, Set detailsdemandeelements) {
+    public Demandeprix(String numdemandeprix, Fournisseur fournisseur, String referencedemandeprix, Date datedemandeprix, Set detailsdemandearticles) {
        this.numdemandeprix = numdemandeprix;
        this.fournisseur = fournisseur;
        this.referencedemandeprix = referencedemandeprix;
        this.datedemandeprix = datedemandeprix;
-       this.detailsdemandeelements = detailsdemandeelements;
+       this.detailsdemandearticles = detailsdemandearticles;
     }
    
     public String getNumdemandeprix() {
@@ -54,19 +55,19 @@ public class Demandeprix  implements java.io.Serializable {
     public void setReferencedemandeprix(String referencedemandeprix) {
         this.referencedemandeprix = referencedemandeprix;
     }
-    public String getDatedemandeprix() {
+    public Date getDatedemandeprix() {
         return this.datedemandeprix;
     }
     
-    public void setDatedemandeprix(String datedemandeprix) {
+    public void setDatedemandeprix(Date datedemandeprix) {
         this.datedemandeprix = datedemandeprix;
     }
-    public Set getDetailsdemandeelements() {
-        return this.detailsdemandeelements;
+    public Set getDetailsdemandearticles() {
+        return this.detailsdemandearticles;
     }
     
-    public void setDetailsdemandeelements(Set detailsdemandeelements) {
-        this.detailsdemandeelements = detailsdemandeelements;
+    public void setDetailsdemandearticles(Set detailsdemandearticles) {
+        this.detailsdemandearticles = detailsdemandearticles;
     }
 
 

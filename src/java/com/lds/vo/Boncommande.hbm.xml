@@ -1,19 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 20 juil. 2012 18:55:36 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Boncommande" table="boncommande" schema="public">
         <id name="numbc" type="string">
             <column name="numbc" length="254" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="affaire" class="com.lds.vo.Affaire" fetch="select">
-            <column name="idprojet" length="254" not-null="true" />
-            <column name="numaffaire" length="254" not-null="true" />
-        </many-to-one>
         <many-to-one name="fournisseur" class="com.lds.vo.Fournisseur" fetch="select">
             <column name="idfournisseur" length="254" not-null="true" />
+        </many-to-one>
+        <many-to-one name="projet" class="com.lds.vo.Projet" fetch="select">
+            <column name="idprojet" length="254" not-null="true" />
         </many-to-one>
         <property name="dateboncommande" type="date">
             <column name="dateboncommande" length="13" />
@@ -21,11 +20,19 @@
         <property name="prixht" type="big_decimal">
             <column name="prixht" precision="131089" scale="0" />
         </property>
-        <set name="detailsbcelements" inverse="true">
+        <set name="detailsbcarticles" inverse="true">
             <key>
                 <column name="numbc" length="254" not-null="true" />
             </key>
-            <one-to-many class="com.lds.vo.Detailsbcelement" />
+            <one-to-many class="com.lds.vo.Detailsbcarticle" />
+        </set>
+        <set name="fournitures" inverse="false" table="detailsfourniturebc">
+            <key>
+                <column name="numbc" length="254" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.lds.vo.Fourniture">
+                <column name="numfourniture" length="254" not-null="true" />
+            </many-to-many>
         </set>
         <set name="bonreceptions" inverse="true">
             <key>

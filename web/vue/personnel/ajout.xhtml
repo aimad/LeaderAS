@@ -58,7 +58,7 @@
         <div id="wrapper">
             <div id="content">
                 <h2 class="title">Gestion du Personnel : </h2><br/> <br/> 
-                <h:form >  
+                <h:form  >  
 
                     <p:panel>  
                         <p:dataTable transient="true" emptyMessage="" >
@@ -69,9 +69,9 @@
 
                         <p:messages id="messages" />
 
-                        <h:panelGrid columns="2" cellpadding="5" >  
-                            <h:outputText value="Login: *" />  
-                            <p:inputText value="#{personnelBean.pers.idpersonnel}" required="true" requiredMessage="Veuillez saisir un login!"/>  
+                        <h:panelGrid columns="2" cellpadding="5"  >  
+                            <h:outputText value="Login: *"  />  
+                            <p:inputText value="#{personnelBean.pers.idpersonnel}" required="true" requiredMessage="Veuillez saisir un login!" />  
 
                             <h:outputText value="Nom: " />  
                             <p:inputText value="#{personnelBean.pers.nom}" />  
@@ -99,6 +99,7 @@
                             <p:calendar value="#{personnelBean.pers.datenaissance}" id="popupCal" locale="fr" pattern="dd/MM/yyyy" >                               
                                 <f:convertDateTime pattern="dd/MM/yyyy" />
                             </p:calendar>
+                            
                             <h:outputText value="Adresse: " />  
                             <p:inputText value="#{personnelBean.pers.adresse}" />
 

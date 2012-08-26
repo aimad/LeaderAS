@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 20 juil. 2012 18:55:36 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Personnel" table="personnel" schema="public">
         <id name="idpersonnel" type="string">
@@ -36,7 +36,7 @@
             <column name="fonction" length="254" />
         </property>
         <property name="password" type="string">
-            <column name="password" />
+            <column name="password" length="254" />
         </property>
         <set name="bonsorties" inverse="true">
             <key>
@@ -44,7 +44,7 @@
             </key>
             <one-to-many class="com.lds.vo.Bonsortie" />
         </set>
-        <set name="detailsprivusers" inverse="true">
+        <set name="detailsprivusers" cascade="delete" inverse="true">
             <key>
                 <column name="idpersonnel" length="254" not-null="true" />
             </key>
@@ -55,12 +55,6 @@
                 <column name="idpersonnel" length="254" not-null="true" />
             </key>
             <one-to-many class="com.lds.vo.Detailstachepersonnel" />
-        </set>
-        <set name="reservations" inverse="true">
-            <key>
-                <column name="idpersonnel" length="254" not-null="true" />
-            </key>
-            <one-to-many class="com.lds.vo.Reservation" />
         </set>
     </class>
 </hibernate-mapping>

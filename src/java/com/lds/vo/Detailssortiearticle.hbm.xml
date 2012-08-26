@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.lds.vo.Detailssortiearticle" table="detailssortiearticle" schema="public">
+        <composite-id name="id" class="com.lds.vo.DetailssortiearticleId">
+            <key-property name="idsortie" type="string">
+                <column name="idsortie" length="254" />
+            </key-property>
+            <key-property name="idarticle" type="string">
+                <column name="idarticle" length="254" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="bonsortie" class="com.lds.vo.Bonsortie" update="false" insert="false" fetch="select">
+            <column name="idsortie" length="254" not-null="true" />
+        </many-to-one>
+        <many-to-one name="article" class="com.lds.vo.Article" update="false" insert="false" fetch="select">
+            <column name="idarticle" length="254" not-null="true" />
+        </many-to-one>
+        <property name="qntsortie" type="java.lang.Integer">
+            <column name="qntsortie" />
+        </property>
+        <property name="qntretour" type="java.lang.Integer">
+            <column name="qntretour" />
+        </property>
+    </class>
+</hibernate-mapping>

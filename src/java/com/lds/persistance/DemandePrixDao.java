@@ -12,8 +12,9 @@ import java.util.List;
  * @author ELKAOUMI
  */
 public interface DemandePrixDao {
+    
     public  List getAllDevis();
-
+        
     public Demandeprix getDevis(String id);
 
     public void update(Demandeprix demandePrix);

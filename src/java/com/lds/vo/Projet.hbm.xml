@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 20 juil. 2012 18:55:36 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Projet" table="projet" schema="public">
         <id name="idprojet" type="string">
@@ -11,23 +11,50 @@
         <many-to-one name="client" class="com.lds.vo.Client" fetch="select">
             <column name="idclient" length="254" not-null="true" />
         </many-to-one>
-        <set name="interventions" inverse="true">
+        <property name="datedebutaffaire" type="date">
+            <column name="datedebutaffaire" length="13" />
+        </property>
+        <property name="datefinaffaire" type="date">
+            <column name="datefinaffaire" length="13" />
+        </property>
+        <property name="descprojet" type="string">
+            <column name="descprojet" length="254" />
+        </property>
+        <property name="montantaffaire" type="big_decimal">
+            <column name="montantaffaire" precision="131089" scale="0" />
+        </property>
+        <property name="dateintervention" type="date">
+            <column name="dateintervention" length="13" />
+        </property>
+        <property name="lieuintervention" type="string">
+            <column name="lieuintervention" length="254" />
+        </property>
+        <property name="typeprojet" type="string">
+            <column name="typeprojet" length="254" />
+        </property>
+        <set name="factures" inverse="true">
             <key>
                 <column name="idprojet" length="254" not-null="true" />
             </key>
-            <one-to-many class="com.lds.vo.Intervention" />
+            <one-to-many class="com.lds.vo.Facture" />
         </set>
-        <set name="affaires" inverse="true">
+        <set name="bonsorties" inverse="true">
             <key>
                 <column name="idprojet" length="254" not-null="true" />
             </key>
-            <one-to-many class="com.lds.vo.Affaire" />
+            <one-to-many class="com.lds.vo.Bonsortie" />
         </set>
-        <set name="reservations" inverse="true">
+        <set name="boncommandes" inverse="true">
             <key>
-                <column name="idprojet" length="254" />
+                <column name="idprojet" length="254" not-null="true" />
             </key>
-            <one-to-many class="com.lds.vo.Reservation" />
+            <one-to-many class="com.lds.vo.Boncommande" />
+        </set>
+        <set name="taches" inverse="true">
+            <key>
+                <column name="idprojet" length="254" not-null="true" />
+            </key>
+            <one-to-many class="com.lds.vo.Tache" />
         </set>
         <set name="besoins" inverse="true">
             <key>

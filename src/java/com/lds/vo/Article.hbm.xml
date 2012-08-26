@@ -1,20 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 20 juil. 2012 18:55:36 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Article" table="article" schema="public">
-        <composite-id name="id" class="com.lds.vo.ArticleId">
-            <key-property name="idelement" type="string">
-                <column name="idelement" length="254" />
-            </key-property>
-            <key-property name="idarticle" type="string">
-                <column name="idarticle" length="254" />
-            </key-property>
-        </composite-id>
-        <many-to-one name="element" class="com.lds.vo.Element" update="false" insert="false" fetch="select">
-            <column name="idelement" length="254" not-null="true" />
-        </many-to-one>
+        <id name="idarticle" type="string">
+            <column name="idarticle" length="254" />
+            <generator class="assigned" />
+        </id>
         <property name="descarticle" type="string">
             <column name="descarticle" length="254" />
         </property>
@@ -24,5 +17,29 @@
         <property name="marque" type="string">
             <column name="marque" length="254" />
         </property>
+        <set name="detailssortiearticles" inverse="true">
+            <key>
+                <column name="idarticle" length="254" not-null="true" />
+            </key>
+            <one-to-many class="com.lds.vo.Detailssortiearticle" />
+        </set>
+        <set name="detailsbcarticles" inverse="true">
+            <key>
+                <column name="idarticle" length="254" not-null="true" />
+            </key>
+            <one-to-many class="com.lds.vo.Detailsbcarticle" />
+        </set>
+        <set name="detailsbrarticles" inverse="true">
+            <key>
+                <column name="idarticle" length="254" not-null="true" />
+            </key>
+            <one-to-many class="com.lds.vo.Detailsbrarticle" />
+        </set>
+        <set name="detailsdemandearticles" inverse="true">
+            <key>
+                <column name="idarticle" length="254" not-null="true" />
+            </key>
+            <one-to-many class="com.lds.vo.Detailsdemandearticle" />
+        </set>
     </class>
 </hibernate-mapping>

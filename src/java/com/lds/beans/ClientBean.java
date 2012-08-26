@@ -23,9 +23,7 @@ public class ClientBean implements Serializable {
   
     private List<Client> clients;  
   
-    private Client selectedClient;  
-  
-    private Client[] selectedClients;
+    private Client selectedClient;        
     
     private  Client clt;
     private  ClientHDao dao;
@@ -89,13 +87,14 @@ public class ClientBean implements Serializable {
 
         for (Client client : clients) {
             if (client.getIdclient().equals(clt.getIdclient())) {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Cet client existe dejà !", "Veuillez changer le Code client."));
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Ce client existe dejà !", "Veuillez changer le Code du client."));
                 return "echecAjout";
             }
         }
         //sinon
         
         dao.insert(clt);
+        clt=new Client();
         clients = dao.getAllClients();
         mediumClientsModel = new ClientDataModel(clients);
         return "succesAjout";

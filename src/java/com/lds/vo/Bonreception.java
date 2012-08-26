@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 20 juil. 2012 18:55:33 by Hibernate Tools 3.2.1.GA
+// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -13,9 +13,11 @@ public class Bonreception  implements java.io.Serializable {
 
 
      private String numreception;
+     private Fourniture fourniture;
      private Boncommande boncommande;
      private Date datereception;
-     private Set detailsbrelements = new HashSet(0);
+     private Integer qntlivre;
+     private Set detailsbrarticles = new HashSet(0);
 
     public Bonreception() {
     }
@@ -25,11 +27,13 @@ public class Bonreception  implements java.io.Serializable {
         this.numreception = numreception;
         this.boncommande = boncommande;
     }
-    public Bonreception(String numreception, Boncommande boncommande, Date datereception, Set detailsbrelements) {
+    public Bonreception(String numreception, Fourniture fourniture, Boncommande boncommande, Date datereception, Integer qntlivre, Set detailsbrarticles) {
        this.numreception = numreception;
+       this.fourniture = fourniture;
        this.boncommande = boncommande;
        this.datereception = datereception;
-       this.detailsbrelements = detailsbrelements;
+       this.qntlivre = qntlivre;
+       this.detailsbrarticles = detailsbrarticles;
     }
    
     public String getNumreception() {
@@ -38,6 +42,13 @@ public class Bonreception  implements java.io.Serializable {
     
     public void setNumreception(String numreception) {
         this.numreception = numreception;
+    }
+    public Fourniture getFourniture() {
+        return this.fourniture;
+    }
+    
+    public void setFourniture(Fourniture fourniture) {
+        this.fourniture = fourniture;
     }
     public Boncommande getBoncommande() {
         return this.boncommande;
@@ -53,12 +64,19 @@ public class Bonreception  implements java.io.Serializable {
     public void setDatereception(Date datereception) {
         this.datereception = datereception;
     }
-    public Set getDetailsbrelements() {
-        return this.detailsbrelements;
+    public Integer getQntlivre() {
+        return this.qntlivre;
     }
     
-    public void setDetailsbrelements(Set detailsbrelements) {
-        this.detailsbrelements = detailsbrelements;
+    public void setQntlivre(Integer qntlivre) {
+        this.qntlivre = qntlivre;
+    }
+    public Set getDetailsbrarticles() {
+        return this.detailsbrarticles;
+    }
+    
+    public void setDetailsbrarticles(Set detailsbrarticles) {
+        this.detailsbrarticles = detailsbrarticles;
     }
 
 

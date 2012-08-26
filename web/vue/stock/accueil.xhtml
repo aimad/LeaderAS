@@ -14,7 +14,7 @@
         <link  rel="stylesheet" type="text/css" href="../../default.css" />
     </h:head>
     <h:body>
-        <div id="menu">
+          <div id="menu">
             <ul>
                  <li><a href="../accueil.xhtml?id=-1" accesskey="1">Accueil</a></li>
                 <li class="active"><a href="accueil.xhtml" accesskey="2">Section Vue</a></li>
@@ -27,17 +27,13 @@
             <h1>Leader Automation Systems</h1>
             <h2>Une passion pour un m&eacute;tier , Un travail de Qualit&eacute; !</h2>
         </div>
-        <div id="wrapper">
-            <div id="content">
-                <h2 class="title">Gestion du Stock : </h2><br/> <br/>
-                <div id="posts"></div>
-            </div>
-            <div id="links">
+  
+        <div id="links">
                 <ul>
                     <li>
                         <h2>Compte</h2>
                        <ul>
-                           <li><img src="../images/user2.png" id="user1" /></li>
+                           <li><img src="../../images/user2.png" id="user1" /></li>
                             <li>  
                                 <h:form>
                                 <p:commandLink id="ajax"  action="#{personBean.logout()}" style="margin-right:20px;">  
@@ -59,12 +55,154 @@
                     </li>
                 </ul>
             </div>
-            <div style="clear: both;">&nbsp;</div>
-        </div>
+  
+      
+         <div id="wrapper">
+             
+            <div id="content">
+                <h2 class="title">Gestion du Stock : </h2><br/> <br/>
+     <h:form id="form">  
+    <p:tabView id="tabView"  cache="true">  
+        <p:tab id="tba1" title="Liste des articles" >  
+  <p:dataTable transient="true" emptyMessage="" >
+                            <f:facet name="header">  
+                               Liste des articles
+                            </f:facet>  
+                        </p:dataTable>
+    
+           <!-- <h:panelGrid columns="2" cellpadding="10">  -->
+                <p:growl id="growl" showDetail="true"  /> 
+                    <p:dataTable  var="article" value="#{articleBean.mediumArticlesModel}" rowKey="#{article.idarticle}" paginator="true" rows="10"   
+                                 selection="#{articleBean.selectedArticle}"  lazy="true" selectionMode="single"  id="articleTable"  >                             
+  
+                        <p:column headerText="N° Article " sortBy="#{article.idarticle}" id="idarticle" filterBy="#{article.idarticle}" >  
+                            <h:outputText value="#{article.idarticle}"  />
+                        </p:column> 
+                        <p:column headerText="Désignation  " sortBy="#{article.descarticle}" id="nom" filterBy="#{article.descarticle}" >  
+                            <h:outputText value="#{article.descarticle}" />
+                        </p:column>  
+
+                        <p:column headerText="Quantité " sortBy="#{article.qntarticle}"  id="email" filterBy="#{article.qntarticle}">  
+                            <h:outputText value="#{article.qntarticle}" />
+                        </p:column>  
+
+                        <p:column headerText="Marque" sortBy="#{article.marque}"  id="tel" filterBy="#{article.marque}">  
+                            <h:outputText value="#{article.marque}"  />
+                        </p:column>  
+
+                        <f:facet name="footer">                              
+                            <p:commandButton id="viewCommand" value="Ajouter" icon="ui-icon-add"  action="article_ajout" /> 
+                            
+                            <p:commandButton id="ModifButton" value="Modifier" icon="ui-icon-search" action="#{articleBean.modif()}" update="growl" ajax="false"/> 
+                            
+                            
+
+                          <p:commandButton id="showDialogButton" value="Supprimer" onclick="confirmation.show()" type="button" icon="ui-icon-close" />  
+
+                            <p:confirmDialog id="confirmDialog" message="Etes vous sûr de supprimer cet employé ?"  
+                                             header="Confirmation" severity="alert" widgetVar="confirmation">                                                                  
+                                
+                                <p:commandButton id="confirm" value="OUI" oncomplete="confirmation.hide()" actionListener="#{articleBean.supprimer}" ajax="false" update="growl"/>
+                                <p:commandButton id="decline" value="NON" onclick="confirmation.hide()" type="button" />   
+                        
+
+                            </p:confirmDialog>
+                        </f:facet> 
+                    </p:dataTable>                                             
+                    
+                        <!--</h:panelGrid>  -->
+        </p:tab>  
+  
+        <p:tab id="tab2" title="Liste des fournitures">  
+            <p:dataTable transient="true" emptyMessage="" >
+                            <f:facet name="header">  
+                               Liste des fournitures
+                            </f:facet>  
+                        </p:dataTable>
+    
+           <!-- <h:panelGrid columns="2" cellpadding="10">  -->
+                <p:growl id="growl1" showDetail="true"  /> 
+                    <p:dataTable  var="fourniture" value="#{fournitureBean.mediumFournituresModel}" rowKey="#{fourniture.numfourniture}" paginator="true" rows="10"   
+                                 selection="#{fournitureBean.selectedFourniture}"  lazy="true" selectionMode="single"  id="fournitureTable"  >                             
+  
+                        <p:column headerText="N° Fourniture " sortBy="#{fourniture.numfourniture}" id="idarticle" filterBy="#{fourniture.numfourniture}" >  
+                            <h:outputText value="#{fourniture.numfourniture}"  />
+                        </p:column> 
+                        <p:column headerText="Désignation  " sortBy="#{fourniture.descfourniture}" id="nom" filterBy="#{fourniture.descfourniture}" >  
+                            <h:outputText value="#{fourniture.descfourniture}" />
+                        </p:column>  
+
+                        <p:column headerText="Quantité " sortBy="#{fourniture.qntfourniture}"  id="email" filterBy="#{fourniture.qntfourniture}">  
+                            <h:outputText value="#{fourniture.qntfourniture}" />
+                        </p:column>  
+ 
+         </p:dataTable>
+        </p:tab>  
+  
+        <p:tab id="tab3" title="Bon de sortie">  
+           
+                    
+           <!-- <h:panelGrid columns="2" cellpadding="10">  -->
+                <p:growl id="growl3" showDetail="true"  /> 
+                    <p:dataTable  var="sortie" value="#{sortieBean.mediumBonsortiesModel}" rowKey="#{sortie.idsortie}" paginator="true" rows="10"   
+                                 selection="#{sortieBean.selectedBonsortie}" lazy="true"  selectionMode="single"  id="sortieTable"  >                             
+  
+                        <p:column headerText="N° Bon de sortie " sortBy="#{sortie.idsortie}" id="idarticle" filterBy="#{sortie.idsortie}" >  
+                            <h:outputText value="#{sortie.idsortie}"  />
+                        </p:column> 
+                        <p:column headerText="Date  " sortBy="#{sortie.datesortie}" id="nom" filterBy="#{sortie.datesortie}" >  
+                            <h:outputText value="#{sortie.datesortie}" />
+                        </p:column>  
+
+                        <p:column headerText="Déscription " sortBy="#{sortie.descsortie}"  id="email" filterBy="#{sortie.descsortie}">  
+                            <h:outputText value="#{sortie.descsortie}" />
+                        </p:column>  
+
+                        <p:column headerText="N° personnel" sortBy="#{sortie.personnel.idpersonnel}"  id="tel" filterBy="#{sortie.personnel.idpersonnel}">  
+                            <h:outputText value="#{sortie.personnel.idpersonnel}"  />
+                        </p:column>  
+
+                        <f:facet name="footer">                              
+                            <p:commandButton id="viewCommand" value="Ajouter" icon="ui-icon-add"  action="sortie_ajout" /> 
+                            
+                            <p:commandButton id="ModifButton" value="Modifier" icon="ui-icon-search" action="#{sortieBean.modif()}" update="growl" ajax="false"/> 
+                            <p:commandButton id="detailsButton" value="Détails" icon="ui-icon-search" action="#{sortieBean.details()}" update="growl" ajax="false"/> 
+                            <p:commandButton id="showDialogButton" value="Supprimer" onclick="confirmation.show()" type="button" icon="ui-icon-close" />  
+
+                            <p:confirmDialog id="confirmDialog" message="Etes vous sûr de supprimer cet Article ?"  
+                                             header="Confirmation" severity="alert" widgetVar="confirmation">                                                                  
+                                
+                                <p:commandButton id="confirm" value="OUI" oncomplete="confirmation.hide()" actionListener="#{sortieBean.supprimer}" ajax="false" update="growl"/>
+                                <p:commandButton id="decline" value="NON" onclick="confirmation.hide()" type="button" />   
+                        
+
+                            </p:confirmDialog>
+                        </f:facet> 
+                    </p:dataTable>   
+  
+        </p:tab>  
+  
+        
+        <p:tab id="tab4" title="bon de livraison">  
+            <h:panelGrid columns="2" cellpadding="10">  
+                <h:outputText value="After a break of more than 15 years, director Francis Ford Coppola and writer Mario Puzo returned to the well for this third and final story of the fictional Corleone crime family.  
+                    Two decades have passed, and crime kingpin Michael Corleone, now divorced from his wife Kay has nearly succeeded in keeping his promise that his family would one day be completely legitimate."/>  
+            </h:panelGrid>  
+        </p:tab>  
+    </p:tabView> 
+          </h:form>
+           </div>
+               <div style="clear: both;">&nbsp;</div>
+        
+
+            <div class="clearfooter"></div>
+      
+         
         <div id="footer">
             <p id="legal">Copyright &copy; 2012 Leader Automation Systems. Designed by <a href="http://www.facebook.com/elkaoumi">ELKAOUMI / ZARE</a></p>
             <p id="brand">Leader Automation Systems</p>
         </div>
+            </div>
     </h:body>
 </html>
 

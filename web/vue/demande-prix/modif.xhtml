@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p ="http://primefaces.org/ui"    >
+
+    <f:event listener="#{droitBean.authorize()}" type="preRenderView" />
+
+    <h:head>
+        <title>LDS/accueil</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link  rel="stylesheet" type="text/css" href="../../style.css" />
+    </h:head>
+    <h:body>
+        <div id="menu">
+            <ul>
+                <li><a href="../accueil.xhtml" accesskey="1">Accueil</a></li>
+                <li class="active"><a href="ajout.xhtml" accesskey="2">Section Vue</a></li>
+                <li><a href="../paramCompte.xhtml" accesskey="3">Compte</a></li>
+                <li><a href="../about.xhtml" accesskey="4">About</a></li>
+
+            </ul>
+        </div>
+        <div id="header1">
+            <h1>Leader Automation Systems</h1>
+            <h2>Une passion pour un m&eacute;tier , Un travail de Qualit&eacute; !</h2>
+        </div>
+        <div id="links">
+            <ul>
+                <li>
+                    <h2>Compte</h2>
+                    <ul>
+                        <li><img src="../../images/user2.png" id="user1" /></li>
+                        <li>  
+                            <h:form>
+                                <p:commandLink id="ajax"  action="#{personBean.logout()}" style="margin-right:20px;">  
+                                    <h:outputText value="Déconnexion" />  
+                                </p:commandLink>  </h:form></li>
+                        <li> <h:form>
+                                <p:commandLink id="ajax1"  action="paramCompte" style="margin-right:20px;" >  
+                                    <h:outputText value="Paramètres du Compte" />  
+                                </p:commandLink>  </h:form></li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>MENU</h2>
+                    <ul>
+                        <ui:repeat var="menu" value="#{droitBean.chargeMenu()}" varStatus="status">
+                            <li><a href="#{menu.lienpriv}">#{menu.nompriv}</a></li>
+                        </ui:repeat>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="wrapper">
+            <div id="content">
+                <h2 class="title">Demandes de Prix : </h2><br/> <br/> 
+             <h:form  >  
+
+                    <p:panel>  
+                        <p:dataTable transient="true" emptyMessage="" >
+                            <f:facet name="header">  
+                               Modifier une Demande  
+                            </f:facet>  
+                        </p:dataTable> 
+
+                        <p:messages id="messages" />
+
+                        <h:panelGrid columns="2" cellpadding="5"  >  
+                            <h:outputText value="N° demande: *"  />  
+                            <p:inputText value="#{dprixBean.selectedDemandeprix.referencedemandeprix}" required="true" requiredMessage="Veuillez saisir un numéro!" readonly="true" />                              
+
+                            <h:outputText value="Date : " />  
+                            <p:calendar value="#{dprixBean.selectedDemandeprix.datedemandeprix}" id="popupCal" locale="fr" pattern="dd/MM/yyyy" mindate="#{currentDate}">                               
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+
+                            <h:outputText value="Articles : " />  
+
+                            <p:dataTable id="multiArt" var="art" value="#{dprixBean.mediumArtModel}"  
+                                         selection="#{dprixBean.selectedArticles}" editable="true"  lazy="true" paginator="true" rows="5" >  
+
+
+                                <f:facet name="header">  
+                                    Sélectionner les articles  
+                                </f:facet>           
+
+                                <p:column selectionMode="multiple" style="width:18px" />
+
+                                <p:column headerText="Désignation" style="width:125px">                                       
+                                    #{art.descarticle}
+                                </p:column >
+
+                                <p:column headerText="Quantité" style="width:125px">  
+                                    <p:cellEditor>  
+                                        <f:facet name="output">  
+                                            <h:outputText value="#{art.qntarticle}" />  
+                                        </f:facet>  
+                                        <f:facet name="input">  
+                                            <p:inputText value="#{art.qntarticle}" style="width:100%" label="Quantité"/>  
+                                        </f:facet>  
+                                    </p:cellEditor>  
+                                </p:column>
+
+                                <p:column headerText="Options" style="width:50px">  
+                                    <p:rowEditor />  
+                                </p:column>                                 
+                            </p:dataTable>   
+
+                            <h:outputText value="Fournisseurs : " /> 
+                            <p:inputText value="#{dprixBean.selectedDemandeprix.fournisseur}" readonly="true" />                              
+                           <!-- <p:dataTable id="multiFourn" var="fourn" value="#{dprixBean.mediumFournModel}"  
+                                         selection="#{dprixBean.selectedFournisseurs}" lazy="true" paginator="true" rows="5" >  
+
+
+                                <f:facet name="header">  
+                                    Sélectionner les Fournisseurs  
+                                </f:facet>           
+
+                                <p:column selectionMode="multiple" style="width:18px" />
+
+                                <p:column headerText="Nom Fournisseur" style="width:125px">                                       
+                                    #{fourn.nom}
+                                </p:column >
+
+                            </p:dataTable> -->
+
+                            <p:commandButton value="Réinitialiser" type="reset" icon="ui-icon-arrowrefresh-1-w" />  
+                            <p:commandButton value="Enregistrer" action="#{dprixBean.ajouter}" ajax="false" type="submit" icon="ui-icon-disk" /> 
+                            <p:commandButton value="Imprimer" icon="ui-icon-print" action="#{dprixBean.print}" update="growl" ajax="false" /> 
+
+                        </h:panelGrid>                           
+
+                    </p:panel> 
+
+                </h:form>  
+
+            </div>
+
+            <div style="clear: both;">&nbsp;</div>
+        </div>
+
+        <div id="footer">
+            <p id="legal">Copyright &copy; 2012 Leader Automation Systems. Designed by <a href="http://www.facebook.com/elkaoumi">ELKAOUMI / ZARE</a></p>
+            <p id="brand">Leader Automation Systems</p>
+        </div>
+    </h:body>
+
+</html>
+

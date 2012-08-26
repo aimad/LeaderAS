@@ -45,6 +45,18 @@ public class PersonnelHDao implements PersonnelDao {
             session.close();
         }
     }
+    @Override
+     public Personnel getNomPersonnel(String id) {
+        Session session = HibernateUtil.getSession();
+        try {
+            session.beginTransaction();
+            Query q = session.createQuery("from Personnel as c where c.nom =:id");
+            q.setString("id", id);
+            return (Personnel) q.uniqueResult();
+        } finally {
+            session.close();
+        }
+    }
 
     @Override
     public void update(Personnel personnel) {

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.lds.vo.Detailsarticlebesoin" table="detailsarticlebesoin" schema="public">
+        <composite-id name="id" class="com.lds.vo.DetailsarticlebesoinId">
+            <key-property name="idbesoin" type="string">
+                <column name="idbesoin" length="254" />
+            </key-property>
+            <key-property name="idarticle" type="string">
+                <column name="idarticle" length="254" />
+            </key-property>
+        </composite-id>
+        <property name="qntbesoin" type="java.lang.Integer">
+            <column name="qntbesoin" />
+        </property>
+    </class>
+</hibernate-mapping>

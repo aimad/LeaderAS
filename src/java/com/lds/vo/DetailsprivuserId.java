@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 20 juil. 2012 18:55:33 by Hibernate Tools 3.2.1.GA
+// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
 
 
 
@@ -36,7 +36,6 @@ public class DetailsprivuserId  implements java.io.Serializable {
     }
 
 
-    @Override
    public boolean equals(Object other) {
          if ( (this == other ) ) return true;
 		 if ( (other == null ) ) return false;

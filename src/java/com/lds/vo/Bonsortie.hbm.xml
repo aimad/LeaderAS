@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 20 juil. 2012 18:55:36 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Bonsortie" table="bonsortie" schema="public">
         <id name="idsortie" type="string">
             <column name="idsortie" length="254" />
             <generator class="assigned" />
         </id>
+        <many-to-one name="projet" class="com.lds.vo.Projet" fetch="select">
+            <column name="idprojet" length="254" not-null="true" />
+        </many-to-one>
         <many-to-one name="personnel" class="com.lds.vo.Personnel" fetch="select">
             <column name="idpersonnel" length="254" not-null="true" />
         </many-to-one>
@@ -17,11 +20,17 @@
         <property name="descsortie" type="string">
             <column name="descsortie" length="254" />
         </property>
-        <set name="detailssortieelements" inverse="true">
+        <set name="detailssortiefournitures" inverse="true">
             <key>
                 <column name="idsortie" length="254" not-null="true" />
             </key>
-            <one-to-many class="com.lds.vo.Detailssortieelement" />
+            <one-to-many class="com.lds.vo.Detailssortiefourniture" />
+        </set>
+        <set name="detailssortiearticles" inverse="true">
+            <key>
+                <column name="idsortie" length="254" not-null="true" />
+            </key>
+            <one-to-many class="com.lds.vo.Detailssortiearticle" />
         </set>
     </class>
 </hibernate-mapping>

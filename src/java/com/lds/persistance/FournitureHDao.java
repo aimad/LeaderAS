@@ -4,9 +4,7 @@
  */
 package com.lds.persistance;
 
-import com.lds.vo.Fournisseur;
 import com.lds.vo.Fourniture;
-import com.lds.vo.FournitureId;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -37,11 +35,11 @@ private List<Fourniture> fournitureList;
     }
 
     @Override
-    public Fourniture getFourniture(FournitureId id) {
+    public Fourniture getFourniture(String id) {
         Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("from Fourniture  where idelement='"+id.getIdelement()+"' and numfourniture='"+id.getNumfourniture()+"'");
+            Query q = session.createQuery("from Fourniture  where numfourniture='"+id+"'");
             return (Fourniture) q.uniqueResult();
         } finally {
             session.close();
@@ -85,7 +83,7 @@ private List<Fourniture> fournitureList;
     }
 
     @Override
-    public void delete(FournitureId id) {
+    public void delete(String id) {
         Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {

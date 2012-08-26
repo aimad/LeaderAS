@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 20 juil. 2012 18:55:33 by Hibernate Tools 3.2.1.GA
+// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -26,7 +26,6 @@ public class Personnel  implements java.io.Serializable {
      private Set bonsorties = new HashSet(0);
      private Set detailsprivusers = new HashSet(0);
      private Set detailstachepersonnels = new HashSet(0);
-     private Set reservations = new HashSet(0);
 
     public Personnel() {
     }
@@ -36,7 +35,7 @@ public class Personnel  implements java.io.Serializable {
         this.idpersonnel = idpersonnel;
         this.typeuser = typeuser;
     }
-    public Personnel(String idpersonnel, Typeuser typeuser, String nom, String prenom, Date datenaissance, String adresse, String tel, String email, String description, String fonction, String password, Set bonsorties, Set detailsprivusers, Set detailstachepersonnels, Set reservations) {
+    public Personnel(String idpersonnel, Typeuser typeuser, String nom, String prenom, Date datenaissance, String adresse, String tel, String email, String description, String fonction, String password, Set bonsorties, Set detailsprivusers, Set detailstachepersonnels) {
        this.idpersonnel = idpersonnel;
        this.typeuser = typeuser;
        this.nom = nom;
@@ -51,7 +50,6 @@ public class Personnel  implements java.io.Serializable {
        this.bonsorties = bonsorties;
        this.detailsprivusers = detailsprivusers;
        this.detailstachepersonnels = detailstachepersonnels;
-       this.reservations = reservations;
     }
    
     public String getIdpersonnel() {
@@ -151,13 +149,6 @@ public class Personnel  implements java.io.Serializable {
     
     public void setDetailstachepersonnels(Set detailstachepersonnels) {
         this.detailstachepersonnels = detailstachepersonnels;
-    }
-    public Set getReservations() {
-        return this.reservations;
-    }
-    
-    public void setReservations(Set reservations) {
-        this.reservations = reservations;
     }
 
 

@@ -32,17 +32,17 @@
                 <li>
                     <h2>Compte</h2>
                     <ul>
-                           <li><img src="../../images/user2.png" id="user1" /></li>
-                            <li>  
-                                <h:form>
+                        <li><img src="../../images/user2.png" id="user1" /></li>
+                        <li>  
+                            <h:form>
                                 <p:commandLink id="ajax"  action="#{personBean.logout()}" style="margin-right:20px;">  
-                                         <h:outputText value="Déconnexion" />  
-                                    </p:commandLink>  </h:form></li>
-                             <li> <h:form>
+                                    <h:outputText value="Déconnexion" />  
+                                </p:commandLink>  </h:form></li>
+                        <li> <h:form>
                                 <p:commandLink id="ajax1"  action="paramCompte" style="margin-right:20px;" >  
-                                         <h:outputText value="Paramètres du Compte" />  
-                                    </p:commandLink>  </h:form></li>
-                        </ul>
+                                    <h:outputText value="Paramètres du Compte" />  
+                                </p:commandLink>  </h:form></li>
+                    </ul>
                 </li>
                 <li>
                     <h2>MENU</h2>
@@ -70,28 +70,28 @@
                         <p:messages id="messages" />
 
                         <h:panelGrid columns="2" cellpadding="5" >  
-                            <h:outputText value="Numéro du client : *" />  
+                            <h:outputText value="Numéro Client : *" />  
                             <p:inputText value="#{clientBean.clt.idclient}" required="true" requiredMessage="Veuillez saisir un numéro de client!"/>  
 
-                            <h:outputText value="Désignation : " />  
+                            <h:outputText value="Nom/Société : " />  
                             <p:inputText value="#{clientBean.clt.nomclient}" />                             
-                            
+
                             <h:outputText value="Téléphone : " />  
                             <p:inputMask value="#{clientBean.clt.tel}" mask="9999999999" />    
-                            
+
                             <h:outputText value="Fax : " />  
                             <p:inputMask value="#{clientBean.clt.fax}" mask="9999999999" />  
                             
-                            <h:outputText value="Adresse : " />  
-                            <p:inputText value="#{clientBean.clt.adresse}" />                                                                                                                                              
-
-                            <h:outputText value="Email: " />  
+                             <h:outputText value="Email: " />  
                             <p:inputText value="#{clientBean.clt.email}"  />
+
+                            <h:outputText value="Adresse : " />  
+                            <p:inputText value="#{clientBean.clt.adresse}" />                                                                                                                                                                        
 
                             <h:outputText value="Description : " /> 
                             <p:inputTextarea rows="5" cols="30" maxlength="50"  value="#{clientBean.clt.description}" autoResize="false" /> 
 
-                            <p:commandButton value="Réinitialiser" type="reset" icon="ui-icon-arrowrefresh-1-w" />  
+                            <p:commandButton value="Réinitialiser"  type="reset"  icon="ui-icon-arrowrefresh-1-w" />  
                             <p:commandButton value="Enregistrer" action="#{clientBean.ajouter}" ajax="false" type="submit" icon="ui-icon-disk" />  
 
                         </h:panelGrid>                           

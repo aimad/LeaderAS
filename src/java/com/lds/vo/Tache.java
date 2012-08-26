@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 20 juil. 2012 18:55:33 by Hibernate Tools 3.2.1.GA
+// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -12,7 +12,7 @@ public class Tache  implements java.io.Serializable {
 
 
      private String numtache;
-     private Affaire affaire;
+     private Projet projet;
      private String designationtache;
      private Integer durefabrication;
      private String lienimplemenation;
@@ -25,13 +25,13 @@ public class Tache  implements java.io.Serializable {
     }
 
 	
-    public Tache(String numtache, Affaire affaire) {
+    public Tache(String numtache, Projet projet) {
         this.numtache = numtache;
-        this.affaire = affaire;
+        this.projet = projet;
     }
-    public Tache(String numtache, Affaire affaire, String designationtache, Integer durefabrication, String lienimplemenation, String lienschema, String lieutache, String typetache, Set detailstachepersonnels) {
+    public Tache(String numtache, Projet projet, String designationtache, Integer durefabrication, String lienimplemenation, String lienschema, String lieutache, String typetache, Set detailstachepersonnels) {
        this.numtache = numtache;
-       this.affaire = affaire;
+       this.projet = projet;
        this.designationtache = designationtache;
        this.durefabrication = durefabrication;
        this.lienimplemenation = lienimplemenation;
@@ -48,12 +48,12 @@ public class Tache  implements java.io.Serializable {
     public void setNumtache(String numtache) {
         this.numtache = numtache;
     }
-    public Affaire getAffaire() {
-        return this.affaire;
+    public Projet getProjet() {
+        return this.projet;
     }
     
-    public void setAffaire(Affaire affaire) {
-        this.affaire = affaire;
+    public void setProjet(Projet projet) {
+        this.projet = projet;
     }
     public String getDesignationtache() {
         return this.designationtache;

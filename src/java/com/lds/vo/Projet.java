@@ -1,7 +1,9 @@
 package com.lds.vo;
-// Generated 20 juil. 2012 18:55:33 by Hibernate Tools 3.2.1.GA
+// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
 
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,9 +15,17 @@ public class Projet  implements java.io.Serializable {
 
      private String idprojet;
      private Client client;
-     private Set interventions = new HashSet(0);
-     private Set affaires = new HashSet(0);
-     private Set reservations = new HashSet(0);
+     private Date datedebutaffaire;
+     private Date datefinaffaire;
+     private String descprojet;
+     private BigDecimal montantaffaire;
+     private Date dateintervention;
+     private String lieuintervention;
+     private String typeprojet;
+     private Set factures = new HashSet(0);
+     private Set bonsorties = new HashSet(0);
+     private Set boncommandes = new HashSet(0);
+     private Set taches = new HashSet(0);
      private Set besoins = new HashSet(0);
 
     public Projet() {
@@ -26,12 +36,20 @@ public class Projet  implements java.io.Serializable {
         this.idprojet = idprojet;
         this.client = client;
     }
-    public Projet(String idprojet, Client client, Set interventions, Set affaires, Set reservations, Set besoins) {
+    public Projet(String idprojet, Client client, Date datedebutaffaire, Date datefinaffaire, String descprojet, BigDecimal montantaffaire, Date dateintervention, String lieuintervention, String typeprojet, Set factures, Set bonsorties, Set boncommandes, Set taches, Set besoins) {
        this.idprojet = idprojet;
        this.client = client;
-       this.interventions = interventions;
-       this.affaires = affaires;
-       this.reservations = reservations;
+       this.datedebutaffaire = datedebutaffaire;
+       this.datefinaffaire = datefinaffaire;
+       this.descprojet = descprojet;
+       this.montantaffaire = montantaffaire;
+       this.dateintervention = dateintervention;
+       this.lieuintervention = lieuintervention;
+       this.typeprojet = typeprojet;
+       this.factures = factures;
+       this.bonsorties = bonsorties;
+       this.boncommandes = boncommandes;
+       this.taches = taches;
        this.besoins = besoins;
     }
    
@@ -49,26 +67,82 @@ public class Projet  implements java.io.Serializable {
     public void setClient(Client client) {
         this.client = client;
     }
-    public Set getInterventions() {
-        return this.interventions;
+    public Date getDatedebutaffaire() {
+        return this.datedebutaffaire;
     }
     
-    public void setInterventions(Set interventions) {
-        this.interventions = interventions;
+    public void setDatedebutaffaire(Date datedebutaffaire) {
+        this.datedebutaffaire = datedebutaffaire;
     }
-    public Set getAffaires() {
-        return this.affaires;
-    }
-    
-    public void setAffaires(Set affaires) {
-        this.affaires = affaires;
-    }
-    public Set getReservations() {
-        return this.reservations;
+    public Date getDatefinaffaire() {
+        return this.datefinaffaire;
     }
     
-    public void setReservations(Set reservations) {
-        this.reservations = reservations;
+    public void setDatefinaffaire(Date datefinaffaire) {
+        this.datefinaffaire = datefinaffaire;
+    }
+    public String getDescprojet() {
+        return this.descprojet;
+    }
+    
+    public void setDescprojet(String descprojet) {
+        this.descprojet = descprojet;
+    }
+    public BigDecimal getMontantaffaire() {
+        return this.montantaffaire;
+    }
+    
+    public void setMontantaffaire(BigDecimal montantaffaire) {
+        this.montantaffaire = montantaffaire;
+    }
+    public Date getDateintervention() {
+        return this.dateintervention;
+    }
+    
+    public void setDateintervention(Date dateintervention) {
+        this.dateintervention = dateintervention;
+    }
+    public String getLieuintervention() {
+        return this.lieuintervention;
+    }
+    
+    public void setLieuintervention(String lieuintervention) {
+        this.lieuintervention = lieuintervention;
+    }
+    public String getTypeprojet() {
+        return this.typeprojet;
+    }
+    
+    public void setTypeprojet(String typeprojet) {
+        this.typeprojet = typeprojet;
+    }
+    public Set getFactures() {
+        return this.factures;
+    }
+    
+    public void setFactures(Set factures) {
+        this.factures = factures;
+    }
+    public Set getBonsorties() {
+        return this.bonsorties;
+    }
+    
+    public void setBonsorties(Set bonsorties) {
+        this.bonsorties = bonsorties;
+    }
+    public Set getBoncommandes() {
+        return this.boncommandes;
+    }
+    
+    public void setBoncommandes(Set boncommandes) {
+        this.boncommandes = boncommandes;
+    }
+    public Set getTaches() {
+        return this.taches;
+    }
+    
+    public void setTaches(Set taches) {
+        this.taches = taches;
     }
     public Set getBesoins() {
         return this.besoins;

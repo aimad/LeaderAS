@@ -5,7 +5,6 @@
 package com.lds.persistance;
 
 import com.lds.vo.Article;
-import com.lds.vo.ArticleId;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -36,13 +35,12 @@ public class ArticleHDao implements ArticleDao {
     }
 
     @Override
-    public Article getArticle(ArticleId id) {
+    public Article getArticle(String id) {
         Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("from Article  where idelement=:idelement and idarticle=:idarticle");
-            q.setString("idelement", id.getIdelement());
-            q.setString("idarticle", id.getIdarticle());
+            Query q = session.createQuery("from Article where  idarticle=:idarticle");
+            q.setString("idarticle", id);
             return (Article) q.uniqueResult();
         } finally {
             session.close();
@@ -86,7 +84,7 @@ public class ArticleHDao implements ArticleDao {
     }
 
     @Override
-    public void delete(ArticleId id) {
+    public void delete(String id) {
         Session session = HibernateUtil.getSession();
         Transaction tx = null;
         try {

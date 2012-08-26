@@ -1,5 +1,4 @@
 package com.lds.vo;
-// Generated 20 juil. 2012 18:55:33 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -16,7 +15,7 @@ public class Besoin  implements java.io.Serializable {
      private Projet projet;
      private Date datebesoin;
      private String descbesoin;
-     private Set detailselementbesoins = new HashSet(0);
+     private Set detailsfourniturebesoins = new HashSet(0);
 
     public Besoin() {
     }
@@ -26,12 +25,12 @@ public class Besoin  implements java.io.Serializable {
         this.idbesoin = idbesoin;
         this.projet = projet;
     }
-    public Besoin(String idbesoin, Projet projet, Date datebesoin, String descbesoin, Set detailselementbesoins) {
+    public Besoin(String idbesoin, Projet projet, Date datebesoin, String descbesoin, Set detailsfourniturebesoins) {
        this.idbesoin = idbesoin;
        this.projet = projet;
        this.datebesoin = datebesoin;
        this.descbesoin = descbesoin;
-       this.detailselementbesoins = detailselementbesoins;
+       this.detailsfourniturebesoins = detailsfourniturebesoins;
     }
    
     public String getIdbesoin() {
@@ -62,12 +61,12 @@ public class Besoin  implements java.io.Serializable {
     public void setDescbesoin(String descbesoin) {
         this.descbesoin = descbesoin;
     }
-    public Set getDetailselementbesoins() {
-        return this.detailselementbesoins;
+    public Set getDetailsfourniturebesoins() {
+        return this.detailsfourniturebesoins;
     }
     
-    public void setDetailselementbesoins(Set detailselementbesoins) {
-        this.detailselementbesoins = detailselementbesoins;
+    public void setDetailsfourniturebesoins(Set detailsfourniturebesoins) {
+        this.detailsfourniturebesoins = detailsfourniturebesoins;
     }
 
 

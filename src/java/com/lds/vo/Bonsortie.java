@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 20 juil. 2012 18:55:33 by Hibernate Tools 3.2.1.GA
+// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -13,25 +13,30 @@ public class Bonsortie  implements java.io.Serializable {
 
 
      private String idsortie;
+     private Projet projet;
      private Personnel personnel;
      private Date datesortie;
      private String descsortie;
-     private Set detailssortieelements = new HashSet(0);
+     private Set detailssortiefournitures = new HashSet(0);
+     private Set detailssortiearticles = new HashSet(0);
 
     public Bonsortie() {
     }
 
 	
-    public Bonsortie(String idsortie, Personnel personnel) {
+    public Bonsortie(String idsortie, Projet projet, Personnel personnel) {
         this.idsortie = idsortie;
+        this.projet = projet;
         this.personnel = personnel;
     }
-    public Bonsortie(String idsortie, Personnel personnel, Date datesortie, String descsortie, Set detailssortieelements) {
+    public Bonsortie(String idsortie, Projet projet, Personnel personnel, Date datesortie, String descsortie, Set detailssortiefournitures, Set detailssortiearticles) {
        this.idsortie = idsortie;
+       this.projet = projet;
        this.personnel = personnel;
        this.datesortie = datesortie;
        this.descsortie = descsortie;
-       this.detailssortieelements = detailssortieelements;
+       this.detailssortiefournitures = detailssortiefournitures;
+       this.detailssortiearticles = detailssortiearticles;
     }
    
     public String getIdsortie() {
@@ -40,6 +45,13 @@ public class Bonsortie  implements java.io.Serializable {
     
     public void setIdsortie(String idsortie) {
         this.idsortie = idsortie;
+    }
+    public Projet getProjet() {
+        return this.projet;
+    }
+    
+    public void setProjet(Projet projet) {
+        this.projet = projet;
     }
     public Personnel getPersonnel() {
         return this.personnel;
@@ -62,12 +74,19 @@ public class Bonsortie  implements java.io.Serializable {
     public void setDescsortie(String descsortie) {
         this.descsortie = descsortie;
     }
-    public Set getDetailssortieelements() {
-        return this.detailssortieelements;
+    public Set getDetailssortiefournitures() {
+        return this.detailssortiefournitures;
     }
     
-    public void setDetailssortieelements(Set detailssortieelements) {
-        this.detailssortieelements = detailssortieelements;
+    public void setDetailssortiefournitures(Set detailssortiefournitures) {
+        this.detailssortiefournitures = detailssortiefournitures;
+    }
+    public Set getDetailssortiearticles() {
+        return this.detailssortiearticles;
+    }
+    
+    public void setDetailssortiearticles(Set detailssortiearticles) {
+        this.detailssortiearticles = detailssortiearticles;
     }
 
 

@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 20 juil. 2012 18:55:33 by Hibernate Tools 3.2.1.GA
+// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
 
 
 import java.math.BigDecimal;
@@ -12,7 +12,7 @@ public class Devis  implements java.io.Serializable {
 
 
      private String numdevis;
-     private Affaire affaire;
+     private String idprojet;
      private Date datedevis;
      private String liendevis;
      private BigDecimal montantdevis;
@@ -22,13 +22,13 @@ public class Devis  implements java.io.Serializable {
     }
 
 	
-    public Devis(String numdevis, Affaire affaire) {
+    public Devis(String numdevis, String idprojet) {
         this.numdevis = numdevis;
-        this.affaire = affaire;
+        this.idprojet = idprojet;
     }
-    public Devis(String numdevis, Affaire affaire, Date datedevis, String liendevis, BigDecimal montantdevis, String descdevis) {
+    public Devis(String numdevis, String idprojet, Date datedevis, String liendevis, BigDecimal montantdevis, String descdevis) {
        this.numdevis = numdevis;
-       this.affaire = affaire;
+       this.idprojet = idprojet;
        this.datedevis = datedevis;
        this.liendevis = liendevis;
        this.montantdevis = montantdevis;
@@ -42,12 +42,12 @@ public class Devis  implements java.io.Serializable {
     public void setNumdevis(String numdevis) {
         this.numdevis = numdevis;
     }
-    public Affaire getAffaire() {
-        return this.affaire;
+    public String getIdprojet() {
+        return this.idprojet;
     }
     
-    public void setAffaire(Affaire affaire) {
-        this.affaire = affaire;
+    public void setIdprojet(String idprojet) {
+        this.idprojet = idprojet;
     }
     public Date getDatedevis() {
         return this.datedevis;

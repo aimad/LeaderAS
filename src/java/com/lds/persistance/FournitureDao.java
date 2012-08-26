@@ -5,7 +5,6 @@
 package com.lds.persistance;
 
 import com.lds.vo.Fourniture;
-import com.lds.vo.FournitureId;
 import java.util.List;
 
 /**
@@ -16,11 +15,11 @@ public interface FournitureDao {
 
     public List getAllFourniture();
 
-    public Fourniture getFourniture(FournitureId id);
+    public Fourniture getFourniture(String id);
 
     public void update(Fourniture article);
 
     public void insert(Fourniture article);
 
-    public void delete(FournitureId id);
+    public void delete(String id);
 }

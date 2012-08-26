@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 20 juil. 2012 18:55:33 by Hibernate Tools 3.2.1.GA
+// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
 
 
 import java.math.BigDecimal;
@@ -14,29 +14,31 @@ public class Boncommande  implements java.io.Serializable {
 
 
      private String numbc;
-     private Affaire affaire;
      private Fournisseur fournisseur;
+     private Projet projet;
      private Date dateboncommande;
      private BigDecimal prixht;
-     private Set detailsbcelements = new HashSet(0);
+     private Set detailsbcarticles = new HashSet(0);
+     private Set fournitures = new HashSet(0);
      private Set bonreceptions = new HashSet(0);
 
     public Boncommande() {
     }
 
 	
-    public Boncommande(String numbc, Affaire affaire, Fournisseur fournisseur) {
+    public Boncommande(String numbc, Fournisseur fournisseur, Projet projet) {
         this.numbc = numbc;
-        this.affaire = affaire;
         this.fournisseur = fournisseur;
+        this.projet = projet;
     }
-    public Boncommande(String numbc, Affaire affaire, Fournisseur fournisseur, Date dateboncommande, BigDecimal prixht, Set detailsbcelements, Set bonreceptions) {
+    public Boncommande(String numbc, Fournisseur fournisseur, Projet projet, Date dateboncommande, BigDecimal prixht, Set detailsbcarticles, Set fournitures, Set bonreceptions) {
        this.numbc = numbc;
-       this.affaire = affaire;
        this.fournisseur = fournisseur;
+       this.projet = projet;
        this.dateboncommande = dateboncommande;
        this.prixht = prixht;
-       this.detailsbcelements = detailsbcelements;
+       this.detailsbcarticles = detailsbcarticles;
+       this.fournitures = fournitures;
        this.bonreceptions = bonreceptions;
     }
    
@@ -47,19 +49,19 @@ public class Boncommande  implements java.io.Serializable {
     public void setNumbc(String numbc) {
         this.numbc = numbc;
     }
-    public Affaire getAffaire() {
-        return this.affaire;
-    }
-    
-    public void setAffaire(Affaire affaire) {
-        this.affaire = affaire;
-    }
     public Fournisseur getFournisseur() {
         return this.fournisseur;
     }
     
     public void setFournisseur(Fournisseur fournisseur) {
         this.fournisseur = fournisseur;
+    }
+    public Projet getProjet() {
+        return this.projet;
+    }
+    
+    public void setProjet(Projet projet) {
+        this.projet = projet;
     }
     public Date getDateboncommande() {
         return this.dateboncommande;
@@ -75,12 +77,19 @@ public class Boncommande  implements java.io.Serializable {
     public void setPrixht(BigDecimal prixht) {
         this.prixht = prixht;
     }
-    public Set getDetailsbcelements() {
-        return this.detailsbcelements;
+    public Set getDetailsbcarticles() {
+        return this.detailsbcarticles;
     }
     
-    public void setDetailsbcelements(Set detailsbcelements) {
-        this.detailsbcelements = detailsbcelements;
+    public void setDetailsbcarticles(Set detailsbcarticles) {
+        this.detailsbcarticles = detailsbcarticles;
+    }
+    public Set getFournitures() {
+        return this.fournitures;
+    }
+    
+    public void setFournitures(Set fournitures) {
+        this.fournitures = fournitures;
     }
     public Set getBonreceptions() {
         return this.bonreceptions;

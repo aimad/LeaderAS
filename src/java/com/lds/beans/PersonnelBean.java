@@ -146,6 +146,7 @@ public class PersonnelBean implements Serializable {
        
         pers.setTypeuser(new Typeuser(typeUser));
         dao.insert(pers);
+          pers = new Personnel(); 
         personnels = dao.getAllPersonnels();
         mediumPersonnelsModel = new PersonnelDataModel(personnels);
         return "succesAjout";
@@ -249,6 +250,5 @@ public class PersonnelBean implements Serializable {
         }
         return "priv_insert";
     }
-    
    
 }

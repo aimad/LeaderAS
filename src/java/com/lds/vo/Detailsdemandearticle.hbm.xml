@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping >
+    <class name="com.lds.vo.Detailsdemandearticle" table="detailsdemandearticle" schema="public">
+        <composite-id name="id" class="com.lds.vo.DetailsdemandearticleId">
+            <key-property name="numdemandeprix" type="string">
+                <column name="numdemandeprix" length="254" />
+            </key-property>
+            <key-property name="idarticle" type="string">
+                <column name="idarticle" length="254" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="demandeprix" class="com.lds.vo.Demandeprix" update="false" insert="false" fetch="select" lazy="false" >
+            <column name="numdemandeprix" length="254" not-null="true" />
+        </many-to-one>
+        <many-to-one name="article" class="com.lds.vo.Article" update="false" insert="false" fetch="select" lazy="false" >
+            <column name="idarticle" length="254" not-null="true" />
+        </many-to-one>
+        <property name="qntdemande" type="java.lang.Integer">
+            <column name="qntdemande" />
+        </property>
+    </class>
+</hibernate-mapping>

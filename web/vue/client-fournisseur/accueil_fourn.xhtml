@@ -17,7 +17,7 @@
         <div id="menu">
             <ul>
                 <li><a href="../accueil.xhtml" accesskey="1">Accueil</a></li>
-                <li class="active"><a href="ajout.xhtml?id=5" accesskey="2">Section Vue</a></li>
+                <li class="active"><a href="accueil_fourn.xhtml?id=5" accesskey="2">Section Vue</a></li>
                 <li><a href="../paramCompte.xhtml" accesskey="3">Compte</a></li>
                 <li><a href="../about.xhtml" accesskey="4">About</a></li>
 
@@ -28,97 +28,98 @@
             <h2>Une passion pour un m&eacute;tier , Un travail de Qualit&eacute; !</h2>
         </div>
         <div id="links">
-                <ul>
-                    <li>
-                        <h2>Compte</h2>
-                        <ul>
-                            <li><img src="../../images/user2.png" id="user1" /></li>
-                            <li>    <h:form>
-                                    <p:commandLink id="ajax"  action="#{personBean.logout()}" style="margin-right:20px;">  
-                                        <h:outputText value="Déconnexion" />  
-                                    </p:commandLink>  </h:form> </li>
-                            <li><a href="paramCompte.xhtml">Paramètres du Compte</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h2>MENU</h2>
-                        <ul>
-                            <ui:repeat var="menu" value="#{droitBean.chargeMenu()}" varStatus="status">
-                                <li><a href="#{menu.lienpriv}">#{menu.nompriv}</a></li>
-                            </ui:repeat>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+            <ul>
+                <li>
+                    <h2>Compte</h2>
+                    <ul>
+                        <li><img src="../../images/user2.png" id="user1" /></li>
+                        <li>    <h:form>
+                                <p:commandLink id="ajax"  action="#{personBean.logout()}" style="margin-right:20px;">  
+                                    <h:outputText value="Déconnexion" />  
+                                </p:commandLink>  </h:form> </li>
+                        <li> <h:form>
+                                <p:commandLink id="ajax1"  action="paramCompte" style="margin-right:20px;" >  
+                                    <h:outputText value="Paramètres du Compte" />  
+                                </p:commandLink>  </h:form></li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>MENU</h2>
+                    <ul>
+                        <ui:repeat var="menu" value="#{droitBean.chargeMenu()}" varStatus="status">
+                            <li><a href="#{menu.lienpriv}">#{menu.nompriv}</a></li>
+                        </ui:repeat>
+                    </ul>
+                </li>
+            </ul>
+        </div>
         <div id="wrapper">
             <div id="content">
-                <h2 class="title">Gestion des Fournisseurs : </h2><br/>
-                <h:form >
-                    
+                <h2 class="title">Gestion des Fournisseurs: </h2><br/>
+                <h:form>                    
                     <h:panelGrid columns="2" cellpadding="5" >  
-                            <h:selectOneMenu value="#{clientFournisseurBean.page}" onchange="submit()"
-                                             valueChangeListener="#{clientFournisseurBean.change}" required="true" >
-                                <f:selectItem itemLabel="Choisir une Gestion" />
-                                <f:selectItem itemLabel="Gestion des Fournisseurs" itemValue="accueil_fourn.xhtml?id=5" />
-                                <f:selectItem itemLabel="Gestion des Clients" itemValue="accueil.xhtml?id=5" />
-                            </h:selectOneMenu>
-                        </h:panelGrid>                     
-                </h:form> <br/> <br/>
-            <h:form id="form">  
-  
-    <p:dataTable var="car" value="#{tableBean.cars}" rowKey="#{car.model}" paginator="true" rows="10"  
-                selection="#{tableBean.selectedCar}" selectionMode="single" filteredValue="#{tableBean.filteredCars}" id="carsTable">  
-  
-        <p:ajax event="rowSelect" update=":form:display" oncomplete="carDialog.show()" />  
-  
-        <f:facet name="header">  
-            List of Cars  
-        </f:facet>  
-  
-        <p:column headerText="Model" sortBy="#{car.model}" filterBy="#{car.model}" id="model">  
-            #{car.model}  
-        </p:column>  
-  
-        <p:column headerText="Year" sortBy="#{car.year}" filterBy="#{car.year}" id="year">  
-            #{car.year}  
-        </p:column>  
-  
-        <p:column headerText="Manufacturer" sortBy="#{car.manufacturer}" filterBy="#{car.manufacturer}" id="manufacturer">  
-            #{car.manufacturer}  
-        </p:column>  
-  
-        <p:column headerText="Color" sortBy="#{car.color}" filterBy="#{car.color}" id="color">  
-            #{car.color}"  
-        </p:column>  
-  
-    </p:dataTable>  
-  
-    <p:dialog header="Car Detail" widgetVar="carDialog" resizable="false"  
-              width="200" showEffect="explode" hideEffect="explode">  
-  
-        <h:panelGrid id="display" columns="2" cellpadding="4">  
-  
-            <f:facet name="header">  
-                <p:graphicImage value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>  
-            </f:facet>  
-  
-            <h:outputText value="Model:" />  
-            <h:outputText value="#{tableBean.selectedCar.model}" id="model"/>  
-  
-            <h:outputText value="Year:" />  
-            <h:outputText value="#{tableBean.selectedCar.year}" id="year"/>  
-  
-            <h:outputText value="Manufacturer:" />  
-            <h:outputText value="#{tableBean.selectedCar.manufacturer}" id="manufacturer"/>  
-  
-            <h:outputText value="Color:" />  
-            <h:outputText value="#{tableBean.selectedCar.color}" id="color"/>  
-        </h:panelGrid>  
-    </p:dialog>  
-  
-</h:form>      
+                        <h:selectOneMenu value="#{clientFournisseurBean.page}" onchange="submit()"
+                                         valueChangeListener="#{clientFournisseurBean.change}" required="true" >
+                            <f:selectItem itemLabel="Choisir une Gestion" />
+                            <f:selectItem itemLabel="Gestion des Fournisseurs" itemValue="accueil_fourn.xhtml?id=5" />
+                            <f:selectItem itemLabel="Gestion des Clients" itemValue="accueil.xhtml?id=5" />
+                        </h:selectOneMenu>
+                    </h:panelGrid> 
+
+                </h:form><br/> <br/>
+                <h:form id="form"> 
+                    <p:growl id="growl" showDetail="true"  /> 
+                    <p:dataTable  var="fournisseur" value="#{fournisseurBean.mediumFournisseursModel}" rowKey="#{fournisseur.idfournisseur}" paginator="true" rows="10"    
+                                  selection="#{fournisseurBean.selectedFournisseur}"  selectionMode="single" id="fournisseursTable" >                             
+                        <f:facet name="header">  
+                            Liste des Fournisseurs  
+                        </f:facet>
+                        <p:column headerText="N° Fournisseur" sortBy="#{fournisseur.idfournisseur}" id="idfournisseur" filterBy="#{fournisseur.idfournisseur}" >  
+                            <h:outputText value="#{fournisseur.idfournisseur}"  />
+                        </p:column> 
+                        <p:column headerText="Nom/Société" sortBy="#{fournisseur.nom}" id="nom" filterBy="#{fournisseur.nom}" >  
+                            <h:outputText value="#{fournisseur.nom}" />
+                        </p:column>  
+
+                        <p:column headerText="Téléphone" sortBy="#{fournisseur.tel}"  id="tel" filterBy="#{fournisseur.tel}">  
+                            <h:outputText value="#{fournisseur.tel}"  />
+                        </p:column>  
+
+                        <p:column headerText="Fax" sortBy="#{fournisseur.fax}"  id="fax" filterBy="#{fournisseur.fax}">  
+                            <h:outputText value="#{fournisseur.fax} " />
+                        </p:column>
+
+                        <p:column headerText="Email" sortBy="#{fournisseur.email}"  id="email" filterBy="#{fournisseur.email}">  
+                            <h:outputText value="#{fournisseur.email}" />
+                        </p:column>  
+
+                        <p:column headerText="Adresse" sortBy="#{fournisseur.adresse}"  id="adresse" filterBy="#{fournisseur.adresse}">  
+                            <h:outputText value="#{fournisseur.adresse} " />
+                        </p:column>  
+
+                        <f:facet name="footer">                              
+                            <p:commandButton id="viewCommand" value="Ajouter" icon="ui-icon-add"  action="echecAjoutFour" /> 
+
+                            <p:commandButton id="ModifButton" value="Modifier" icon="ui-icon-pencil" action="#{fournisseurBean.modif()}" update="growl" ajax="false"/> 
+
+                            <p:commandButton id="showDialogButton" value="Supprimer" onclick="confirmation.show()" type="button" icon="ui-icon-trash" />  
+
+                            <p:confirmDialog id="confirmDialog" message="Etes vous sûr de supprimer cet employé ?"  
+                                             header="Confirmation" severity="alert" widgetVar="confirmation">                                                                  
+
+                                <p:commandButton id="confirm" value="OUI" oncomplete="confirmation.hide()" actionListener="#{fournisseurBean.supprimer}" ajax="false" update="growl"/>
+                                <p:commandButton id="decline" value="NON" onclick="confirmation.hide()" type="button" />   
+
+
+                            </p:confirmDialog>
+                        </f:facet> 
+                    </p:dataTable>                                             
+                    <!--<f:facet name="header">  
+                        <p:graphicImage value="/images/cars/#{fournisseurBean.selectedFournisseur.nom}.jpg"/>  
+                    </f:facet>  -->                           
+                </h:form> 
             </div>
-            
+
             <div style="clear: both;">&nbsp;</div>
         </div>
         <div id="footer">

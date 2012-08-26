@@ -1,27 +1,27 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 20 juil. 2012 18:55:36 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Demandeprix" table="demandeprix" schema="public">
         <id name="numdemandeprix" type="string">
             <column name="numdemandeprix" length="254" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="fournisseur" class="com.lds.vo.Fournisseur" fetch="select">
+        <many-to-one name="fournisseur" class="com.lds.vo.Fournisseur" fetch="select" lazy="false">
             <column name="idfournisseur" length="254" not-null="true" />
         </many-to-one>
         <property name="referencedemandeprix" type="string">
             <column name="referencedemandeprix" length="254" />
         </property>
-        <property name="datedemandeprix" type="string">
+        <property name="datedemandeprix" type="date">
             <column name="datedemandeprix" length="254" />
         </property>
-        <set name="detailsdemandeelements" inverse="true">
+        <set name="detailsdemandearticles" inverse="true" cascade="save-update,delete">
             <key>
                 <column name="numdemandeprix" length="254" not-null="true" />
             </key>
-            <one-to-many class="com.lds.vo.Detailsdemandeelement" />
+            <one-to-many class="com.lds.vo.Detailsdemandearticle" />
         </set>
     </class>
 </hibernate-mapping>
