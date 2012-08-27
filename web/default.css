@@ -147,10 +147,10 @@ a:hover {
 
 #content {
 	width: 750px; 
-       
     /*    height: 500px; */
 	margin: 0 auto;
         margin-right: 200px;
+
         background: url("images/img10.gif") repeat-x scroll 0 0 transparent;
 }
 

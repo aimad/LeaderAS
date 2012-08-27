@@ -1,8 +1,7 @@
 package com.lds.vo;
-// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
+// Generated 25 aout 2012 10:08:18 by Hibernate Tools 3.2.1.GA
 
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -15,7 +14,7 @@ public class Devis  implements java.io.Serializable {
      private String idprojet;
      private Date datedevis;
      private String liendevis;
-     private BigDecimal montantdevis;
+     private Double montantdevis;
      private String descdevis;
 
     public Devis() {
@@ -26,7 +25,7 @@ public class Devis  implements java.io.Serializable {
         this.numdevis = numdevis;
         this.idprojet = idprojet;
     }
-    public Devis(String numdevis, String idprojet, Date datedevis, String liendevis, BigDecimal montantdevis, String descdevis) {
+    public Devis(String numdevis, String idprojet, Date datedevis, String liendevis, Double montantdevis, String descdevis) {
        this.numdevis = numdevis;
        this.idprojet = idprojet;
        this.datedevis = datedevis;
@@ -63,11 +62,11 @@ public class Devis  implements java.io.Serializable {
     public void setLiendevis(String liendevis) {
         this.liendevis = liendevis;
     }
-    public BigDecimal getMontantdevis() {
+    public Double getMontantdevis() {
         return this.montantdevis;
     }
     
-    public void setMontantdevis(BigDecimal montantdevis) {
+    public void setMontantdevis(Double montantdevis) {
         this.montantdevis = montantdevis;
     }
     public String getDescdevis() {

@@ -1,8 +1,7 @@
 package com.lds.vo;
-// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
+// Generated 25 aout 2012 10:08:18 by Hibernate Tools 3.2.1.GA
 
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -15,7 +14,7 @@ public class Facture  implements java.io.Serializable {
      private Projet projet;
      private Date datefacture;
      private String descfacture;
-     private BigDecimal montantfacture;
+     private Double montantfacture;
      private String lienfacture;
 
     public Facture() {
@@ -26,7 +25,7 @@ public class Facture  implements java.io.Serializable {
         this.numfacture = numfacture;
         this.projet = projet;
     }
-    public Facture(String numfacture, Projet projet, Date datefacture, String descfacture, BigDecimal montantfacture, String lienfacture) {
+    public Facture(String numfacture, Projet projet, Date datefacture, String descfacture, Double montantfacture, String lienfacture) {
        this.numfacture = numfacture;
        this.projet = projet;
        this.datefacture = datefacture;
@@ -63,11 +62,11 @@ public class Facture  implements java.io.Serializable {
     public void setDescfacture(String descfacture) {
         this.descfacture = descfacture;
     }
-    public BigDecimal getMontantfacture() {
+    public Double getMontantfacture() {
         return this.montantfacture;
     }
     
-    public void setMontantfacture(BigDecimal montantfacture) {
+    public void setMontantfacture(Double montantfacture) {
         this.montantfacture = montantfacture;
     }
     public String getLienfacture() {

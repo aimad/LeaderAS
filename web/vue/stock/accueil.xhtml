@@ -62,13 +62,8 @@
             <div id="content">
                 <h2 class="title">Gestion du Stock : </h2><br/> <br/>
      <h:form id="form">  
-    <p:tabView id="tabView"  cache="true">  
+    <p:accordionPanel>   
         <p:tab id="tba1" title="Liste des articles" >  
-  <p:dataTable transient="true" emptyMessage="" >
-                            <f:facet name="header">  
-                               Liste des articles
-                            </f:facet>  
-                        </p:dataTable>
     
            <!-- <h:panelGrid columns="2" cellpadding="10">  -->
                 <p:growl id="growl" showDetail="true"  /> 
@@ -114,11 +109,6 @@
         </p:tab>  
   
         <p:tab id="tab2" title="Liste des fournitures">  
-            <p:dataTable transient="true" emptyMessage="" >
-                            <f:facet name="header">  
-                               Liste des fournitures
-                            </f:facet>  
-                        </p:dataTable>
     
            <!-- <h:panelGrid columns="2" cellpadding="10">  -->
                 <p:growl id="growl1" showDetail="true"  /> 
@@ -135,7 +125,24 @@
                         <p:column headerText="Quantité " sortBy="#{fourniture.qntfourniture}"  id="email" filterBy="#{fourniture.qntfourniture}">  
                             <h:outputText value="#{fourniture.qntfourniture}" />
                         </p:column>  
- 
+               <f:facet name="footer">                              
+                            <p:commandButton id="viewCommand" value="Ajouter" icon="ui-icon-add"  action="article_ajout_four" /> 
+                            
+                            <p:commandButton id="ModifButton" value="Modifier" icon="ui-icon-search" action="#{fournitureBean.modif()}" update="growl" ajax="false"/> 
+                            
+                            
+
+                          <p:commandButton id="showDialogButton" value="Supprimer" onclick="confirmation.show()" type="button" icon="ui-icon-close" />  
+
+                            <p:confirmDialog id="confirmDialog" message="Etes vous sûr de supprimer cette fourniture ?"  
+                                             header="Confirmation" severity="alert" widgetVar="confirmation">                                                                  
+                                
+                                <p:commandButton id="confirm" value="OUI" oncomplete="confirmation.hide()" actionListener="#{fournitureBean.supprimer}" ajax="false" update="growl"/>
+                                <p:commandButton id="decline" value="NON" onclick="confirmation.hide()" type="button" />   
+                        
+
+                            </p:confirmDialog>
+                        </f:facet>
          </p:dataTable>
         </p:tab>  
   
@@ -184,12 +191,43 @@
   
         
         <p:tab id="tab4" title="bon de livraison">  
-            <h:panelGrid columns="2" cellpadding="10">  
-                <h:outputText value="After a break of more than 15 years, director Francis Ford Coppola and writer Mario Puzo returned to the well for this third and final story of the fictional Corleone crime family.  
-                    Two decades have passed, and crime kingpin Michael Corleone, now divorced from his wife Kay has nearly succeeded in keeping his promise that his family would one day be completely legitimate."/>  
-            </h:panelGrid>  
+              <p:growl id="growl4" showDetail="true"  /> 
+                    <p:dataTable  var="input" value="#{boninputBean.mediumBonreceptionsModel}" rowKey="#{input.numreception}" paginator="true" rows="10"   
+                                 selection="#{boninputBean.selectedBonreception}" lazy="true"  selectionMode="single"  id="entrerTable"  >                             
+  
+                        <p:column headerText="N° Bon de réception " sortBy="#{input.numreception}" id="idarticle" filterBy="#{input.numreception}" >  
+                            <h:outputText value="#{input.numreception}"  />
+                        </p:column> 
+                        <p:column headerText="Date  " sortBy="#{input.datereception}" id="nom" filterBy="#{input.datereception}" >  
+                            <h:outputText value="#{input.datereception}" />
+                        </p:column>  
+
+                        <p:column headerText="N° Bon de commande " sortBy="#{input.boncommande.numbc}"  id="email" filterBy="#{input.boncommande.numbc}">  
+                            <h:outputText value="#{input.boncommande.numbc}" />
+                        </p:column>  
+
+ 
+
+                        <f:facet name="footer">                              
+                            <p:commandButton id="viewCommand1" value="Ajouter" icon="ui-icon-add"  action="input_ajout" /> 
+                            
+                            <p:commandButton id="ModifButton1" value="Modifier" icon="ui-icon-search" action="#{boninputBean.modif()}" update="growl" ajax="false"/> 
+                            <p:commandButton id="detailsButton1" value="Détails" icon="ui-icon-search" action="#{boninputBean.details()}" update="growl" ajax="false"/> 
+                            <p:commandButton id="showDialogButton1" value="Supprimer" onclick="confirmation.show()" type="button" icon="ui-icon-close" />  
+
+                            <p:confirmDialog id="confirmDialog" message="Etes vous sûr de supprimer cet Article ?"  
+                                             header="Confirmation" severity="alert" widgetVar="confirmation">                                                                  
+                                
+                                <p:commandButton id="confirm" value="OUI" oncomplete="confirmation.hide()" actionListener="#{boninputBean.supprimer}" ajax="false" update="growl"/>
+                                <p:commandButton id="decline" value="NON" onclick="confirmation.hide()" type="button" />   
+                        
+
+                            </p:confirmDialog>
+                        </f:facet> 
+                    </p:dataTable>   
+    
         </p:tab>  
-    </p:tabView> 
+   </p:accordionPanel>  
           </h:form>
            </div>
                <div style="clear: both;">&nbsp;</div>

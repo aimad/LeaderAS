@@ -8,13 +8,14 @@
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">lds</property>
     <mapping resource="com/lds/vo/Boncommande.hbm.xml"/>
+    <mapping resource="com/lds/vo/Detailsbrfourniture.hbm.xml"/>
     <mapping resource="com/lds/vo/Privilege.hbm.xml"/>
     <mapping resource="com/lds/vo/Detailsarticlebesoin.hbm.xml"/>
     <mapping resource="com/lds/vo/Detailsbrarticle.hbm.xml"/>
-    <mapping resource="com/lds/vo/Bonreception.hbm.xml"/>
     <mapping resource="com/lds/vo/Personnel.hbm.xml"/>
-    <mapping resource="com/lds/vo/Article.hbm.xml"/>
+    <mapping resource="com/lds/vo/Bonreception.hbm.xml"/>
     <mapping resource="com/lds/vo/Bonsortie.hbm.xml"/>
+    <mapping resource="com/lds/vo/Article.hbm.xml"/>
     <mapping resource="com/lds/vo/Client.hbm.xml"/>
     <mapping resource="com/lds/vo/Besoin.hbm.xml"/>
     <mapping resource="com/lds/vo/Detailsbcarticle.hbm.xml"/>
@@ -33,5 +34,6 @@
     <mapping resource="com/lds/vo/Projet.hbm.xml"/>
     <mapping resource="com/lds/vo/Detailstachepersonnel.hbm.xml"/>
     <mapping resource="com/lds/vo/Detailsprivuser.hbm.xml"/>
+    <mapping resource="com/lds/vo/Detailsfourniturebc.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

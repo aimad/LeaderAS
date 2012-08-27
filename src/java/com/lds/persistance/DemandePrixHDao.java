@@ -18,7 +18,6 @@ import org.hibernate.Transaction;
 public class DemandePrixHDao implements DemandePrixDao {
 
     private List<Demandeprix> DemandePrixList;
-    private List<Demandeprix> DemandePrixList1;
     private Demandeprix demandePrix;
 
     @Override
@@ -33,8 +32,9 @@ public class DemandePrixHDao implements DemandePrixDao {
         } finally {
             session.close();
         }
-    }    
+    }
 
+    @Override
     public Demandeprix getDevis(String id) {
          Session session = HibernateUtil.getSession();
         try {

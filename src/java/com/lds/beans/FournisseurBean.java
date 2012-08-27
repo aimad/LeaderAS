@@ -20,15 +20,19 @@ import org.primefaces.model.LazyDataModel;
 public class FournisseurBean implements Serializable {  
  
   
-    private List<Fournisseur> filteredFournisseurs;                
-    private List<Fournisseur> fournisseurs;    
-    private Fournisseur selectedFournisseur;            
+    private List<Fournisseur> filteredFournisseurs;  
+  
+    private List<Fournisseur> fournisseurs;  
+  
+    private Fournisseur selectedFournisseur;  
+  
+    private Fournisseur[] selectedFournisseurs;
+    
     private  Fournisseur four;
     private  FournisseurHDao dao;
     private  FournisseurDataModel mediumFournisseursModel;
   
-    public FournisseurBean() {      
-        
+    public FournisseurBean() {          
         four = new Fournisseur();
         fournisseurs = new ArrayList<Fournisseur>();
         //selectedFournisseur=new Fournisseur();
@@ -36,7 +40,7 @@ public class FournisseurBean implements Serializable {
         dao = new FournisseurHDao();
         fournisseurs = dao.getAllFournisseur();
         mediumFournisseursModel = new FournisseurDataModel(fournisseurs); 
-    }      
+    }  
   
     public Fournisseur getSelectedFournisseur() {  
         return selectedFournisseur;  
@@ -57,16 +61,15 @@ public class FournisseurBean implements Serializable {
         this.four = four;
     }
          
-    public List<Fournisseur> getFilteredFournisseurs() {          
+    public List<Fournisseur> getFilteredFournisseurs() {  
         return filteredFournisseurs;  
     }  
   
-    public void setFilteredFournisseurs(List<Fournisseur> filteredFournisseurs) {                 
+    public void setFilteredFournisseurs(List<Fournisseur> filteredFournisseurs) {  
         this.filteredFournisseurs = filteredFournisseurs;  
     }  
   
-    public List<Fournisseur> getFournisseurs() { 
-        
+    public List<Fournisseur> getFournisseurs() {  
         return fournisseurs;  
     }  
     public void supprimer() {
@@ -86,7 +89,7 @@ public class FournisseurBean implements Serializable {
         for (Fournisseur fournisseur : fournisseurs) {
             if (fournisseur.getIdfournisseur().equals(four.getIdfournisseur())) {
                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Ce fournisseur existe dejà !", "Veuillez changer le Code de fournisseur."));
-                return "echecAjoutFour";
+                return "four_ajout";
             }
         }
         
@@ -108,7 +111,7 @@ public class FournisseurBean implements Serializable {
         else
         {
            //typeUser=selectedFournisseur.getTypeuser().getTypeuser();
-        return "modifFour";}
+        return "modif_four";}
     }
     
     public String enrModif(){
@@ -123,12 +126,11 @@ public class FournisseurBean implements Serializable {
         List<String> all = new ArrayList<String>();                
         Iterator li = fournisseurs.iterator();
         while (li.hasNext()) {
-//Recupération objet
+//RecupÃ©ration objet
             Fournisseur fo = (Fournisseur) li.next();
             all.add(fo.getIdfournisseur());
         }
 
         return all;
-    }
-    
+        }
 } 

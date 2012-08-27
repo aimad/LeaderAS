@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 25 ao?t 2012 10:08:23 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Fourniture" table="fourniture" schema="public">
         <id name="numfourniture" type="string">
@@ -20,25 +20,23 @@
             </key>
             <one-to-many class="com.lds.vo.Detailsfourniturebesoin" />
         </set>
-        <set name="boncommandes" inverse="true" table="detailsfourniturebc">
+        <set name="detailsfourniturebcs" inverse="true">
             <key>
                 <column name="numfourniture" length="254" not-null="true" />
             </key>
-            <many-to-many entity-name="com.lds.vo.Boncommande">
-                <column name="numbc" length="254" not-null="true" />
-            </many-to-many>
+            <one-to-many class="com.lds.vo.Detailsfourniturebc" />
+        </set>
+        <set name="detailsbrfournitures" inverse="true">
+            <key>
+                <column name="numfourniture" length="254" not-null="true" />
+            </key>
+            <one-to-many class="com.lds.vo.Detailsbrfourniture" />
         </set>
         <set name="detailssortiefournitures" inverse="true">
             <key>
                 <column name="numfourniture" length="254" not-null="true" />
             </key>
             <one-to-many class="com.lds.vo.Detailssortiefourniture" />
-        </set>
-        <set name="bonreceptions" inverse="true">
-            <key>
-                <column name="numfourniture" length="254" />
-            </key>
-            <one-to-many class="com.lds.vo.Bonreception" />
         </set>
     </class>
 </hibernate-mapping>

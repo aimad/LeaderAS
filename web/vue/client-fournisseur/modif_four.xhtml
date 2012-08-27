@@ -17,7 +17,7 @@
         <div id="menu">
             <ul>
                 <li><a href="../accueil.xhtml" accesskey="1">Accueil</a></li>
-                <li class="active"><a href="modif_four.xhtml?id=5" accesskey="2">Section Vue</a></li>
+                <li class="active"><a href="modif.xhtml" accesskey="2">Section Vue</a></li>
                 <li><a href="../paramCompte.xhtml" accesskey="3">Compte</a></li>
                 <li><a href="../vue/about.xhtml" accesskey="4">About</a></li>
 
@@ -31,18 +31,18 @@
             <ul>
                 <li>
                     <h2>Compte</h2>
-                    <ul>
-                        <li><img src="../images/user2.png" id="user1" /></li>
-                        <li>  
-                            <h:form>
+                   <ul>
+                           <li><img src="../../images/user2.png" id="user1" /></li>
+                            <li>  
+                                <h:form>
                                 <p:commandLink id="ajax"  action="#{personBean.logout()}" style="margin-right:20px;">  
-                                    <h:outputText value="Déconnexion" />  
-                                </p:commandLink>  </h:form></li>
-                        <li> <h:form>
+                                         <h:outputText value="Déconnexion" />  
+                                    </p:commandLink>  </h:form></li>
+                             <li> <h:form>
                                 <p:commandLink id="ajax1"  action="paramCompte" style="margin-right:20px;" >  
-                                    <h:outputText value="Paramètres du Compte" />  
-                                </p:commandLink>  </h:form></li>
-                    </ul>
+                                         <h:outputText value="Paramètres du Compte" />  
+                                    </p:commandLink>  </h:form></li>
+                        </ul>
                 </li>
                 <li>
                     <h2>MENU</h2>
@@ -70,25 +70,25 @@
                         <p:messages id="messages" />
 
                         <h:panelGrid columns="2" cellpadding="5" >  
-
-                            <h:outputText value="Numéro Fournisseur : *" />  
-                            <p:inputText value="#{fournisseurBean.selectedFournisseur.idfournisseur}" required="true" readonly="true" />  
-
+                            
+                            <h:outputText value="N° fournisseur :" />  
+                            <p:inputText value="#{fournisseurBean.four.idfournisseur}" required="true" readonly="true" />  
+                            
                             <h:outputText value="Nom :" />  
                             <p:inputText value="#{fournisseurBean.selectedFournisseur.nom}" />  
 
-                            <h:outputText value="Téléphone :" />  
+                            <h:outputText value="Email :" />  
+                            <p:inputText value="#{fournisseurBean.selectedFournisseur.email}" />  
+
+                             <h:outputText value="Télephone :" />  
                             <p:inputText value="#{fournisseurBean.selectedFournisseur.tel}" />  
 
                             <h:outputText value="Fax :" />  
                             <p:inputText value="#{fournisseurBean.selectedFournisseur.fax}" />
 
-                            <h:outputText value="Email :" />  
-                            <p:inputText value="#{fournisseurBean.selectedFournisseur.email}" />  
-
-                            <h:outputText value="Adresse " />  
+                             <h:outputText value="Adresse " />  
                             <p:inputText value="#{fournisseurBean.selectedFournisseur.adresse}" />
-
+                            
                             <h:outputText value="Description: " /> 
                             <p:inputTextarea rows="5" cols="30" maxlength="50"  value="#{fournisseurBean.selectedFournisseur.description}" autoResize="false" /> 
 

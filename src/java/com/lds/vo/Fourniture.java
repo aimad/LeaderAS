@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
+// Generated 25 aout 2012 10:08:18 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -15,9 +15,9 @@ public class Fourniture  implements java.io.Serializable {
      private String descfourniture;
      private Integer qntfourniture;
      private Set detailsfourniturebesoins = new HashSet(0);
-     private Set boncommandes = new HashSet(0);
+     private Set detailsfourniturebcs = new HashSet(0);
+     private Set detailsbrfournitures = new HashSet(0);
      private Set detailssortiefournitures = new HashSet(0);
-     private Set bonreceptions = new HashSet(0);
 
     public Fourniture() {
     }
@@ -26,14 +26,14 @@ public class Fourniture  implements java.io.Serializable {
     public Fourniture(String numfourniture) {
         this.numfourniture = numfourniture;
     }
-    public Fourniture(String numfourniture, String descfourniture, Integer qntfourniture, Set detailsfourniturebesoins, Set boncommandes, Set detailssortiefournitures, Set bonreceptions) {
+    public Fourniture(String numfourniture, String descfourniture, Integer qntfourniture, Set detailsfourniturebesoins, Set detailsfourniturebcs, Set detailsbrfournitures, Set detailssortiefournitures) {
        this.numfourniture = numfourniture;
        this.descfourniture = descfourniture;
        this.qntfourniture = qntfourniture;
        this.detailsfourniturebesoins = detailsfourniturebesoins;
-       this.boncommandes = boncommandes;
+       this.detailsfourniturebcs = detailsfourniturebcs;
+       this.detailsbrfournitures = detailsbrfournitures;
        this.detailssortiefournitures = detailssortiefournitures;
-       this.bonreceptions = bonreceptions;
     }
    
     public String getNumfourniture() {
@@ -64,12 +64,19 @@ public class Fourniture  implements java.io.Serializable {
     public void setDetailsfourniturebesoins(Set detailsfourniturebesoins) {
         this.detailsfourniturebesoins = detailsfourniturebesoins;
     }
-    public Set getBoncommandes() {
-        return this.boncommandes;
+    public Set getDetailsfourniturebcs() {
+        return this.detailsfourniturebcs;
     }
     
-    public void setBoncommandes(Set boncommandes) {
-        this.boncommandes = boncommandes;
+    public void setDetailsfourniturebcs(Set detailsfourniturebcs) {
+        this.detailsfourniturebcs = detailsfourniturebcs;
+    }
+    public Set getDetailsbrfournitures() {
+        return this.detailsbrfournitures;
+    }
+    
+    public void setDetailsbrfournitures(Set detailsbrfournitures) {
+        this.detailsbrfournitures = detailsbrfournitures;
     }
     public Set getDetailssortiefournitures() {
         return this.detailssortiefournitures;
@@ -77,13 +84,6 @@ public class Fourniture  implements java.io.Serializable {
     
     public void setDetailssortiefournitures(Set detailssortiefournitures) {
         this.detailssortiefournitures = detailssortiefournitures;
-    }
-    public Set getBonreceptions() {
-        return this.bonreceptions;
-    }
-    
-    public void setBonreceptions(Set bonreceptions) {
-        this.bonreceptions = bonreceptions;
     }
 
 

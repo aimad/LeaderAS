@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25 ao?t 2012 10:08:23 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.lds.vo.Detailsfourniturebc" table="detailsfourniturebc" schema="public">
+        <composite-id name="id" class="com.lds.vo.DetailsfourniturebcId">
+            <key-property name="numbc" type="string">
+                <column name="numbc" length="254" />
+            </key-property>
+            <key-property name="numfourniture" type="string">
+                <column name="numfourniture" length="254" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="fourniture" class="com.lds.vo.Fourniture" update="false" insert="false" fetch="select">
+            <column name="numfourniture" length="254" not-null="true" />
+        </many-to-one>
+        <many-to-one name="boncommande" class="com.lds.vo.Boncommande" update="false" insert="false" fetch="select">
+            <column name="numbc" length="254" not-null="true" />
+        </many-to-one>
+        <property name="qntCommande" type="java.lang.Integer">
+            <column name="qnt_commande" />
+        </property>
+        <property name="prixUnitaire" type="java.lang.Double">
+            <column name="prix_unitaire" precision="17" scale="17" />
+        </property>
+        <property name="qntLivre" type="java.lang.Integer">
+            <column name="qnt_livre" />
+        </property>
+    </class>
+</hibernate-mapping>

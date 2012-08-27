@@ -81,7 +81,7 @@
 
                             <h:outputText value="Articles : " />                              
                             <p:dataTable id="articleTable" widgetVar="articleTable" var="arti" value="#{dprixBean.mediumArtModel1}" rows="10"   
-                                         selection="#{dprixBean.selectedDDArticle}" selectionMode="single" rowKey="#{arti.id}" lazy="true" >                             
+                                         selection="#{dprixBean.selectedDDArticle}" selectionMode="single" rowKey="#{arti.id.idarticle}" lazy="true" >                             
 
                                 <p:column headerText="N° Article "  id="id_article"  >  
                                     <h:outputText value="#{arti.article.idarticle}"  />

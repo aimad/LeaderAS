@@ -70,24 +70,24 @@
                          <p:messages id="messages" />
 
                         <h:panelGrid columns="2" cellpadding="5" >  
-                            <h:outputText value="Numéro Client : *" />  
+                            <h:outputText value="Numéro du client : *" />  
                             <p:inputText value="#{clientBean.selectedClient.idclient}" required="true" requiredMessage="Veuillez saisir un numéro de client!" readonly="true"/>  
 
-                            <h:outputText value="Nom/Société : " />  
+                            <h:outputText value="Désignation : " />  
                             <p:inputText value="#{clientBean.selectedClient.nomclient}" />                             
                             
                             <h:outputText value="Téléphone : " />  
                             <p:inputMask value="#{clientBean.selectedClient.tel}" mask="9999999999" />    
                             
                             <h:outputText value="Fax : " />  
-                            <p:inputMask value="#{clientBean.selectedClient.fax}" mask="9999999999" /> 
-                            
-                             <h:outputText value="Email: " />  
-                            <p:inputText value="#{clientBean.selectedClient.email}"  />
+                            <p:inputMask value="#{clientBean.selectedClient.fax}" mask="9999999999" />  
                             
                             <h:outputText value="Adresse : " />  
                             <p:inputText value="#{clientBean.selectedClient.adresse}" />                                                                                                                                              
-                           
+
+                            <h:outputText value="Email: " />  
+                            <p:inputText value="#{clientBean.selectedClient.email}"  />
+
                             <h:outputText value="Description : " /> 
                             <p:inputTextarea rows="5" cols="30" maxlength="50"  value="#{clientBean.selectedClient.description}" autoResize="false" /> 
 

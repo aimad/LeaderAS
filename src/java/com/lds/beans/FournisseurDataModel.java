@@ -1,7 +1,10 @@
 package com.lds.beans;
 
 import com.lds.vo.Fournisseur;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 
@@ -37,12 +40,10 @@ public class FournisseurDataModel extends LazyDataModel<Fournisseur> {
 
         //filter
         for(Fournisseur fournisseur : datasource) {
-            
             boolean match = true;
 
             for(Iterator<String> it = filters.keySet().iterator(); it.hasNext();) {
                 try {
-                    
                     String filterProperty = it.next();
                     String filterValue = filters.get(filterProperty);
                     String fieldValue = String.valueOf(fournisseur.getClass().getField(filterProperty).get(fournisseur));
@@ -65,9 +66,9 @@ public class FournisseurDataModel extends LazyDataModel<Fournisseur> {
         }
 
         //sort
-        if(sortField != null) {
-            Collections.sort(data, new LazySorterFourn(sortField, sortOrder));
-        }
+        /*if(sortField != null) {
+            Collections.sort(data, new LazySorter(sortField, sortOrder));
+        }*/
 
         //rowCount
         int dataSize = data.size();

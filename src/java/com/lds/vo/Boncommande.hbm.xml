@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 25 ao?t 2012 10:08:23 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Boncommande" table="boncommande" schema="public">
         <id name="numbc" type="string">
@@ -17,8 +17,8 @@
         <property name="dateboncommande" type="date">
             <column name="dateboncommande" length="13" />
         </property>
-        <property name="prixht" type="big_decimal">
-            <column name="prixht" precision="131089" scale="0" />
+        <property name="prixht" type="java.lang.Double">
+            <column name="prixht" precision="17" scale="17" />
         </property>
         <set name="detailsbcarticles" inverse="true">
             <key>
@@ -26,13 +26,11 @@
             </key>
             <one-to-many class="com.lds.vo.Detailsbcarticle" />
         </set>
-        <set name="fournitures" inverse="false" table="detailsfourniturebc">
+        <set name="detailsfourniturebcs" inverse="true">
             <key>
                 <column name="numbc" length="254" not-null="true" />
             </key>
-            <many-to-many entity-name="com.lds.vo.Fourniture">
-                <column name="numfourniture" length="254" not-null="true" />
-            </many-to-many>
+            <one-to-many class="com.lds.vo.Detailsfourniturebc" />
         </set>
         <set name="bonreceptions" inverse="true">
             <key>

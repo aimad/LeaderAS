@@ -69,30 +69,101 @@
 
                         <p:messages id="messages" />
 
-                        <h:panelGrid columns="2" cellpadding="5" >  
+                        <h:panelGrid columns="2" cellpadding="5" >
                             <h:outputText value="Numéro du Bon : *" />  <h:outputText value="#{sortieBean.selectedBonsortie.idsortie}" />  
                             <h:outputText value="Déscription : " />  <h:outputText value="#{sortieBean.selectedBonsortie.descsortie}" />                             
                             <h:outputText value="Date : " /> <h:outputText value="#{sortieBean.selectedBonsortie.datesortie}" />
                             <h:outputText value="Nom personnel : " /> <h:outputText value="#{sortieBean.id_pers}" />
-                            <p:dataTable  var="article" value="#{sortieBean.mediumSortiesModel}" rowKey="#{article.id.idarticle}" paginator="true" rows="10"   
-                                          selection="#{articleBean.selectedArticle}"  lazy="true" selectionMode="single"  id="articleTable"  >                             
+                            <h:outputText value="N° projet: " /> <h:outputText value="#{sortieBean.id_projet}" />
+                            <h:outputText value="List des articles: " /> <h:outputText value="" />
+                        </h:panelGrid>
+                      <!-- <h:form>-->
+                        <h:panelGrid columns="2" cellpadding="5" > 
+                            <p:dataTable  var="details" value="#{sortieBean.mediumBonsortiesdetailsModel}" rowKey="#{details.id.idarticle}"  rows="10"   
+                                          selection="#{sortieBean.selecteddetailssortiearticle}"  lazy="true" selectionMode="single"  id="articleTable"  >                             
 
-                                <p:column headerText="N° Article " sortBy="#{article.id.idarticle}" id="idarticle" filterBy="#{article.id.idarticle}" >  
-                                    <h:outputText value="#{article.id.idarticle}"  />
+                                <p:column headerText="N° Article "  id="idarticle"  >  
+                                    <h:outputText value="#{details.id.idarticle}"  />
                                 </p:column> 
-                                <p:column headerText="Désignation  " sortBy="#{article.descarticle}" id="nom" filterBy="#{article.descarticle}" >  
-                                    <h:outputText value="#{article.descarticle}" />
+                                <p:column headerText="Quantité "  id="email" >  
+                                    <h:outputText value="#{details.qntsortie}" />
                                 </p:column>  
+                            </p:dataTable> 
+                            <f:facet name="footer"> 
 
-                                <p:column headerText="Quantité " sortBy="#{article.qntarticle}"  id="email" filterBy="#{article.qntarticle}">  
-                                    <h:outputText value="#{article.qntarticle}" />
+                                <p:commandButton value="Ajouter" id="showDialogButton" type="button" onclick="dlg.show()" icon="ui-icon-disk" />  
+                                <p:commandButton id="showDialogButton1" value="Supprimer" onclick="confirmation1.show()" type="button" icon="ui-icon-close" />  
+
+                                <p:confirmDialog id="confirmDialog1" message="Etes vous sûr de supprimer cet employé ?"  
+                                                 header="Confirmation" severity="alert" widgetVar="confirmation1">                                                                  
+
+                                    <p:commandButton id="confirm" value="OUI" oncomplete="confirmation1.hide()" actionListener="#{sortieBean.supprimer_details}" ajax="false" update="growl"/>
+                                    <p:commandButton id="decline" value="NON" onclick="confirmation1.hide()" type="button" />   
+
+
+                                </p:confirmDialog>
+                                <p:dialog header="Ajouter une Article" widgetVar="dlg" resizable="false">  
+                                   <!-- <h:form id="form">  -->
+                                        <h:panelGrid columns="2" style="margin-bottom:10px">  
+                                            <h:outputLabel for="id_article" value="N° article :" />  
+                                            <h:inputText id="id_article" value="#{sortieBean.id_article}" />
+                                            <h:outputLabel for="id_qnt" value="Qunatité :" /> 
+                                            <h:inputText id="id_qnt" value="#{sortieBean.qnt_sortie}"  />
+                                       </h:panelGrid>
+
+                                        <p:commandButton id="submitButton" value="Enregistrer" action="#{sortieBean.enrDetails()}" oncomplete="dlg.hide();"/>  
+
+                                   <!-- </h:form> --> 
+                                </p:dialog>
+                            </f:facet>
+                        </h:panelGrid> 
+                           <!-- </h:form>-->
+                        <br/>
+                       <!-- <h:form>-->
+                        <h:panelGrid columns="2" cellpadding="5" >
+                            <h:outputText value="List des fournitures: " /> <h:outputText value="" />
+
+                            <p:dataTable  var="details_four" value="#{sortieBean.mediumBonsorties_fourdetailsModel}" rowKey="#{details_four.id.numfourniture}"  rows="10"   
+                                          selection="#{sortieBean.selecteddetailssortiefourniture}"  lazy="true" selectionMode="single"  id="fournitureTable"  >                             
+
+                                <p:column headerText="N° Fourniture "  id="idfourniture"  >  
+                                    <h:outputText value="#{details_four.id.numfourniture}"  />
+                                </p:column> 
+                                <p:column headerText="Quantité "  id="qnt" >  
+                                    <h:outputText value="#{details_four.qntsortie}" />
                                 </p:column>  
-                            </p:dataTable>     
+                            </p:dataTable> 
+                            <f:facet name="footer"> 
 
-                            <p:commandButton value="Enregistrer" action="#{articleBean.enrDetails}" ajax="false" type="submit" icon="ui-icon-disk" />  
+                                <p:commandButton value="Ajouter" id="showDialogButton_1" type="button" onclick="dlg_1.show()" icon="ui-icon-disk" />  
+                                <p:commandButton id="showDialogButton1_1" value="Supprimer" onclick="confirmation1_1.show()" type="button" icon="ui-icon-close" />  
 
-                        </h:panelGrid>   
+                                <p:confirmDialog id="confirmDialog1_1" message="Etes vous sûr de supprimer cet fourniture ?"  
+                                                 header="Confirmation" severity="alert" widgetVar="confirmation1_1">                                                                  
 
+                                    <p:commandButton id="confirm_1" value="OUI" oncomplete="confirmation1_1.hide()" actionListener="#{sortieBean.supprimer_details_four}" ajax="false" update="growl"/>
+                                    <p:commandButton id="decline_1" value="NON" onclick="confirmation1_1.hide()" type="button" />   
+
+
+                                </p:confirmDialog>
+                                <p:dialog header="Ajouter une Fourniture" widgetVar="dlg_1" resizable="false">  
+                                    <!--<h:form >  -->
+                                       
+                                        <h:panelGrid columns="2" style="margin-bottom:10px"> 
+                                            <h:outputLabel for="id_article_1" value="N° Fourniture :" />  
+                                            <h:inputText id="id_article_1" value="#{sortieBean.id_fourniture}" />
+                                            <h:outputLabel for="id_qnt_1" value="Qunatité :" /> 
+                                            <h:inputText id="id_qnt_1" value="#{sortieBean.qnt_sortie2}"  />
+                                       </h:panelGrid> 
+
+                                        <p:commandButton id="submitButton1" value="Enregistrer" action="#{sortieBean.enrDetails_four()}" oncomplete="dlg_1.hide();"/>  
+
+                                   <!-- </h:form>  -->
+                                </p:dialog>
+                            </f:facet>
+
+                       </h:panelGrid> 
+                        <!-- </h:form>-->
                     </p:panel> 
 
                 </h:form>  

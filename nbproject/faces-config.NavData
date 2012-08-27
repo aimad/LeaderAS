@@ -2,19 +2,83 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="vue/personnel/accueil.xhtml?id=-1" x="-2" y="218" zoom="true"/>
+        <Node id="vue/stock/modif_stock.xhtml?id=2" x="1150" y="600" zoom="true"/>
+        <Node id="vue/stock/details_bonsortie.xhtml?id=2" x="1150" y="750" zoom="true"/>
+        <Node id="vue/besoin/accueil.xhtml?id=7" x="2150" y="450" zoom="true"/>
+        <Node id="vue/stock/modif_bonreception.xhtml" x="150" y="1350" zoom="true"/>
         <Node id="vue/travail/accueil.xhtml" x="650" y="300" zoom="true"/>
-        <Node id="vue/personnel/ajout.xhtml" x="900" y="150" zoom="true"/>
-        <Node id="vue/demande-prix/accueil.xhtml" x="23" y="299" zoom="false"/>
-        <Node id="vue/accueil.xhtml?id=-1" x="1180" y="73" zoom="true"/>
-        <Node id="vue/no-access.xhtml" x="400" y="300" zoom="true"/>
-        <Node id="vue/projets/accueil.xhtml" x="400" y="600" zoom="true"/>
-        <Node id="vue/personnel/*" x="400" y="150" zoom="true"/>
-        <Node id="index.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="vue/demande-prix/modif_bc.xhtml?id=3" x="1900" y="750" zoom="true"/>
+        <Node id="vue/stock/modif_bonreception.xhtml?id=2" x="650" y="1050" zoom="true"/>
+        <Node id="vue/besoin/details.xhtml" x="1900" y="600" zoom="true"/>
+        <Node id="vue/demande-prix/ajout.xhtml" x="1150" y="1200" zoom="true"/>
+        <Node id="vue/stock/details_bonsortie.xhtml" x="2150" y="150" zoom="true"/>
         <Node id="vue/stats/accueil.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="vue/demande-prix/details_bc.xhtml" x="400" y="1500" zoom="true"/>
+        <Node id="vue/stock/modif_stock.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="vue/besoin/modif.xhtml" x="400" y="1350" zoom="true"/>
+        <Node id="vue/client-fournisseur/ajout.xhtml?id=5" x="150" y="450" zoom="true"/>
+        <Node id="vue/demande-prix/modif.xhtml" x="1650" y="900" zoom="true"/>
+        <Node id="vue/demande-prix/ajout_bc.xhtml" x="2900" y="150" zoom="true"/>
+        <Node id="vue/demande-prix/details.xhtml" x="900" y="1350" zoom="true"/>
+        <Node id="vue/stock/ajout_bonreception.xhtml?id=2" x="400" y="1200" zoom="true"/>
+        <Node id="vue/stock/ajout_bonsortie.xhtml?id=2" x="1650" y="450" zoom="true"/>
+        <Node id="*" x="1150" y="450" zoom="true"/>
+        <Node id="vue/client-fournisseur/accueil.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="vue/stock/modif_stock_four.xhtml?id=2" x="650" y="1200" zoom="true"/>
+        <Node id="vue/demande-prix/accueil.xhtml?id=3" x="2150" y="600" zoom="true"/>
+        <Node id="vue/personnel/accueil.xhtml?id=-1" x="-2" y="218" zoom="true"/>
+        <Node id="vue/demande-prix/ajout_bc.xhtml?id=3" x="2400" y="450" zoom="true"/>
+        <Node id="vue/accueil.xhtml?id=-1" x="1180" y="73" zoom="true"/>
+        <Node id="vue/stock/ajout_stock_four.xhtml" x="1650" y="600" zoom="true"/>
+        <Node id="vue/demande-prix/details_besoin.xhtml?id=3" x="2650" y="300" zoom="true"/>
+        <Node id="vue/client-fournisseur/accueil.xhtml?id=5" x="1650" y="150" zoom="true"/>
         <Node id="vue/personnel/accueil.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="vue/stock/modif_bonsortie.xhtml?id=2" x="1400" y="600" zoom="true"/>
+        <Node id="vue/personnel/modif.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="vue/client-fournisseur/modif_four.xhtml?id=5" x="1400" y="150" zoom="true"/>
+        <Node id="vue/besoin/*" x="2400" y="300" zoom="true"/>
+        <Node id="vue/stock/accueil.xhtml?id=2" x="400" y="1050" zoom="true"/>
+        <Node id="vue/stock/accueil1.xhtml" x="1900" y="450" zoom="true"/>
+        <Node id="vue/stock/ajout_stock_four.xhtml?id=2" x="2650" y="150" zoom="true"/>
+        <Node id="vue/stock/ajout_stock.xhtml?id=2" x="650" y="900" zoom="true"/>
+        <Node id="vue/demande-prix/details_bc.xhtml?id=3" x="1400" y="1050" zoom="true"/>
+        <Node id="vue/besoin/accueil.xhtml" x="150" y="1500" zoom="true"/>
+        <Node id="vue/stock/modif_stock_four.xhtml" x="900" y="1050" zoom="true"/>
+        <Node id="vue/personnel/ajout.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="vue/paramCompte.xhtml?id=-1" x="1150" y="150" zoom="true"/>
+        <Node id="vue/besoin/details.xhtml?id=7" x="1400" y="900" zoom="true"/>
+        <Node id="vue/stock/details_bonreception_1.xhtml" x="1400" y="750" zoom="true"/>
+        <Node id="vue/demande-prix/modif_bc.xhtml" x="650" y="1350" zoom="true"/>
+        <Node id="vue/client-fournisseur/*" x="1400" y="300" zoom="true"/>
+        <Node id="vue/demande-prix/details_besoin.xhtml" x="900" y="1200" zoom="true"/>
+        <Node id="vue/no-access.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="vue/paramCompte.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="vue/projets/accueil.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="vue/stock/ajout_bonreception.xhtml" x="900" y="900" zoom="true"/>
+        <Node id="vue/personnel/droits.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="vue/client-fournisseur/modif_four.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="vue/client-fournisseur/accueil_fourn.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="vue/client-fournisseur/ajout.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="vue/stock/details_bonreception.xhtml?id=2" x="2150" y="300" zoom="true"/>
         <Node id="vue/accueil.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="vue/demande-prix/*" x="150" y="1650" zoom="true"/>
+        <Node id="vue/stock/ajout_bonsortie.xhtml" x="1900" y="300" zoom="true"/>
+        <Node id="vue/stock/*" x="900" y="750" zoom="true"/>
+        <Node id="vue/client-fournisseur/ajout_four.xhtml?id=5" x="150" y="1050" zoom="true"/>
+        <Node id="vue/stock/modif_bonsortie.xhtml" x="150" y="1200" zoom="true"/>
+        <Node id="vue/client-fournisseur/accueil_fourn.xhtml?id=5" x="150" y="750" zoom="true"/>
+        <Node id="vue/demande-prix/accueil.xhtml" x="23" y="299" zoom="false"/>
+        <Node id="vue/stock/ajout_stock.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="vue/client-fournisseur/modif.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="vue/client-fournisseur/modif.xhtml?id=5" x="400" y="750" zoom="true"/>
+        <Node id="vue/besoin/ajout.xhtml?id=7" x="1650" y="750" zoom="true"/>
+        <Node id="vue/personnel/*" x="400" y="150" zoom="true"/>
+        <Node id="vue/client-fournisseur/ajout_four.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="vue/besoin/ajout.xhtml" x="1150" y="900" zoom="true"/>
+        <Node id="index.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="vue/besoin/modif.xhtml?id=7" x="1150" y="1050" zoom="true"/>
         <Node id="vue/access-denied.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="vue/stock/details_bonreception.xhtml" x="2400" y="150" zoom="true"/>
         <Node id="vue/stock/accueil.xhtml" x="650" y="450" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>

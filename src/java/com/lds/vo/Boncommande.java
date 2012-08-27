@@ -1,8 +1,7 @@
 package com.lds.vo;
-// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
+// Generated 25 aout 2012 10:08:18 by Hibernate Tools 3.2.1.GA
 
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,9 +16,9 @@ public class Boncommande  implements java.io.Serializable {
      private Fournisseur fournisseur;
      private Projet projet;
      private Date dateboncommande;
-     private BigDecimal prixht;
+     private Double prixht;
      private Set detailsbcarticles = new HashSet(0);
-     private Set fournitures = new HashSet(0);
+     private Set detailsfourniturebcs = new HashSet(0);
      private Set bonreceptions = new HashSet(0);
 
     public Boncommande() {
@@ -31,14 +30,14 @@ public class Boncommande  implements java.io.Serializable {
         this.fournisseur = fournisseur;
         this.projet = projet;
     }
-    public Boncommande(String numbc, Fournisseur fournisseur, Projet projet, Date dateboncommande, BigDecimal prixht, Set detailsbcarticles, Set fournitures, Set bonreceptions) {
+    public Boncommande(String numbc, Fournisseur fournisseur, Projet projet, Date dateboncommande, Double prixht, Set detailsbcarticles, Set detailsfourniturebcs, Set bonreceptions) {
        this.numbc = numbc;
        this.fournisseur = fournisseur;
        this.projet = projet;
        this.dateboncommande = dateboncommande;
        this.prixht = prixht;
        this.detailsbcarticles = detailsbcarticles;
-       this.fournitures = fournitures;
+       this.detailsfourniturebcs = detailsfourniturebcs;
        this.bonreceptions = bonreceptions;
     }
    
@@ -70,11 +69,11 @@ public class Boncommande  implements java.io.Serializable {
     public void setDateboncommande(Date dateboncommande) {
         this.dateboncommande = dateboncommande;
     }
-    public BigDecimal getPrixht() {
+    public Double getPrixht() {
         return this.prixht;
     }
     
-    public void setPrixht(BigDecimal prixht) {
+    public void setPrixht(Double prixht) {
         this.prixht = prixht;
     }
     public Set getDetailsbcarticles() {
@@ -84,12 +83,12 @@ public class Boncommande  implements java.io.Serializable {
     public void setDetailsbcarticles(Set detailsbcarticles) {
         this.detailsbcarticles = detailsbcarticles;
     }
-    public Set getFournitures() {
-        return this.fournitures;
+    public Set getDetailsfourniturebcs() {
+        return this.detailsfourniturebcs;
     }
     
-    public void setFournitures(Set fournitures) {
-        this.fournitures = fournitures;
+    public void setDetailsfourniturebcs(Set detailsfourniturebcs) {
+        this.detailsfourniturebcs = detailsfourniturebcs;
     }
     public Set getBonreceptions() {
         return this.bonreceptions;

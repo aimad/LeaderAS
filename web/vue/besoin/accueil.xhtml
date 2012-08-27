@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p ="http://primefaces.org/ui" >
+
+    <f:event listener="#{droitBean.authorize()}" type="preRenderView" />
+
+    <h:head>
+        <title>LDS/accueil</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link  rel="stylesheet" type="text/css" href="../../default.css" />
+    </h:head>
+    <h:body>
+        <div id="menu">
+            <ul>
+                 <li><a href="../accueil.xhtml" accesskey="1">Accueil</a></li>
+                <li class="active"><a href="accueil.xhtml" accesskey="2">Section Vue</a></li>
+                <li><a href="../paramCompte.xhtml" accesskey="3">Compte</a></li>
+                <li><a href="../about.xhtml" accesskey="4">About</a></li>
+
+            </ul>
+        </div>
+        <div id="header">
+            <h1>Leader Automation Systems</h1>
+            <h2>Une passion pour un m&eacute;tier , Un travail de Qualit&eacute; !</h2>
+        </div>
+        <div id="links">
+            <ul>
+                <li>
+                    <h2>Compte</h2>
+                 <ul>
+                           <li><img src="../../images/user2.png" id="user1" /></li>
+                            <li>  
+                                <h:form>
+                                <p:commandLink id="ajax"  action="#{personBean.logout()}" style="margin-right:20px;">  
+                                         <h:outputText value="Déconnexion" />  
+                                    </p:commandLink>  </h:form></li>
+                             <li> <h:form>
+                                <p:commandLink id="ajax1"  action="paramCompte" style="margin-right:20px;" >  
+                                         <h:outputText value="Paramètres du Compte" />  
+                                    </p:commandLink>  </h:form></li>
+                        </ul>
+                </li>
+                <li>
+                    <h2>MENU</h2>
+                    <ul>
+                        <ui:repeat var="menu" value="#{droitBean.chargeMenu()}" varStatus="status">
+                            <li><a href="#{menu.lienpriv}">#{menu.nompriv}</a></li>
+                        </ui:repeat>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="wrapper">
+            <div id="content">
+                <h2 class="title">Gestion du Besoin : </h2><br/> <br/>
+
+                <h:form id="form">  
+                    <p:growl id="growl" showDetail="true"  /> 
+
+                    <p:dataTable id="personnels" var="besoin" value="#{besoinBean.mediumBesoinsModel}" paginator="true" rows="10"  
+                                  selection="#{besoinBean.selectedBesoin}"   sortBy="#{besoin.idbesoin}" >  
+                       
+
+                        <f:facet name="header">  
+                            Liste du Besoin 
+                        </f:facet>  
+                        
+                         <p:column selectionMode="single" style="width:18px" />
+
+                        <p:column headerText="N° Besoin" id="idbesoin" sortBy="#{besoin.idbesoin}" filterBy="#{besoin.idbesoin}">  
+                            #{besoin.idbesoin}  
+                        </p:column>  
+
+                        <p:column headerText="N° Projet" id="num_projet" sortBy=" #{besoin.projet.idprojet}" filterBy="#{besoin.projet.idprojet}">  
+                            #{besoin.projet.idprojet}  
+                        </p:column>  
+
+                        <p:column headerText="Décription :" id="desc" sortBy="#{besoin.descbesoin}" filterBy="#{besoin.descbesoin}">  
+                            #{besoin.descbesoin}  
+                        </p:column>  
+
+                        <p:column headerText="Date " id="date" sortBy="#{besoin.datebesoin}" filterBy="#{besoin.datebesoin}">  
+                            #{besoin.datebesoin}  
+                        </p:column>  
+
+                            <f:facet name="footer">                              
+                            <p:commandButton id="viewCommand" value="Ajouter" icon="ui-icon-add"  action="echecAjout" /> 
+                            
+                            <p:commandButton id="droitsButton" value="Détails" icon="ui-icon-bookmark" action="#{besoinBean.details}" update="growl" ajax="false" /> 
+                           
+                            <p:commandButton id="ModifButton" value="Modifier" icon="ui-icon-search" action="#{besoinBean.modif()}" update="growl" ajax="false"/> 
+                            
+                            
+                            <p:commandButton id="showDialogButton" value="Supprimer" onclick="confirmation.show()" type="button" icon="ui-icon-close" />  
+
+                            <p:confirmDialog id="confirmDialog" message="Etes vous sûr de supprimer cet employé ?"  
+                                             header="Confirmation" severity="alert" widgetVar="confirmation">                                                                  
+                                
+                                <p:commandButton id="confirm" value="OUI" oncomplete="confirmation.hide()" actionListener="#{besoinBean.supprimer}" ajax="false" update="growl"/>
+                                <p:commandButton id="decline" value="NON" onclick="confirmation.hide()" type="button" />   
+                        
+
+                            </p:confirmDialog>
+                        </f:facet>   
+
+
+                    </p:dataTable>   
+
+                </h:form>  
+
+            </div>
+
+            <div style="clear: both;">&nbsp;</div>
+        </div>
+
+        <div id="footer">
+            <p id="legal">Copyright &copy; 2012 Leader Automation Systems. Designed by <a href="http://www.facebook.com/elkaoumi">ELKAOUMI / ZARE</a></p>
+            <p id="brand">Leader Automation Systems</p>
+        </div>
+    </h:body>
+
+</html>
+

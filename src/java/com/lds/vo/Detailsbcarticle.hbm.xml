@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 25 ao?t 2012 10:08:23 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Detailsbcarticle" table="detailsbcarticle" schema="public">
         <composite-id name="id" class="com.lds.vo.DetailsbcarticleId">
@@ -18,11 +18,14 @@
         <many-to-one name="article" class="com.lds.vo.Article" update="false" insert="false" fetch="select">
             <column name="idarticle" length="254" not-null="true" />
         </many-to-one>
-        <property name="qntcommande" type="string">
-            <column name="qntcommande" length="254" />
+        <property name="prixunitaire" type="java.lang.Double">
+            <column name="prixunitaire" precision="17" scale="17" />
         </property>
-        <property name="prixunitaire" type="big_decimal">
-            <column name="prixunitaire" precision="131089" scale="0" />
+        <property name="qntcommande" type="java.lang.Integer">
+            <column name="qntcommande" />
+        </property>
+        <property name="qntlivre" type="java.lang.Integer">
+            <column name="qntlivre" />
         </property>
     </class>
 </hibernate-mapping>

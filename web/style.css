@@ -60,12 +60,14 @@ a:hover {
 /* Wrapper */
 
 #wrapper {
+
 	background: #FFFFFF url(images/img04.gif) repeat-x left bottom;
 }
 
 /* Menu */
 
 #menu {
+      
 	width: 750px;
 	height: 60px;
 	margin: 0 auto;
@@ -113,6 +115,7 @@ a:hover {
 /* Header */
 
 #header1 {
+   
 	width: 754px;
 	height: 247px;
 	margin: 0 auto;
@@ -146,11 +149,10 @@ a:hover {
 /* Content */
 
 #content {
-	width: 750px; 
-       
-    /*    height: 500px; */
-	margin: 0 auto;
+ 
+       margin: 0 auto;
         margin-right: 200px;
+        width: 750px;
         background: url("images/img10.gif") repeat-x scroll 0 0 transparent;
 }
 
@@ -191,13 +193,16 @@ a:hover {
 /* Links */
 
 #links {
-      
+
 	float: left;
-	width: 220px;
-	margin-left: 50px;
+	width: 20%;
+	margin-left: 10px;
         
 }
-
+.clearfooter {
+height: 330px;
+clear: both;
+}
 #links ul {
 	margin: 0;
 	padding: 0;
@@ -227,7 +232,6 @@ a:hover {
 
 #footer {
 	/*padding: 40px 0 60px 0;*/
-        padding: 40px 0 60px 0;
 	background: url(images/img08.gif) repeat-x;
         
 }

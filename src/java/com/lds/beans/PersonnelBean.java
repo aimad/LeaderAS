@@ -16,6 +16,14 @@ public class PersonnelBean implements Serializable {
     private PersonnelDao dao;
     private Personnel pers;
     private int typeUser;
+
+    public List<Personnel> getPersonnels() {
+        return personnels;
+    }
+
+    public void setPersonnels(List<Personnel> personnels) {
+        this.personnels = personnels;
+    }
     private String rpassword;
     private List<Personnel> personnels;
     private Personnel selectedPersonnel;
@@ -191,7 +199,8 @@ public class PersonnelBean implements Serializable {
         while (li.hasNext()) {
             //Recupération objet
             Detailsprivuser pu = (Detailsprivuser) li.next();
-
+  // System.out.println(pu.getPrivilege().getNompriv()+"hhh");
+      
             if (pu.getId().getIdpersonnel().equals(selectedPersonnel.getIdpersonnel())) {
                 //traitement de l'objet
                 if (new Integer(pu.getPrivilege().getIdpriv()) <= 3) {

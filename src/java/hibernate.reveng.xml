@@ -2,31 +2,32 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="lds_db" match-schema="public"/>
+  <table-filter match-name="detailssortiearticle"/>
   <table-filter match-name="demandeprix"/>
-  <table-filter match-name="besoin"/>
+  <table-filter match-name="privilege"/>
+  <table-filter match-name="facture"/>
+  <table-filter match-name="detailsfourniturebesoin"/>
+  <table-filter match-name="tache"/>
+  <table-filter match-name="detailsdemandearticle"/>
+  <table-filter match-name="detailsbcarticle"/>
+  <table-filter match-name="boncommande"/>
+  <table-filter match-name="detailsarticlebesoin"/>
+  <table-filter match-name="detailsprivuser"/>
+  <table-filter match-name="detailsbrfourniture"/>
+  <table-filter match-name="detailssortiefourniture"/>
+  <table-filter match-name="devis"/>
   <table-filter match-name="bonreception"/>
-  <table-filter match-name="client"/>
-  <table-filter match-name="fourniture"/>
+  <table-filter match-name="besoin"/>
   <table-filter match-name="projet"/>
   <table-filter match-name="bonsortie"/>
-  <table-filter match-name="boncommande"/>
-  <table-filter match-name="detailsdemandearticle"/>
-  <table-filter match-name="privilege"/>
-  <table-filter match-name="detailsarticlebesoin"/>
-  <table-filter match-name="detailstachepersonnel"/>
-  <table-filter match-name="detailsprivuser"/>
-  <table-filter match-name="detailsfourniturebesoin"/>
-  <table-filter match-name="detailssortiearticle"/>
+  <table-filter match-name="fourniture"/>
   <table-filter match-name="fournisseur"/>
-  <table-filter match-name="detailsbrarticle"/>
-  <table-filter match-name="facture"/>
-  <table-filter match-name="tache"/>
-  <table-filter match-name="detailsfourniturebc"/>
-  <table-filter match-name="detailssortiefourniture"/>
-  <table-filter match-name="audit"/>
-  <table-filter match-name="personnel"/>
   <table-filter match-name="typeuser"/>
-  <table-filter match-name="devis"/>
+  <table-filter match-name="detailstachepersonnel"/>
   <table-filter match-name="article"/>
-  <table-filter match-name="detailsbcarticle"/>
+  <table-filter match-name="detailsfourniturebc"/>
+  <table-filter match-name="personnel"/>
+  <table-filter match-name="detailsbrarticle"/>
+  <table-filter match-name="client"/>
+  <table-filter match-name="audit"/>
 </hibernate-reverse-engineering>

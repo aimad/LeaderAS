@@ -81,7 +81,12 @@
                                 <f:convertDateTime pattern="dd/MM/yyyy" />
                             </p:calendar> 
                             
-                             <h:outputText value="Nom Personnel: " />  
+                             <h:outputText value="N° Projet " />  
+                            <p:selectOneMenu value="#{sortieBean.id_projet}" required="true" requiredMessage="Veuillez choisir un nom de Personnel" >  
+                                <f:selectItem itemLabel="Choisir" itemValue="" />  
+                                <f:selectItems value="#{sortieBean.allprojet()}"  />  
+                              </p:selectOneMenu> 
+                             <h:outputText value="Nom Personnel:: " />  
                             <p:selectOneMenu value="#{sortieBean.id_pers}" required="true" requiredMessage="Veuillez choisir un nom de Personnel" >  
                                 <f:selectItem itemLabel="Choisir" itemValue="" />  
                                 <f:selectItems value="#{sortieBean.allpersonnel()}"  />  

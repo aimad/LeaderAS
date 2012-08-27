@@ -97,9 +97,10 @@
                             
                             <p:commandButton id="droitsButton" value="Droits" icon="ui-icon-bookmark" action="#{personnelBean.droits}" update="growl" ajax="false" /> 
                            
-                            <p:commandButton id="ModifButton" value="Modifier" icon="ui-icon-pencil" action="#{personnelBean.modif()}" update="growl" ajax="false"/> 
+                            <p:commandButton id="ModifButton" value="Modifier" icon="ui-icon-search" action="#{personnelBean.modif()}" update="growl" ajax="false"/> 
                             
-                            <p:commandButton id="showDialogButton" value="Supprimer" onclick="confirmation.show()" type="button" icon="ui-icon-trash" />  
+                            
+                            <p:commandButton id="showDialogButton" value="Supprimer" onclick="confirmation.show()" type="button" icon="ui-icon-close" />  
 
                             <p:confirmDialog id="confirmDialog" message="Etes vous sûr de supprimer cet employé ?"  
                                              header="Confirmation" severity="alert" widgetVar="confirmation">                                                                  

@@ -41,17 +41,17 @@ public class FournitureBean implements Serializable {
     }
   
     public FournitureBean() {   
-        System.out.println("hhhh");
+        //System.out.println("hhhh");
         elt = new Fourniture();
-        System.out.println("hhhh");
+        //System.out.println("hhhh");
         fournitures = new ArrayList<Fourniture>();
         //selectedFourniture=new Fourniture();
         //populateRandomCars(cars, 50);  
-        System.out.println("hhhh");
+        //System.out.println("hhhh");
         dao = new FournitureHDao();
         fournitures = dao.getAllFourniture();
         mediumFournituresModel = new FournitureDataModel(fournitures); 
-        System.out.println("hhhh");
+       // System.out.println("hhhh");
     }  
   
     public Fourniture getSelectedFourniture() {  
@@ -102,7 +102,7 @@ public class FournitureBean implements Serializable {
         for (Fourniture fourniture : fournitures) {
             if (fourniture.getNumfourniture().equals(elt.getNumfourniture())) {
                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Ce fourniture existe dejà !", "Veuillez changer le Code de fourniture."));
-                return "fourniture_ajout";
+                return "article_ajout_four";
             }
         }
         elt.setNumfourniture(id_fourniture);
@@ -111,7 +111,7 @@ public class FournitureBean implements Serializable {
         elt = new Fourniture();
         fournitures = dao.getAllFourniture();
         mediumFournituresModel = new FournitureDataModel(fournitures);
-        return "succesAjoutFourniture";
+        return "succesAjoutArticle";
 
     }
     
@@ -119,13 +119,13 @@ public class FournitureBean implements Serializable {
 
     public String modif() {
         if (selectedFourniture == null) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Veuillez choisir un fourniture", "Selectionnez une ligne !"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Veuillez choisir une fourniture", "Selectionnez une ligne !"));
         return "";      
         }
         else
         {
            //typeUser=selectedFourniture.getTypeuser().getTypeuser();
-        return "modif_stock";}
+        return "modif_stock_four";}
     }
     
     public String enrModif(){
@@ -133,7 +133,7 @@ public class FournitureBean implements Serializable {
         dao.update(selectedFourniture);
         fournitures = dao.getAllFourniture();
         mediumFournituresModel = new FournitureDataModel(fournitures);
-        return "succesAjoutFourniture";
+        return "succesAjoutArticle";
     }
     
 } 

@@ -23,7 +23,9 @@ public class ClientBean implements Serializable {
   
     private List<Client> clients;  
   
-    private Client selectedClient;        
+    private Client selectedClient;  
+  
+    private Client[] selectedClients;
     
     private  Client clt;
     private  ClientHDao dao;

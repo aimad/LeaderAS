@@ -1,5 +1,5 @@
 package com.lds.vo;
-// Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA
+// Generated 25 aout 2012 10:08:18 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;

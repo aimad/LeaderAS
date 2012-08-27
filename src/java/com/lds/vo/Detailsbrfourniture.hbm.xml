@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25 ao?t 2012 10:08:23 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.lds.vo.Detailsbrfourniture" table="detailsbrfourniture" schema="public">
+        <id name="iddetails" type="string">
+            <column name="iddetails" length="254" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="fourniture" class="com.lds.vo.Fourniture" fetch="select">
+            <column name="numfourniture" length="254" not-null="true" />
+        </many-to-one>
+        <many-to-one name="bonreception" class="com.lds.vo.Bonreception" fetch="select">
+            <column name="numreception" length="254" not-null="true" />
+        </many-to-one>
+        <property name="qntlivre" type="java.lang.Integer">
+            <column name="qntlivre" />
+        </property>
+    </class>
+</hibernate-mapping>

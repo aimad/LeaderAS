@@ -15,9 +15,9 @@
     </h:head>
     <h:body>
         <div id="menu">
-            <ul>
+             <ul>
                 <li><a href="../accueil.xhtml" accesskey="1">Accueil</a></li>
-                <li class="active"><a href="acceuil.xhtml?id=5" accesskey="2">Section Vue</a></li>
+                <li class="active"><a href="modif.xhtml?id=5" accesskey="2">Section Vue</a></li>
                 <li><a href="../paramCompte.xhtml" accesskey="3">Compte</a></li>
                 <li><a href="../about.xhtml" accesskey="4">About</a></li>
 
@@ -37,10 +37,7 @@
                                 <p:commandLink id="ajax"  action="#{personBean.logout()}" style="margin-right:20px;">  
                                     <h:outputText value="Déconnexion" />  
                                 </p:commandLink>  </h:form> </li>
-                         <li> <h:form>
-                                <p:commandLink id="ajax1"  action="paramCompte" style="margin-right:20px;" >  
-                                    <h:outputText value="Paramètres du Compte" />  
-                                </p:commandLink>  </h:form></li>
+                        <li><a href="paramCompte.xhtml">Paramètres du Compte</a></li>
                     </ul>
                 </li>
                 <li>
@@ -68,30 +65,26 @@
 
                 </h:form><br/> <br/>
                 <h:form id="form">  
-
+                    
                     <p:growl id="growl" showDetail="true"  /> 
-
+                    
                     <p:dataTable var="client" value="#{clientBean.mediumClientsModel}" rowKey="#{client.idclient}" paginator="true" rows="10"   
-                                 selection="#{clientBean.selectedClient}" selectionMode="single"  id="clientTable" >                             
-
-                        <f:facet name="header">  
+                                 selection="#{clientBean.selectedClient}" selectionMode="single"  id="clientTable"   >                             
+                                 
+                         <f:facet name="header">  
                             Liste des Clients  
                         </f:facet>
-
-                        <p:column headerText="Numéro du Client" sortBy="#{client.idclient}" id="idclient" filterBy="#{client.idclient}" >  
+                        
+                        <p:column headerText="Numéro du Client " sortBy="#{client.idclient}" id="idclient" filterBy="#{client.idclient}" >  
                             <h:outputText value="#{client.idclient}" />
                         </p:column> 
-
-                        <p:column headerText="Nom/Société" sortBy="#{client.nomclient}" id="nomclient" filterBy="#{client.nomclient}" >  
+                        
+                        <p:column headerText="Désignation" sortBy="#{client.nomclient}" id="nomclient" filterBy="#{client.nomclient}" >  
                             <h:outputText value="#{client.nomclient}" />
                         </p:column>  
-
+                        
                         <p:column headerText="Téléphone" sortBy="#{client.tel}"  id="tel" filterBy="#{client.tel}">  
                             <h:outputText value="#{client.tel}"  />
-                        </p:column>  
-
-                        <p:column headerText="Fax" sortBy="#{client.fax}"  id="fax" filterBy="#{client.fax}">  
-                            <h:outputText value="#{client.fax}"  />
                         </p:column>  
 
                         <p:column headerText="Email" sortBy="#{client.email}"  id="email" filterBy="#{client.email}">  
@@ -101,27 +94,27 @@
                         <p:column headerText="Adresse" sortBy="#{client.adresse}"  id="adresse" filterBy="#{client.adresse}">  
                             <h:outputText value="#{client.adresse} " />
                         </p:column>  
-                        <f:facet name="footer">                              
+                       <f:facet name="footer">                              
                             <p:commandButton id="viewCommand" value="Ajouter" icon="ui-icon-add"  action="echecAjout" />                                                         
-
-                            <p:commandButton id="ModifButton" value="Modifier" icon="ui-icon-pencil" action="#{clientBean.modif()}" update="growl" ajax="false"/> 
-
+                           
+                            <p:commandButton id="ModifButton" value="Modifier" icon="ui-icon-search" action="#{clientBean.modif()}" update="growl" ajax="false"/> 
+                            
                             <p:commandButton id="showDialogButton" value="Supprimer" onclick="confirmation.show()" type="button" icon="ui-icon-trash" />  
 
                             <p:confirmDialog id="confirmDialog" message="Etes vous sûr de supprimer cet employé ?"  
                                              header="Confirmation" severity="alert" widgetVar="confirmation">                                                                  
-
+                                
                                 <p:commandButton id="confirm" value="OUI" oncomplete="confirmation.hide()" actionListener="#{clientBean.supprimer}" ajax="false" update="growl"/>
                                 <p:commandButton id="decline" value="NON" onclick="confirmation.hide()" type="button" />   
-
+                        
 
                             </p:confirmDialog>
                         </f:facet>   
 
                     </p:dataTable>                                             
-                    <!--<f:facet name="header">  
-                        <p:graphicImage value="/images/cars/#{clientBean.selectedClient.fax}.jpg"/>  
-                    </f:facet>  -->                           
+                            <!--<f:facet name="header">  
+                                <p:graphicImage value="/images/cars/#{clientBean.selectedClient.fax}.jpg"/>  
+                            </f:facet>  -->                           
                 </h:form>  
             </div>
 

@@ -39,7 +39,7 @@ public class ArticleHDao implements ArticleDao {
         Session session = HibernateUtil.getSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("from Article where  idarticle=:idarticle");
+            Query q = session.createQuery("from Article where idarticle=:idarticle");
             q.setString("idarticle", id);
             return (Article) q.uniqueResult();
         } finally {

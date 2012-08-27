@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p ="http://primefaces.org/ui">
+    
+    <f:event listener="#{droitBean.authorize()}" type="preRenderView" />
+    
+    <h:head>
+        <title>LDS/accueil</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link  rel="stylesheet" type="text/css" href="../../default.css" />
+    </h:head>
+    <h:body>
+          <div id="menu">
+            <ul>
+                 <li><a href="../accueil.xhtml?id=-1" accesskey="1">Accueil</a></li>
+                <li class="active"><a href="accueil.xhtml" accesskey="2">Section Vue</a></li>
+                <li><a href="../paramCompte.xhtml?id=-1" accesskey="3">Compte</a></li>
+                <li><a href="../about.xhtml?id=-1" accesskey="4">About</a></li>
+
+            </ul>
+        </div>
+        <div id="header">
+            <h1>Leader Automation Systems</h1>
+            <h2>Une passion pour un m&eacute;tier , Un travail de Qualit&eacute; !</h2>
+        </div>
+  
+        <div id="links">
+                <ul>
+                    <li>
+                        <h2>Compte</h2>
+                       <ul>
+                           <li><img src="../../images/user2.png" id="user1" /></li>
+                            <li>  
+                                <h:form>
+                                <p:commandLink id="ajax"  action="#{personBean.logout()}" style="margin-right:20px;">  
+                                         <h:outputText value="Déconnexion" />  
+                                    </p:commandLink>  </h:form></li>
+                             <li> <h:form>
+                                <p:commandLink id="ajax1"  action="paramCompte" style="margin-right:20px;" >  
+                                         <h:outputText value="Paramètres du Compte" />  
+                                    </p:commandLink>  </h:form></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>MENU</h2>
+                        <ul>
+                             <ui:repeat var="menu" value="#{droitBean.chargeMenu()}" varStatus="status">
+                                <li><a href="#{menu.lienpriv}">#{menu.nompriv}</a></li>
+                            </ui:repeat>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+  
+      
+         <div id="wrapper">
+             
+            <div id="content">
+                <h2 class="title">Gestion du Stock : </h2><br/> <br/>
+     <h:form id="form">  
+    <p:tabView id="tabView"  cache="true">  
+        <p:tab id="tba1" title="Liste des articles" >  
+  <p:dataTable transient="true" emptyMessage="" >
+                            <f:facet name="header">  
+                               Liste des articles
+                            </f:facet>  
+                        </p:dataTable>
+    
+           <!-- <h:panelGrid columns="2" cellpadding="10">  -->
+                <p:growl id="growl" showDetail="true"  /> 
+                    <p:dataTable  var="article" value="#{articleBean.mediumArticlesModel}" rowKey="#{article.idarticle}" paginator="true" rows="10"   
+                                 selection="#{articleBean.selectedArticle}"  lazy="true" selectionMode="single"  id="articleTable"  >                             
+  
+                        <p:column headerText="N° Article " sortBy="#{article.idarticle}" id="idarticle" filterBy="#{article.idarticle}" >  
+                            <h:outputText value="#{article.idarticle}"  />
+                        </p:column> 
+                        <p:column headerText="Désignation  " sortBy="#{article.descarticle}" id="nom" filterBy="#{article.descarticle}" >  
+                            <h:outputText value="#{article.descarticle}" />
+                        </p:column>  
+
+                        <p:column headerText="Quantité " sortBy="#{article.qntarticle}"  id="email" filterBy="#{article.qntarticle}">  
+                            <h:outputText value="#{article.qntarticle}" />
+                        </p:column>  
+
+                        <p:column headerText="Marque" sortBy="#{article.marque}"  id="tel" filterBy="#{article.marque}">  
+                            <h:outputText value="#{article.marque}"  />
+                        </p:column>  
+
+                        <f:facet name="footer">                              
+                            <p:commandButton id="viewCommand" value="Ajouter" icon="ui-icon-add"  action="article_ajout" /> 
+                            
+                            <p:commandButton id="ModifButton" value="Modifier" icon="ui-icon-search" action="#{articleBean.modif()}" update="growl" ajax="false"/> 
+                            
+                            
+
+                          <p:commandButton id="showDialogButton" value="Supprimer" onclick="confirmation.show()" type="button" icon="ui-icon-close" />  
+
+                            <p:confirmDialog id="confirmDialog" message="Etes vous sûr de supprimer cet employé ?"  
+                                             header="Confirmation" severity="alert" widgetVar="confirmation">                                                                  
+                                
+                                <p:commandButton id="confirm" value="OUI" oncomplete="confirmation.hide()" actionListener="#{articleBean.supprimer}" ajax="false" update="growl"/>
+                                <p:commandButton id="decline" value="NON" onclick="confirmation.hide()" type="button" />   
+                        
+
+                            </p:confirmDialog>
+                        </f:facet> 
+                    </p:dataTable>                                             
+                    
+                        <!--</h:panelGrid>  -->
+        </p:tab>  
+  
+        <p:tab id="tab2" title="Liste des fournitures">  
+            <p:dataTable transient="true" emptyMessage="" >
+                            <f:facet name="header">  
+                               Liste des fournitures
+                            </f:facet>  
+                        </p:dataTable>
+    
+           <!-- <h:panelGrid columns="2" cellpadding="10">  -->
+                <p:growl id="growl1" showDetail="true"  /> 
+                    <p:dataTable  var="fourniture" value="#{fournitureBean.mediumFournituresModel}" rowKey="#{fourniture.numfourniture}" paginator="true" rows="10"   
+                                 selection="#{fournitureBean.selectedFourniture}"  lazy="true" selectionMode="single"  id="fournitureTable"  >                             
+  
+                        <p:column headerText="N° Fourniture " sortBy="#{fourniture.numfourniture}" id="idarticle" filterBy="#{fourniture.numfourniture}" >  
+                            <h:outputText value="#{fourniture.numfourniture}"  />
+                        </p:column> 
+                        <p:column headerText="Désignation  " sortBy="#{fourniture.descfourniture}" id="nom" filterBy="#{fourniture.descfourniture}" >  
+                            <h:outputText value="#{fourniture.descfourniture}" />
+                        </p:column>  
+
+                        <p:column headerText="Quantité " sortBy="#{fourniture.qntfourniture}"  id="email" filterBy="#{fourniture.qntfourniture}">  
+                            <h:outputText value="#{fourniture.qntfourniture}" />
+                        </p:column>  
+ 
+         </p:dataTable>
+        </p:tab>  
+  
+        <p:tab id="tab3" title="Bon de sortie">  
+           
+                    
+           <!-- <h:panelGrid columns="2" cellpadding="10">  -->
+                <p:growl id="growl3" showDetail="true"  /> 
+                    <p:dataTable  var="sortie" value="#{sortieBean.mediumBonsortiesModel}" rowKey="#{sortie.idsortie}" paginator="true" rows="10"   
+                                 selection="#{sortieBean.selectedBonsortie}" lazy="true"  selectionMode="single"  id="sortieTable"  >                             
+  
+                        <p:column headerText="N° Bon de sortie " sortBy="#{sortie.idsortie}" id="idarticle" filterBy="#{sortie.idsortie}" >  
+                            <h:outputText value="#{sortie.idsortie}"  />
+                        </p:column> 
+                        <p:column headerText="Date  " sortBy="#{sortie.datesortie}" id="nom" filterBy="#{sortie.datesortie}" >  
+                            <h:outputText value="#{sortie.datesortie}" />
+                        </p:column>  
+
+                        <p:column headerText="Déscription " sortBy="#{sortie.descsortie}"  id="email" filterBy="#{sortie.descsortie}">  
+                            <h:outputText value="#{sortie.descsortie}" />
+                        </p:column>  
+
+                        <p:column headerText="N° personnel" sortBy="#{sortie.personnel.idpersonnel}"  id="tel" filterBy="#{sortie.personnel.idpersonnel}">  
+                            <h:outputText value="#{sortie.personnel.idpersonnel}"  />
+                        </p:column>  
+
+                        <f:facet name="footer">                              
+                            <p:commandButton id="viewCommand" value="Ajouter" icon="ui-icon-add"  action="sortie_ajout" /> 
+                            
+                            <p:commandButton id="ModifButton" value="Modifier" icon="ui-icon-search" action="#{sortieBean.modif()}" update="growl" ajax="false"/> 
+                            <p:commandButton id="detailsButton" value="Détails" icon="ui-icon-search" action="#{sortieBean.details()}" update="growl" ajax="false"/> 
+                            <p:commandButton id="showDialogButton" value="Supprimer" onclick="confirmation.show()" type="button" icon="ui-icon-close" />  
+
+                            <p:confirmDialog id="confirmDialog" message="Etes vous sûr de supprimer cet Article ?"  
+                                             header="Confirmation" severity="alert" widgetVar="confirmation">                                                                  
+                                
+                                <p:commandButton id="confirm" value="OUI" oncomplete="confirmation.hide()" actionListener="#{sortieBean.supprimer}" ajax="false" update="growl"/>
+                                <p:commandButton id="decline" value="NON" onclick="confirmation.hide()" type="button" />   
+                        
+
+                            </p:confirmDialog>
+                        </f:facet> 
+                    </p:dataTable>   
+  
+        </p:tab>  
+  
+        
+        <p:tab id="tab4" title="bon de livraison">  
+              <p:growl id="growl4" showDetail="true"  /> 
+                    <p:dataTable  var="input" value="#{boninputBean.mediumBonreceptionsModel}" rowKey="#{input.numreception}" paginator="true" rows="10"   
+                                 selection="#{boninputBean.selectedBonreception}" lazy="true"  selectionMode="single"  id="entrerTable"  >                             
+  
+                        <p:column headerText="N° Bon de réception " sortBy="#{input.numreception}" id="idarticle" filterBy="#{input.numreception}" >  
+                            <h:outputText value="#{input.numreception}"  />
+                        </p:column> 
+                        <p:column headerText="Date  " sortBy="#{input.datereception}" id="nom" filterBy="#{input.datereception}" >  
+                            <h:outputText value="#{input.datereception}" />
+                        </p:column>  
+
+                        <p:column headerText="N° Bon de commande " sortBy="#{input.boncommande.numbc}"  id="email" filterBy="#{input.boncommande.numbc}">  
+                            <h:outputText value="#{input.boncommande.numbc}" />
+                        </p:column>  
+
+ 
+
+                        <f:facet name="footer">                              
+                            <p:commandButton id="viewCommand1" value="Ajouter" icon="ui-icon-add"  action="input_ajout" /> 
+                            
+                            <p:commandButton id="ModifButton1" value="Modifier" icon="ui-icon-search" action="#{boninputBean.modif()}" update="growl" ajax="false"/> 
+                            <p:commandButton id="detailsButton1" value="Détails" icon="ui-icon-search" action="#{boninputBean.details()}" update="growl" ajax="false"/> 
+                            <p:commandButton id="showDialogButton1" value="Supprimer" onclick="confirmation.show()" type="button" icon="ui-icon-close" />  
+
+                            <p:confirmDialog id="confirmDialog" message="Etes vous sûr de supprimer cet Article ?"  
+                                             header="Confirmation" severity="alert" widgetVar="confirmation">                                                                  
+                                
+                                <p:commandButton id="confirm" value="OUI" oncomplete="confirmation.hide()" actionListener="#{boninputBean.supprimer}" ajax="false" update="growl"/>
+                                <p:commandButton id="decline" value="NON" onclick="confirmation.hide()" type="button" />   
+                        
+
+                            </p:confirmDialog>
+                        </f:facet> 
+                    </p:dataTable>   
+    
+        </p:tab>  
+    </p:tabView> 
+          </h:form>
+           </div>
+               <div style="clear: both;">&nbsp;</div>
+        
+
+            <div class="clearfooter"></div>
+      
+         
+        <div id="footer">
+            <p id="legal">Copyright &copy; 2012 Leader Automation Systems. Designed by <a href="http://www.facebook.com/elkaoumi">ELKAOUMI / ZARE</a></p>
+            <p id="brand">Leader Automation Systems</p>
+        </div>
+            </div>
+    </h:body>
+</html>
+

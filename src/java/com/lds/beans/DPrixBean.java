@@ -312,7 +312,7 @@ public class DPrixBean implements Serializable {
             ddarticles = arto;
             mediumArtModel1 = new DetailsDemandeArticleDataModel(arto);
 
-            return "details";
+            return "details_2";
         }
     }
 
@@ -379,8 +379,10 @@ public class DPrixBean implements Serializable {
     }
 
     public void enleverArt() {
+        System.out.println("hhhh");
         if (selectedDDArticle == null) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Veuillez choisir un article", "Selectionnez une ligne !"));
+        System.out.println("nulllllllllllllllllllllll");
         }
 
         ddarticles.remove(selectedDDArticle);

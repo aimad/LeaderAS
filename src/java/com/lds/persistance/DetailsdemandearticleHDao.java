@@ -34,7 +34,7 @@ public class DetailsdemandearticleHDao implements DetailsdemandearticleDao {
             session.close();
         }
     }
-      
+
     @Override
     public Detailsdemandearticle getDetailsdemandearticle(DetailsdemandearticleId id) {
         Session session = HibernateUtil.getSession();

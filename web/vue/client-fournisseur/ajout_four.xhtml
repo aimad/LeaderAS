@@ -17,7 +17,7 @@
         <div id="menu">
             <ul>
                 <li><a href="../accueil.xhtml" accesskey="1">Accueil</a></li>
-                <li class="active"><a href="ajout_four.xhtml" accesskey="2">Section Vue</a></li>
+                <li class="active"><a href="ajout.xhtml" accesskey="2">Section Vue</a></li>
                 <li><a href="../paramCompte.xhtml" accesskey="3">Compte</a></li>
                 <li><a href="../about.xhtml" accesskey="4">About</a></li>
 
@@ -32,7 +32,7 @@
                 <li>
                     <h2>Compte</h2>
                     <ul>
-                           <li><img src="../images/user2.png" id="user1" /></li>
+                           <li><img src="../../images/user2.png" id="user1" /></li>
                             <li>  
                                 <h:form>
                                 <p:commandLink id="ajax"  action="#{personBean.logout()}" style="margin-right:20px;">  
@@ -71,20 +71,20 @@
 
                         <h:panelGrid columns="2" cellpadding="5" >  
                             
-                            <h:outputText value="Numéro Fournisseur : *" />  
+                            <h:outputText value="N° fournisseur :" />  
                             <p:inputText value="#{fournisseurBean.four.idfournisseur}" required="true" />  
                             
                             <h:outputText value="Nom :" />  
-                            <p:inputText value="#{fournisseurBean.four.nom}" />                              
+                            <p:inputText value="#{fournisseurBean.four.nom}" />  
+
+                            <h:outputText value="Email :" />  
+                            <p:inputText value="#{fournisseurBean.four.email}" />  
 
                              <h:outputText value="Télephone :" />  
                             <p:inputText value="#{fournisseurBean.four.tel}" />  
 
                             <h:outputText value="Fax :" />  
                             <p:inputText value="#{fournisseurBean.four.fax}" />
-                            
-                            <h:outputText value="Email :" />  
-                            <p:inputText value="#{fournisseurBean.four.email}" />  
 
                              <h:outputText value="Adresse " />  
                             <p:inputText value="#{fournisseurBean.four.adresse}" />

@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p ="http://primefaces.org/ui" >
+
+    <f:event listener="#{droitBean.authorize()}" type="preRenderView" />
+
+    <h:head>
+        <title>LDS/accueil</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link  rel="stylesheet" type="text/css" href="../../default.css" />
+    </h:head>
+    <h:body>
+        <div id="menu">
+            <ul>
+                 <li><a href="../accueil.xhtml" accesskey="1">Accueil</a></li>
+                <li class="active"><a href="droits.xhtml" accesskey="2">Section Vue</a></li>
+                <li><a href="../paramCompte.xhtml" accesskey="3">Compte</a></li>
+                <li><a href="../about.xhtml" accesskey="4">About</a></li>
+
+            </ul>
+        </div>
+        <div id="header">
+            <h1>Leader Automation Systems</h1>
+            <h2>Une passion pour un m&eacute;tier , Un travail de Qualit&eacute; !</h2>
+        </div>
+        <div id="links">
+            <ul>
+                <li>
+                    <h2>Compte</h2>
+                    <ul>
+                           <li><img src="../../images/user2.png" id="user1" /></li>
+                            <li>  
+                                <h:form>
+                                <p:commandLink id="ajax"  action="#{personBean.logout()}" style="margin-right:20px;">  
+                                         <h:outputText value="Déconnexion" />  
+                                    </p:commandLink>  </h:form></li>
+                             <li> <h:form>
+                                <p:commandLink id="ajax1"  action="paramCompte" style="margin-right:20px;" >  
+                                         <h:outputText value="Paramètres du Compte" />  
+                                    </p:commandLink>  </h:form></li>
+                        </ul>
+                </li>
+                <li>
+                    <h2>MENU</h2>
+                    <ul>
+                        <ui:repeat var="menu" value="#{droitBean.chargeMenu()}" varStatus="status">
+                            <li><a href="#{menu.lienpriv}">#{menu.nompriv}</a></li>
+                        </ui:repeat>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="wrapper">
+            <div id="content">
+                <h2 class="title">Gestion du Besoin : </h2><br/> <br/>
+
+                <h:form id="form">  
+
+                    <p:panel>  
+                        <p:dataTable transient="true" emptyMessage="" >
+                            <f:facet name="header">  
+                                Détails du besoin
+                            </f:facet>  
+                        </p:dataTable> 
+                        <h:panelGrid columns="2">  
+                            <h:outputText value="N° Besoin: " /> 
+                            <h:outputText value="#{besoinBean.selectedBesoin.idbesoin}" />  
+
+                            <h:outputText value="Déscription : " />  
+                            <h:outputText value="#{besoinBean.selectedBesoin.descbesoin}" /> 
+
+                            <h:outputText value="Date : " />  
+                            <h:outputText value="#{besoinBean.selectedBesoin.datebesoin}" /> 
+                        </h:panelGrid> 
+                        <h:panelGrid columns="2" cellpadding="5" > 
+                            <p:dataTable  var="details" value="#{besoinBean.mediumbesoindetailsModel}" rowKey="#{details.id.idarticle}"  rows="10"   
+                                          selection="#{besoinBean.selecteddetailsbesoinarticle}"  lazy="true" selectionMode="single"  id="articleTable"  >                             
+
+                                <p:column headerText="N° Article "  id="idarticle"  >  
+                                    <h:outputText value="#{details.id.idarticle}"  />
+                                </p:column> 
+                                <p:column headerText="Quantité "  id="email" >  
+                                    <h:outputText value="#{details.qntbesoin}" />
+                                </p:column>  
+                            </p:dataTable> 
+                            <f:facet name="footer"> 
+
+                                <p:commandButton value="Ajouter" id="showDialogButton" type="button" onclick="dlg.show()" icon="ui-icon-disk" />  
+                                <p:commandButton id="showDialogButton1" value="Supprimer" onclick="confirmation1.show()" type="button" icon="ui-icon-close" />  
+
+                                <p:confirmDialog id="confirmDialog1" message="Etes vous sûr de supprimer cet employé ?"  
+                                                 header="Confirmation" severity="alert" widgetVar="confirmation1">                                                                  
+
+                                    <p:commandButton id="confirm" value="OUI" oncomplete="confirmation1.hide()" actionListener="#{besoinBean.supprimer_details}" ajax="false" update="growl"/>
+                                    <p:commandButton id="decline" value="NON" onclick="confirmation1.hide()" type="button" />   
+
+
+                                </p:confirmDialog>
+                                <p:dialog header="Ajouter une Article" widgetVar="dlg" resizable="false">  
+                                   <!-- <h:form id="form">  -->
+                                        <h:panelGrid columns="2" style="margin-bottom:10px">  
+                                            <h:outputLabel for="id_article" value="N° article :" />  
+                                            <h:inputText id="id_article" value="#{besoinBean.id_article}" />
+                                            <h:outputLabel for="id_qnt" value="Qunatité :" /> 
+                                            <h:inputText id="id_qnt" value="#{besoinBean.qnt_besoin}"  />
+                                       </h:panelGrid>
+
+                                        <p:commandButton id="submitButton" value="Enregistrer" action="#{besoinBean.enrDetails()}" oncomplete="dlg.hide();"/>  
+
+                                   <!-- </h:form> --> 
+                                </p:dialog>
+                            </f:facet>
+                        </h:panelGrid> 
+                           <!-- </h:form>-->
+                        <br/>
+                       <!-- <h:form>-->
+                        <h:panelGrid columns="2" cellpadding="5" >
+                            <h:outputText value="List des fournitures: " /> <h:outputText value="" />
+
+                            <p:dataTable  var="details_four" value="#{besoinBean.mediumbesoindetails_1Model}" rowKey="#{details_four.id.numfourniture}"  rows="10"   
+                                          selection="#{besoinBean.selecteddetailsbesoinfourniture}"  lazy="true" selectionMode="single"  id="fournitureTable"  >                             
+
+                                <p:column headerText="N° Fourniture "  id="idfourniture"  >  
+                                    <h:outputText value="#{details_four.id.numfourniture}"  />
+                                </p:column> 
+                                <p:column headerText="Quantité "  id="qnt" >  
+                                    <h:outputText value="#{details_four.qntbesoin}" />
+                                </p:column>  
+                            </p:dataTable> 
+                            <f:facet name="footer"> 
+
+                                <p:commandButton value="Ajouter" id="showDialogButton_1" type="button" onclick="dlg_1.show()" icon="ui-icon-disk" />  
+                                <p:commandButton id="showDialogButton1_1" value="Supprimer" onclick="confirmation1_1.show()" type="button" icon="ui-icon-close" />  
+
+                                <p:confirmDialog id="confirmDialog1_1" message="Etes vous sûr de supprimer cet fourniture ?"  
+                                                 header="Confirmation" severity="alert" widgetVar="confirmation1_1">                                                                  
+
+                                    <p:commandButton id="confirm_1" value="OUI" oncomplete="confirmation1_1.hide()" actionListener="#{besoinBean.supprimer_details_four}" ajax="false" update="growl"/>
+                                    <p:commandButton id="decline_1" value="NON" onclick="confirmation1_1.hide()" type="button" />   
+
+
+                                </p:confirmDialog>
+                                <p:dialog header="Ajouter une Fourniture" widgetVar="dlg_1" resizable="false">  
+                                    <!--<h:form >  -->
+                                       
+                                        <h:panelGrid columns="2" style="margin-bottom:10px"> 
+                                            <h:outputLabel for="id_article_1" value="N° Fourniture :" />  
+                                            <h:inputText id="id_article_1" value="#{besoinBean.id_fourniture}" />
+                                            <h:outputLabel for="id_qnt_1" value="Qunatité :" /> 
+                                            <h:inputText id="id_qnt_1" value="#{besoinBean.qnt_besoin2}"  />
+                                       </h:panelGrid> 
+
+                                        <p:commandButton id="submitButton1" value="Enregistrer" action="#{besoinBean.enrDetails_four()}" oncomplete="dlg_1.hide();"/>  
+
+                                   <!-- </h:form>  -->
+                                </p:dialog>
+                            </f:facet>
+
+                       </h:panelGrid>
+                        
+                    </p:panel>  
+
+
+
+                </h:form>
+            </div>
+
+            <div style="clear: both;">&nbsp;</div>
+        </div>
+
+        <div id="footer">
+            <p id="legal">Copyright &copy; 2012 Leader Automation Systems. Designed by <a href="http://www.facebook.com/elkaoumi">ELKAOUMI / ZARE</a></p>
+            <p id="brand">Leader Automation Systems</p>
+        </div>
+    </h:body>
+
+</html>
+

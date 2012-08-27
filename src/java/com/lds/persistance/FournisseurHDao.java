@@ -46,6 +46,17 @@ public class FournisseurHDao implements FournisseurDao {
             session.close();
         }
     }
+     public Fournisseur getFournisseur_nom(String id) {
+        Session session = HibernateUtil.getSession();
+        try {
+            session.beginTransaction();
+            Query q = session.createQuery("from Fournisseur as c where c.nom=:id");
+            q.setString("id", id);
+            return (Fournisseur) q.uniqueResult();
+        } finally {
+            session.close();
+        }
+    }
 
     @Override
     public void update(Fournisseur fournisseur) {

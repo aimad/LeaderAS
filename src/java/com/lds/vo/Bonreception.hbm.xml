@@ -1,30 +1,30 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 7 aout 2012 07:43:48 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 25 ao?t 2012 10:08:23 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.lds.vo.Bonreception" table="bonreception" schema="public">
         <id name="numreception" type="string">
             <column name="numreception" length="254" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="fourniture" class="com.lds.vo.Fourniture" fetch="select">
-            <column name="numfourniture" length="254" />
-        </many-to-one>
         <many-to-one name="boncommande" class="com.lds.vo.Boncommande" fetch="select">
             <column name="numbc" length="254" not-null="true" />
         </many-to-one>
         <property name="datereception" type="date">
             <column name="datereception" length="13" />
         </property>
-        <property name="qntlivre" type="java.lang.Integer">
-            <column name="qntlivre" />
-        </property>
         <set name="detailsbrarticles" inverse="true">
             <key>
                 <column name="numreception" length="254" not-null="true" />
             </key>
             <one-to-many class="com.lds.vo.Detailsbrarticle" />
+        </set>
+        <set name="detailsbrfournitures" inverse="true">
+            <key>
+                <column name="numreception" length="254" not-null="true" />
+            </key>
+            <one-to-many class="com.lds.vo.Detailsbrfourniture" />
         </set>
     </class>
 </hibernate-mapping>
